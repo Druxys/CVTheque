@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('localhost/phpmyadmin/db_structure.php?server=1&db=cvuser') OR exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
@@ -76,7 +76,7 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => '',
+	'username' => 'root',
 	'password' => '',
 	'database' => '',
 	'dbdriver' => 'mysqli',

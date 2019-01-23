@@ -1,5 +1,11 @@
-<?php
-echo 'Hello La page de ses mort!';
+<main class="site-main">
+    <section class="section">
 
+    </section>
+    <section class="section">
 
-echo '<a href="about.php">ICI</a>';
+    </section>
+    <section class="section">
+
+    </section>
+</main>

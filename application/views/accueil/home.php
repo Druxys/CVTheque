@@ -1,11 +1,5 @@
-<main class="site-main">
-    <section class="section">
+<?php
+echo 'Hello La page de ses mort!';
 
-    </section>
-    <section class="section">
 
-    </section>
-    <section class="section">
-
-    </section>
-</main>
+echo '<a href="about.php">ICI</a>';

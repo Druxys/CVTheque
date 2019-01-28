@@ -30,13 +30,9 @@ class Accueil extends CI_Controller {
 
         $config = array(
             array(
-                'field' => 'username',
-                'label' => 'Username',
-                'rules' => 'required|min_length[5]|max_length[12]|is_unique[users.username]',
-                'errors' => array(
-                    'required'      => 'You have not provided %s.',
-                    'is_unique'     => 'This %s already exists.'
-                ),
+                'field' => 'email',
+                'label' => 'Email',
+                'rules' => 'required|valid_email'
             ),
             array(
                 'field' => 'password',
@@ -50,11 +46,7 @@ class Accueil extends CI_Controller {
                 'field' => 'passconf',
                 'label' => 'Password Confirmation',
                 'rules' => 'required|matches[password]'
-            ),
-            array(
-                'field' => 'email',
-                'label' => 'Email',
-                'rules' => 'required|valid_email|is_unique[users.email]'
+
             )
         );
 
@@ -63,15 +55,18 @@ class Accueil extends CI_Controller {
         if ($this->form_validation->run() == FALSE)
         {
             $data['title'] = ucfirst($page); // Capitalize the first letter
-//            $this->load->view('templates/header', $data);
+            $this->load->view('templates/header', $data);
             $this->load->view('accueil/'.$page, $data);
-//            $this->load->view('templates/footer', $data);
+            $this->load->view('templates/footer', $data);
         }
         else
         {
-            $this->load->view('formsuccess');
+//            $this->load->view('templates/header', $data);
+            $this->load->view('accueil/formsuccess');
+//            $this->load->view('templates/footer', $data);
         }
 
     }
+
 
 }

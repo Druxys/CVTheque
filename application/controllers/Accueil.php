@@ -1,6 +1,13 @@
 <?php
 class Accueil extends CI_Controller {
 
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->database();
+        $this->load->model("Model_user");
+    }
+
     public function index($page = 'home')
     {
         if ( ! file_exists(APPPATH.'views/accueil/'.$page.'.php'))
@@ -50,7 +57,9 @@ class Accueil extends CI_Controller {
             )
         );
 
+
         $this->form_validation->set_rules($config);
+
 
         if ($this->form_validation->run() == FALSE)
         {
@@ -61,11 +70,34 @@ class Accueil extends CI_Controller {
         }
         else
         {
-//            $this->load->view('templates/header', $data);
             $this->load->view('accueil/formsuccess');
-//            $this->load->view('templates/footer', $data);
+            $data = array(
+
+            );
+
         }
 
+    }
+
+    public function createUser()
+    {
+        $mail = $this->input->post('mail', TRUE);
+        $password = $this->input->post('password', TRUE);
+        $token = $this->input->post('token', TRUE);
+        $this->load->helper('date');
+        $this->db->set('created_at ', 'NOW()', false);
+
+
+        if (!empty($mail) && !empty($password) && !empty($passwordVerif)) {
+            $this->Model_resume->post($mail);
+            $this->Model_resume->post($password);
+            $this->Model_resume->post($passwordVerif);
+
+            echo json_encode('Product created');
+        } else {
+            header("HTTP/1.0 400 Bad Request");
+            echo json_encode("400: Empty value");
+        }
     }
 
 

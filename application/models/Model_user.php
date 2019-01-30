@@ -14,46 +14,39 @@ class Model_user extends CI_Model
         $this->table = "users";
     }
 
-    function addUser($data)
-    {
-        $this->db->insert($data);
-    }
+    public function create_user($email, $password) {
 
-    function get_all()
-    {
-        return $this->db->get($this->table);
-    }
-
-    function get_one($id)
-    {
-        $this->db->select("*")
-            ->from($this->table)
-            ->where("id", $id)
-            ->limit(1);
-
-        return $this->db->get();
-    }
-
-    function post()
-    {
-        $data = array();
-
-        $this->db->insert($this->table, $data);
-    }
-
-    function put($id, $mail)
-    {
+        $hash = password_hash($password, PASSWORD_DEFAULT);
         $data = array(
-            "mail" => $mail
+            'mail'      => $email,
+            'password'   => $hash,
+            'created_at' => date('Y-m-j H:i:s'),
+            'token'     => bin2hex(random_bytes(50)),
         );
 
-        $this->db->where("id", $id)
-            ->update($this->table, $data);
+        return $this->db->insert('users', $data);
+
     }
 
-    function delete($id)
-    {
-        $this->db->where_in("id", $id)
-            ->delete($this->table);
+    public function userVerify($mail, $password) {
+
+        $this->db->select('password');
+        $this->db->from('users');
+        $this->db->where('mail', $mail);
+        $hash = $this->db->get()->row('password');
+        $resultat = password_verify($password, $hash);
+        return $resultat;
+//        if ($hash == $password)
+//            return TRUE;
+//        else
+//            return FALSE;
+    }
+
+    public function getUser($mail) {
+
+        $this->db->from('users');
+        $this->db->where('id', $mail);
+        return $this->db->get()->row();
+
     }
 }

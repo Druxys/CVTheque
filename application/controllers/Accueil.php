@@ -25,6 +25,7 @@ class Accueil extends CI_Controller {
 
     public function signUp($page = 'signUp')
     {
+        $data = array();
         if ( ! file_exists(APPPATH.'views/accueil/'.$page.'.php'))
         {
             // Whoops, we don't have a page for that!
@@ -37,7 +38,7 @@ class Accueil extends CI_Controller {
 
         $config = array(
             array(
-                'field' => 'email',
+                'field' => 'mail',
                 'label' => 'Email',
                 'rules' => 'required|valid_email'
             ),
@@ -61,7 +62,7 @@ class Accueil extends CI_Controller {
         $this->form_validation->set_rules($config);
 
 
-        if ($this->form_validation->run() == FALSE)
+        if ($this->form_validation->run() === FALSE)
         {
             $data['title'] = ucfirst($page); // Capitalize the first letter
             $this->load->view('templates/header', $data);
@@ -70,35 +71,107 @@ class Accueil extends CI_Controller {
         }
         else
         {
-            $this->load->view('accueil/formsuccess');
-            $data = array(
+            $email    = $this->input->post('mail');
+            $password = $this->input->post('password');
 
-            );
+            if ($this->Model_user->create_user($email, $password)) {
 
+                // user creation ok
+                $this->load->view('templates/header');
+                $this->load->view('accueil/registerSuccess', $data);
+                $this->load->view('templates/footer');
+
+            } else {
+                $this->load->view('templates/header', $data);
+                $this->load->view('accueil/'.$page, $data);
+                $this->load->view('templates/footer', $data);
+
+            }
         }
 
     }
 
-    public function createUser()
-    {
-        $mail = $this->input->post('mail', TRUE);
-        $password = $this->input->post('password', TRUE);
-        $token = $this->input->post('token', TRUE);
-        $this->load->helper('date');
-        $this->db->set('created_at ', 'NOW()', false);
+    public function signIn() {
+        $data = array();
+
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+
+        $config = array(
+            array(
+                'field' => 'mail',
+                'label' => 'Email',
+                'rules' => 'required|valid_email'
+            ),
+            array(
+                'field' => 'password',
+                'label' => 'Password',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'You must provide a %s.',
+                ),
+            )
+        );
+
+        $this->form_validation->set_rules($config);
+
+        if ($this->form_validation->run() === false) {
 
 
-        if (!empty($mail) && !empty($password) && !empty($passwordVerif)) {
-            $this->Model_resume->post($mail);
-            $this->Model_resume->post($password);
-            $this->Model_resume->post($passwordVerif);
+            $this->load->view('templates/header', $data);
+            $this->load->view('accueil/signIn', $data);
+            $this->load->view('templates/footer', $data);
 
-            echo json_encode('Product created');
         } else {
-            header("HTTP/1.0 400 Bad Request");
-            echo json_encode("400: Empty value");
+
+            // set variables from the form
+            $mail = $this->input->post('mail');
+            $password = $this->input->post('password');
+
+            if ($this->Model_user->userVerify($mail, $password)) {
+
+                // user login ok
+
+                $_SESSION['logged_in'] = true;
+
+                $this->load->view('templates/header', $data);
+                $this->load->view('accueil/index', $data);
+                $this->load->view('templates/footer', $data);
+
+            } else {
+
+                // send error to the view
+                $this->load->view('templates/header', $data);
+                $this->load->view('accueil/signIn', $data);
+                $this->load->view('templates/footer', $data);
+
+            }
+
         }
+
     }
 
+    public function signOut() {
 
+        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+
+            // remove session datas
+            foreach ($_SESSION as $key => $value) {
+                unset($_SESSION[$key]);
+            }
+
+            // user logout ok
+            $this->load->view('header');
+            $this->load->view('user/logout/logout_success', $data);
+            $this->load->view('footer');
+
+        } else {
+
+            // there user was not logged in, we cannot logged him out,
+            // redirect him to site root
+            redirect('/');
+
+        }
+
+    }
 }

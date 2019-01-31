@@ -1,19 +1,39 @@
 <!DOCTYPE html>
-<html lang="fr" class="no-js">
+<!-- Indique la langue du site -->
+<html lang="en">
+
 <head>
-    <!-- CSS ============================================= -->
-    <link rel="stylesheet" href="../../../assets/css/linearicons.css">=
-    <link rel="stylesheet" href="../../../assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../../assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="../../../assets/css/nice-select.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="../../../assets/css/bootstrap.css">
-    <link rel="stylesheet" href="../../../assets/css/main.css">
+    <!-- Tête HTML de base -->
+    <meta charset="utf-8">
+    <meta name="description" content="Michel Dupont">
+    <meta name="keyword" content="Michel Dupont, CV">
+    <meta name="author" content="Michel Dupont">
+    <meta name="robots" content="all|(no)follow|(no)index|none">
+
+    <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/style.css">
+
 </head>
+
 <body>
 
-<!-- Start Header Area -->
-<header class="default-header">
+<nav class="nav">
+    <div class="container">
+        <div class="logo">
+            <a href="#">COMPANY</a>
+        </div>
+        <div id="mainListDiv" class="main_list">
+            <ul class="navlinks">
+                <li><a href="#">Inscription</a></li>
+                <li><a href="#">Connexion</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Nous contacter</a></li>
+            </ul>
+        </div>
+        <span class="navTrigger">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+    </div>
+</nav>
 
-</header>
-<!-- End Header Area -->

@@ -10,7 +10,7 @@
     <meta name="author" content="Michel Dupont">
     <meta name="robots" content="all|(no)follow|(no)index|none">
 
-    <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/style.css">
+    <link rel = "stylesheet" type = "text/css" href = "../../../assets/css/style.css">
     <link rel="stylesheet" href="../../../assets/css/linearicons.css">
     <link rel="stylesheet" href="../../../assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../../assets/css/magnific-popup.css">

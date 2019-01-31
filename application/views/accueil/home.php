@@ -1,5 +1,3 @@
-
-
 <div class="home">
     <div class="txt">
         <p>Bienvenue sur le site de Michel Dupont Company !</p>

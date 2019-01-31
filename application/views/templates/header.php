@@ -1,9 +1,13 @@
-<!DOCTYPE html>
-<!-- Indique la langue du site -->
-<html lang="en">
+<?php
+    session_start();
+?>
 
-<head>
-    <!-- Tête HTML de base -->
+<!DOCTYPE html>
+
+<html lang="en"> <!-- Indique la langue du site -->
+
+<head> <!-- Tête HTML de base -->
+
     <meta charset="utf-8">
     <meta name="description" content="Michel Dupont">
     <meta name="keyword" content="Michel Dupont, CV">
@@ -11,7 +15,7 @@
     <meta name="robots" content="all|(no)follow|(no)index|none">
 
     <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/style.css">
-
+git s
 </head>
 
 <body>
@@ -26,14 +30,12 @@
                 <li><a href="#">Inscription</a></li>
                 <li><a href="#">Connexion</a></li>
                 <li><a href="#">Services</a></li>
-                <li><a href="#">Nous contacter</a></li>
+                <li><a href="#form1">Nous contacter</a></li>
             </ul>
         </div>
-        <span class="navTrigger">
-                <i></i>
-                <i></i>
-                <i></i>
-            </span>
     </div>
 </nav>
+<!-- Start Header Area -->
+<header class="default-header">
+
 

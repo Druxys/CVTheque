@@ -1,8 +1,24 @@
-        <!-- start footer Area -->
-        <footer class="footer-area section-gap">
-        </footer>
-        <!-- End footer Area -->
+        <footer class="footer-area section-gap"> <!-- start footer Area -->
 
+        </footer> <!-- End footer Area -->
+
+
+        <!-- Jquery needed -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type = 'text/javascript' src = "<?php echo base_url(); ?>js/sample.js"></script>
+        <script src="js/scripts.js"></script>
+
+        <!-- Fonction pour ajouter un fond noir sur la navbar -->
+        <script>
+            $(window).scroll(function() {
+                if ($(document).scrollTop() > 50) {
+                    $('.nav').addClass('affix');
+                    console.log("OK");
+                } else {
+                    $('.nav').removeClass('affix');
+                }
+            });
+        </script>
         <!-- JavaScripts ========================== -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

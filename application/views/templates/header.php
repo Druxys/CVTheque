@@ -15,7 +15,6 @@
     <meta name="robots" content="all|(no)follow|(no)index|none">
 
     <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/style.css">
-git s
 </head>
 
 <body>

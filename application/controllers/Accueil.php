@@ -6,6 +6,10 @@ class Accueil extends CI_Controller {
         parent::__construct();
         $this->load->database();
         $this->load->model("Model_user");
+        $this->load->library('session');
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $this->load->library('email');
     }
 
 
@@ -32,10 +36,10 @@ class Accueil extends CI_Controller {
             // Whoops, we don't have a page for that!
             show_404();
         }
-
-        $this->load->helper(array('form', 'url'));
-
-        $this->load->library('form_validation');
+//
+//        $this->load->helper(array('form', 'url'));
+//
+//        $this->load->library('form_validation');
 
         $config = array(
             array(
@@ -96,9 +100,8 @@ class Accueil extends CI_Controller {
         $data = array();
 
 
-        $this->load->library('session');
-        $this->load->helper(array('form', 'url'));
-        $this->load->library('form_validation');
+
+
 
         $config = array(
             array(
@@ -142,7 +145,7 @@ class Accueil extends CI_Controller {
                 $this->session->set_userdata($newdata);
 
                 $this->load->view('templates/header', $data);
-                $this->load->view('accueil/index', $data);
+                $this->load->view('accueil/loginSuccess', $data);
                 $this->load->view('templates/footer', $data);
 
             } else {
@@ -160,22 +163,56 @@ class Accueil extends CI_Controller {
 
     public function signOut() {
 
-        if (isset($_SESSION['some_name']) && $_SESSION['logged_in'] === true) {
-
-
+        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             // user logout ok
-            $this->session->unset_userdata('email', 'logged_in');
-            $this->load->view('header');
-            $this->load->view('user/logout/logout_success', $data);
-            $this->load->view('footer');
-
-        } else {
-
-            // there user was not logged in, we cannot logged him out,
-            // redirect him to site root
-            redirect('/');
+            $this->session->sess_destroy();
 
         }
+//        else {
+//            redirect('accueil/home');
+//
+//        }
 
+    }
+
+    public function forgetPassword() {
+        $data = array();
+        $config = array(
+            array(
+                'field' => 'mail',
+                'label' => 'Email',
+                'rules' => 'required|valid_email'
+            )
+        );
+
+
+        $this->form_validation->set_rules($config);
+
+
+        if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('accueil/forgetPassword', $data);
+            $this->load->view('templates/footer', $data);
+        }
+        else
+        {
+            $email    = $this->input->post('mail');
+
+            if ($this->Model_user->getEmail($email) === TRUE) {
+
+                // email ok
+
+                $this->load->view('templates/header', $data);
+                $this->load->view('accueil/emailFound', $data);
+                $this->load->view('templates/footer', $data);
+
+            } else {
+                $this->load->view('templates/header', $data);
+                $this->load->view('accueil/forgetPassword', $data);
+                $this->load->view('templates/footer', $data);
+
+            }
+        }
     }
 }

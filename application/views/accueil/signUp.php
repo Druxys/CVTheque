@@ -34,7 +34,7 @@
                         <input type="submit" class="btn btn-primary btn-block" value="Create Account" />
                     </div> <!-- form-group// -->
                     <?php    echo validation_errors(); ?>
-                <p class="text-center">Have an account? <a href="">Log In</a> </p>
+                <p class="text-center">Déjà un compte? <a href="signIn">Connection</a> </p>
             </form>
         </article>
     </div>

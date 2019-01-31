@@ -22,12 +22,14 @@
                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
                 <input class="form-control" placeholder="Create password" type="password" name="password" value="<?php echo set_value('password'); ?>" size="50" />
+
             </div> <!-- form-group// -->
+            <p class="text-center">Mot de passe oublié? <a href="forgetPassword">Ici</a> </p>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-block" value="Create Account" />
+                <input type="submit" class="btn btn-primary btn-block" value="Connecter" />
             </div> <!-- form-group// -->
             <?php    echo validation_errors(); ?>
-            <p class="text-center">Have an account? <a href="">Log In</a> </p>
+            <p class="text-center">Pas de compte? <a href="signUp">Inscrivez-vous</a> </p>
             </form>
         </article>
     </div>

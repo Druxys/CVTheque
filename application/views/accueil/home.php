@@ -14,6 +14,9 @@
         <div class="txt2">
             <div id="form-main">
                 <div id="form-div">
+                    <div class="contacter">
+                        <p>Nous contacter</p>
+                    </div>
                     <form class="form" id="form1">  <!-- Début du formulaire de contact -->
 
                         <p class="name">

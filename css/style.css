@@ -411,7 +411,8 @@ body {
 }
 
 .home2 {
-    background-image: url('../assets/img/img2.jpg');
+    /*background-image: url('../assets/img/img2.jpg');*/
+    background-color: #eeeeee;
     width: 100%;
     height: 100vh;
     background-position: center top;
@@ -419,8 +420,8 @@ body {
 }
 
 .txt2 {
-    background-color: #000;
-    opacity: 0.8;
+    background-color: #314E5A;
+    /*opacity: 0.8;*/
     width: 100%;
     height: 100vh;
     background-position: center top;
@@ -440,7 +441,7 @@ body {
 }
 
 #form-div {
-    background-color:rgba(72,72,72,0.4);
+    background-color:#eeeeee;
     padding-left:35px;
     padding-right:35px;
     padding-top:35px;
@@ -453,6 +454,11 @@ body {
     margin-left: -260px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
+}
+
+#form-div .contacter {
+    text-align: center;
+    font-size: 35px;
 }
 
 .feedback-input {

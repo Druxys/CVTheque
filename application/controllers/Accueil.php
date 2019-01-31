@@ -8,6 +8,7 @@ class Accueil extends CI_Controller {
         $this->load->model("Model_user");
     }
 
+
     public function index($page = 'home')
     {
         if ( ! file_exists(APPPATH.'views/accueil/'.$page.'.php'))
@@ -94,6 +95,8 @@ class Accueil extends CI_Controller {
     public function signIn() {
         $data = array();
 
+
+        $this->load->library('session');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
 
@@ -131,8 +134,12 @@ class Accueil extends CI_Controller {
             if ($this->Model_user->userVerify($mail, $password)) {
 
                 // user login ok
+                $newdata = array(
+                    'email'     => $mail,
+                    'logged_in' => TRUE
+                );
 
-                $_SESSION['logged_in'] = true;
+                $this->session->set_userdata($newdata);
 
                 $this->load->view('templates/header', $data);
                 $this->load->view('accueil/index', $data);
@@ -153,14 +160,11 @@ class Accueil extends CI_Controller {
 
     public function signOut() {
 
-        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+        if (isset($_SESSION['some_name']) && $_SESSION['logged_in'] === true) {
 
-            // remove session datas
-            foreach ($_SESSION as $key => $value) {
-                unset($_SESSION[$key]);
-            }
 
             // user logout ok
+            $this->session->unset_userdata('email', 'logged_in');
             $this->load->view('header');
             $this->load->view('user/logout/logout_success', $data);
             $this->load->view('footer');

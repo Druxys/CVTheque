@@ -110,7 +110,7 @@ class Accueil extends CI_Controller {
 
         $config = array(
             array(
-                'field' => 'mail',
+                'field' => 'email',
                 'label' => 'Email',
                 'rules' => 'required|valid_email'
             ),
@@ -136,7 +136,7 @@ class Accueil extends CI_Controller {
         } else {
 
             // set variables from the form
-            $mail = $this->input->post('mail');
+            $mail = $this->input->post('email');
             $password = $this->input->post('password');
 
             if ($this->Model_user->userVerify($mail, $password)) {

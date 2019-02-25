@@ -96,8 +96,13 @@ class Accueil extends CI_Controller {
 
     }
 
-    public function signIn() {
+    public function signIn($page = 'signIn') {
         $data = array();
+        if ( ! file_exists(APPPATH.'views/accueil/'.$page.'.php'))
+        {
+            // Whoops, we don't have a page for that!
+            show_404();
+        }
 
 
 
@@ -105,7 +110,7 @@ class Accueil extends CI_Controller {
 
         $config = array(
             array(
-                'field' => 'mail',
+                'field' => 'email',
                 'label' => 'Email',
                 'rules' => 'required|valid_email'
             ),
@@ -131,7 +136,7 @@ class Accueil extends CI_Controller {
         } else {
 
             // set variables from the form
-            $mail = $this->input->post('mail');
+            $mail = $this->input->post('email');
             $password = $this->input->post('password');
 
             if ($this->Model_user->userVerify($mail, $password)) {

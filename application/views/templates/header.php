@@ -50,13 +50,22 @@
 
             <div id="mainListDiv" class="main_list">
 
-                <ul class="navlinks">
-                    <?php print_r($_SESSION)?>
+            <?php if(($this->session->userdata('logged_in') != 1 )) {
+                echo  '<ul class="navlinks">
                     <li><a href="signUp">Inscription</a></li>
                     <li><a href="signIn">Connexion</a></li>
                     <li><a href="">Services</a></li>
                     <li><a href="#form1">Nous contacter</a></li>
-                </ul>
+                </ul>'; }
+                else {
+               echo ' 
+                    <li><a href="signOut">Deconnexion</a></li>
+                    <li><a href="">Mon CV</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="#form1">Nous contacter</a></li>
+                </ul>' ;
+            } ?>
+
 
             </div>
 

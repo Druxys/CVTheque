@@ -51,8 +51,9 @@
             <div id="mainListDiv" class="main_list">
 
                 <ul class="navlinks">
-                    <li><a href="#">Inscription</a></li>
-                    <li><a href="accueil/signIn">Connexion</a></li>
+                    <?php print_r($_SESSION)?>
+                    <li><a href="signUp">Inscription</a></li>
+                    <li><a href="signIn">Connexion</a></li>
                     <li><a href="">Services</a></li>
                     <li><a href="#form1">Nous contacter</a></li>
                 </ul>

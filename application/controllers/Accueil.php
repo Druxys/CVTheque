@@ -96,8 +96,13 @@ class Accueil extends CI_Controller {
 
     }
 
-    public function signIn() {
+    public function signIn($page = 'signIn') {
         $data = array();
+        if ( ! file_exists(APPPATH.'views/accueil/'.$page.'.php'))
+        {
+            // Whoops, we don't have a page for that!
+            show_404();
+        }
 
 
 

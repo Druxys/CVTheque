@@ -7,9 +7,9 @@
                     <p>Connexion</p>
                 </div>
                 <p>
-                    <a href="" class="btn btn-block btn-linkedin"> <i class="fab fa-linkedin"></i> . Login via LinkedIn</a>
+                    <a href="" class="btn btn-block btn-linkedin"> <i class="fab fa-linkedin"></i>Login via LinkedIn</a>
                 </p>
-                <?php echo form_open('accueil/signIn'); ?>  <!-- Début du formulaire de contact -->
+                <?php echo form_open('accueil/signIn'); ?>  <!-- Début du formulaire de connexion -->
 
                     <p class="email">
                         <input name="email" type="email" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" value="<?php echo set_value('email'); ?>" />
@@ -24,22 +24,15 @@
                         <div class="ease"></div>
                     </div>
                     <?php    echo validation_errors(); ?>
-                <p class="text-center">Have an account? <a href="">Log In</a> </p>
-                </form>                         <!-- Fin du formulaire de contact -->
+<!--                <p class="text-center">Have an account? <a href="">Log In</a> </p>-->
+                    <p class="text-center">Mot de passe oublié? <a href="forgetPassword">Ici</a> </p>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary btn-block" value="Connecter" />
+                    </div> <!-- form-group// -->
+                    <?php    echo validation_errors(); ?>
+                    <p class="text-center">Pas de compte? <a href="signUp">Inscrivez-vous</a> </p>
+                </form>                         <!-- Fin du formulaire de connexion -->
             </div>
         </div>
         </div>
-                <div class="submit">
-                    <input type="submit" value="SEND" id="button-blue"/>
-                    <div class="ease"></div>
-                </div>
-
-            </div> <!-- form-group// -->
-            <p class="text-center">Mot de passe oublié? <a href="forgetPassword">Ici</a> </p>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-block" value="Connecter" />
-            </div> <!-- form-group// -->
-            <?php    echo validation_errors(); ?>
-            <p class="text-center">Pas de compte? <a href="signUp">Inscrivez-vous</a> </p>
-            </form>
     </div>

@@ -11,7 +11,7 @@
 
     <!-------------------------------------------Début de la boîte contact--------------------------------------------->
     <div class="home2"> <!-- background-image: url('../assets/img/img2.jpg'); -->
-        <div class="txt2">
+        <div class="txt3">
             <div id="form-main">
                 <div id="form-div">
                     <div class="contacter">

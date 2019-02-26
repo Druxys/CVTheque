@@ -233,23 +233,52 @@ class Accueil extends CI_Controller {
         $config = array(
             array(
                 'field' => 'firstName',
-                'label' => 'firstName',
-                'rules' => 'required',
-                'rules' => ''
-            ),
-            array(
-                'field' => 'firstName',
-                'label' => 'firstName',
+                'label' => 'FirstName',
                 'rules' => 'required',
                 'errors' => array(
                     'required' => 'You must provide a %s.',
                 ),
             ),
             array(
-                'field' => 'passconf',
-                'label' => 'Password Confirmation',
-                'rules' => 'required|matches[password]'
-            )
+                'field' => 'lastName',
+                'label' => 'lastName',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'You must provide a %s.',
+                ),
+            ),
+            array(
+                'field' => 'nationality',
+                'label' => 'nationality',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'You must provide a %s.',
+                ),
+            ),
+            array(
+                'field' => 'birthDate',
+                'label' => 'birthDate',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'You must provide a %s.',
+                ),
+            ),
+            array(
+                'field' => 'application',
+                'label' => 'application',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'You must provide a %s.',
+                ),
+            ),
+            array(
+                'field' => 'description',
+                'label' => 'description',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'You must provide a %s.',
+                ),
+            ),
         );
 
         $this->form_validation->set_rules($config);

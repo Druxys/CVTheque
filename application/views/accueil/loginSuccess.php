@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="page-header">
                 <h1>Connecté!</h1>
-                <?php print_r($_SESSION) ?>
+                <a href="frmResume">modifier mon cv</a>
             </div>
         </div>
     </div><!-- .row -->

@@ -220,4 +220,72 @@ class Accueil extends CI_Controller {
             }
         }
     }
+
+    public function frmResume($page = 'frmResume'){
+
+        if ( ! file_exists(APPPATH.'views/accueil/'.$page.'.php'))
+        {
+            // Whoops, we don't have a page for that!
+            show_404();
+        }
+        $this->load->helper('url');
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+        $config = array(
+            array(
+                'field' => 'firstName',
+                'label' => 'FirstName',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'You must provide a %s.',
+                ),
+            ),
+            array(
+                'field' => 'lastName',
+                'label' => 'lastName',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'You must provide a %s.',
+                ),
+            ),
+            array(
+                'field' => 'nationality',
+                'label' => 'nationality',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'You must provide a %s.',
+                ),
+            ),
+            array(
+                'field' => 'birthDate',
+                'label' => 'birthDate',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'You must provide a %s.',
+                ),
+            ),
+            array(
+                'field' => 'application',
+                'label' => 'application',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'You must provide a %s.',
+                ),
+            ),
+            array(
+                'field' => 'description',
+                'label' => 'description',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'You must provide a %s.',
+                ),
+            ),
+        );
+
+        $this->form_validation->set_rules($config);
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('accueil/'.$page, $data);
+        $this->load->view('templates/footer', $data);
+    }
+
 }

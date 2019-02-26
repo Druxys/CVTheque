@@ -29,7 +29,7 @@
 
 <body>
     <!---------------------------------------------Début de la navbar-------------------------------------------------->
-    <nav class="nav">
+        <nav class="nav">
         <div class="container">
 
             <div class="logo">              <!-- Logo -->
@@ -51,7 +51,7 @@
                 else {
                echo ' 
                     <li><a href="signOut">Deconnexion</a></li>
-                    <li><a href="">Mon CV</a></li>
+                    <li><a href="frmResume">Modife CV</a></li>
                     <li><a href="">Services</a></li>
                     <li><a href="#form1">Nous contacter</a></li>
                 </ul>' ;

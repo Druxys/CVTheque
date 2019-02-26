@@ -1,20 +1,24 @@
-<div class="container">
-    <hr>
-    <div class="card bg-light">
-        <article class="card-body mx-auto" style="max-width: 400px;">
-            <h4 class="card-title mt-3 text-center">Mot de pase oublié </h4>
-            <?php echo form_open('accueil/forgetPassword'); ?>
-            <div class="form-group input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+
+<div class="txt2">
+    <div class="txt3">
+        <div id="form-main">
+            <div id="form-div">
+                <div class="contacter">
+                    <p>Mot de passe oublié</p>
                 </div>
-                <input type="email" class="form-control" placeholder="Email address" name="mail" value="<?php echo set_value('email'); ?>" size="50" />
-            </div> <!-- form-group// -->
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-block" value="Valider" />
-            </div> <!-- form-group// -->
-            <?php    echo validation_errors(); ?>
-            </form>
-        </article>
+                <?php echo form_open('accueil/forgetPassword'); ?>  <!-- Début du formulaire de mot de passe oublié -->
+
+                <p class="email">
+                    <input name="mail" type="email" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" value="<?php echo set_value('email'); ?>" />
+                </p>
+
+                <div class="submit">
+                    <input type="submit" value="SEND" id="button-blue"/>
+                    <div class="ease"></div>
+                </div>
+                <?php    echo validation_errors(); ?>
+                </form>                         <!-- Fin du formulaire de connexion -->
+            </div>
+        </div>
     </div>
 </div>

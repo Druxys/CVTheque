@@ -29,7 +29,7 @@
 
 <body>
     <!---------------------------------------------Début de la navbar-------------------------------------------------->
-    <nav class="nav">
+        <nav class="nav">
         <div class="container">
 
             <div class="logo">              <!-- Logo -->

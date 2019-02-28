@@ -1,81 +1,155 @@
-<div class="container">
-    <div class="wrapper">
+<form id="regForm" >
+    <?php echo validation_errors(); ?>
 
-        <form class="form-wrapper">
-            <fieldset class="section is-active"> <!--1e partie -->
-                <h3>Infos Générales</h3>
-                <select name="genre">
-                    <option>Homme</option>
-                    <option>Femme</option>
-                    <option>Autre</option>
-                </select></br>
-                <input class="firstInput" type="text" name="firstName" value="" size="50" placeholder="Prénom"/></br>
-                <input type="text" name="lastName" value="" size="50" placeholder="Nom"/></br>
-                <input type="text" name ="nationality" value ="" size="50" placeholder="Nationalité"/></br>
-                <input type="date" name="birthDate" value="" size="50" /></br>
-                <input type="text" name ="application" value ="" size="50" placeholder="Poste visé"/></br>
-                <input type="text" name ="description" value ="" size="50" placeholder="Courte description"/></br>
-                <input type="submit" name="" value="save">
-            </fieldset>
+    <?php echo form_open('form'); ?>
 
-            <fieldset class="section"> <!--2e partie -->
-                <h3>Coordonnées</h3>
-                <input type="text" name ="address" value ="" size="50" placeholder="Addresse"/></br>
-                <input type="number" name ="postCode" value ="" size="50" placeholder="Code Postal"/></br>
-                <input type="text" name ="city" value ="" size="50" placeholder="Ville"/></br>
-                <input type="email" name="mail" value="" size="50" placeholder="Email"/></br>
-                <input type="number" name="tel" value="" size="50" placeholder="Téléphone"/></br>
-                <input type="submit" value="save">
-            </fieldset>
+    <h1>Créer mon CV</h1>
 
-            <fieldset class="section"> <!--3e partie -->
-                <h3>Qualifications</h3>
-                <div id="demoQualif"></div><div class="clear"></div>
-                <input class="button2" type="button" id="addQualif" value="Add input"/><div class="clear"></div>
-                <input type="submit" value="save">
-            </fieldset>
-
-            <fieldset class="section"> <!--4e partie -->
-                <h3>Expériences (professionelles ou personnelles)</h3>
-                <div id="demoExp"></div>
-                <input class="button2" type="button" id="addExp" value="Add input"/>
-                <input type="submit" value="save">
-            </fieldset>
-
-            <fieldset class="section"> <!--5e partie -->
-                <h3>Centres D'interêts</h3>
-                <div id="demoHobby"></div>
-                <input class="button2" type="button" id="addHobby" value="Add input"/>
-                <input type="submit" value="save">
-            </fieldset>
-
-            <fieldset class="section"> <!--6e partie -->
-                <h3>Compétences</h3>
-                <div id="demoSkills"></div>
-                <input class="button2" type="button" id="addSkills" value="Add input"/>
-                <input type="submit" value="save">
-            </fieldset>
-
-            <fieldset class="section"> <!--7e partie -->
-                <h3>Langages</h3>
-                <div id="demoLanguages"></div>
-                <input class="button2" type="button" id="addLanguages" value="Add input"/>
-                <input type="submit" value="save">
-            </fieldset>
-
-            <fieldset class="section"> <!--8e partie -->
-                <h3>Logiciels</h3>
-                <div id="demoSoftwares"></div>
-                <input class="button2" type="button" id="addSoftwares" value="Add input"/>
-                <input type="submit" value="save">
-            </fieldset>
-
-            <fieldset class="section"> <!-- el grande finale -->
-                <input class="button2" type="submit" value="Submit">
-            </fieldset>
-        </form>
+    <div class="tab">
+        <h3>Infos Générales</h3>
+        <select name="genre">
+            <option>Homme</option>
+            <option>Femme</option>
+            <option>Autre</option>
+        </select></br>
+        <input class="firstInput" type="text" name="firstName" value="" size="50" placeholder="Prénom"/></br>
+        <input type="text" name="lastName" value="" size="50" placeholder="Nom"/></br>
+        <input type="text" name ="nationality" value ="" size="50" placeholder="Nationalité"/></br>
+        <input type="date" name="birthDate" value="" size="50" /></br>
+        <input type="text" name ="application" value ="" size="50" placeholder="Poste visé"/></br>
+        <input type="text" name ="description" value ="" size="50" placeholder="Courte description"/></br>
     </div>
-</div>
+
+    <div class="tab">
+        <h3>Coordonnées</h3>
+        <input type="text" name ="address" value ="" size="50" placeholder="Addresse"/></br>
+        <input type="number" name ="postCode" value ="" size="50" placeholder="Code Postal"/></br>
+        <input type="text" name ="city" value ="" size="50" placeholder="Ville"/></br>
+        <input type="email" name="mail" value="" size="50" placeholder="Email"/></br>
+        <input type="number" name="tel" value="" size="50" placeholder="Téléphone"/></br>
+    </div>
+
+    <div class="tab">
+        <h2>Contenu </h2>
+        <h3>Qualifications</h3>
+        <div id="demoQualif"></div><div class="clear"></div>
+        <input class="button2" type="button" id="addQualif" value="Add input"/><div class="clear"></div>
+
+        <h3>Expériences (professionelles ou personnelles)</h3>
+        <div id="demoExp"></div>
+        <input class="button2" type="button" id="addExp" value="Add input"/>
+
+        <h3>Centres D'interêts</h3>
+        <div id="demoHobby"></div>
+        <input class="button2" type="button" id="addHobby" value="Add input"/>
+
+        <h3>Compétences</h3>
+        <div id="demoSkills"></div>
+        <input class="button2" type="button" id="addSkills" value="Add input"/>
+
+        <h3>Langages</h3>
+        <div id="demoLanguages"></div>
+        <input class="button2" type="button" id="addLanguages" value="Add input"/>
+
+        <h3>Logiciels</h3>
+        <div id="demoSoftwares"></div>
+        <input class="button2" type="button" id="addSoftwares" value="Add input"/>
+    </div>
+
+    <div class="tab">CV model:
+
+    </div>
+
+    <div style="overflow:auto;">
+        <div style="float:right;">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+        </div>
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+    </div>
+
+</form>
+
+<script>
+    var currentTab = 0; // Current tab is set to be the first tab (0)
+    showTab(currentTab); // Display the current tab
+
+    function showTab(n) {
+// This function will display the specified tab of the form ...
+        var x = document.getElementsByClassName("tab");
+        x[n].style.display = "block";
+// ... and fix the Previous/Next buttons:
+        if (n == 0) {
+            document.getElementById("prevBtn").style.display = "none";
+        } else {
+            document.getElementById("prevBtn").style.display = "inline";
+        }
+        if (n == (x.length - 1)) {
+            document.getElementById("nextBtn").innerHTML = "Submit";
+        } else {
+            document.getElementById("nextBtn").innerHTML = "Next";
+        }
+// ... and run a function that displays the correct step indicator:
+        fixStepIndicator(n)
+    }
+
+    function nextPrev(n) {
+// This function will figure out which tab to display
+        var x = document.getElementsByClassName("tab");
+// Exit the function if any field in the current tab is invalid:
+        if (n == 1 && !validateForm()) return false;
+// Hide the current tab:
+        x[currentTab].style.display = "none";
+// Increase or decrease the current tab by 1:
+        currentTab = currentTab + n;
+// if you have reached the end of the form... :
+        if (currentTab >= x.length) {
+//...the form gets submitted:
+            document.getElementById("regForm").submit();
+            return false;
+        }
+// Otherwise, display the correct tab:
+        showTab(currentTab);
+    }
+
+    function validateForm() {
+// This function deals with validation of the form fields
+        var x, y, i, valid = true;
+        x = document.getElementsByClassName("tab");
+        y = x[currentTab].getElementsByTagName("input");
+// A loop that checks every input field in the current tab:
+        for (i = 0; i < y.length; i++) {
+// If a field is empty...
+            if (y[i].value == "") {
+// add an "invalid" class to the field:
+                y[i].className += " invalid";
+// and set the current valid status to false:
+                valid = false;
+            }
+        }
+// If the valid status is true, mark the step as finished and valid:
+        if (valid) {
+            document.getElementsByClassName("step")[currentTab].className += " finish";
+        }
+        return valid; // return the valid status
+    }
+
+    function fixStepIndicator(n) {
+// This function removes the "active" class of all steps...
+        var i, x = document.getElementsByClassName("step");
+        for (i = 0; i < x.length; i++) {
+            x[i].className = x[i].className.replace(" active", "");
+        }
+//... and adds the "active" class to the current step:
+        x[n].className += " active";
+    }
+</script>
 
 <script>
     // Script affichage 3e partie
@@ -225,6 +299,4 @@
         num++;
     }
 </script>
-
-
 

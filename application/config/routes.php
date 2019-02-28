@@ -54,6 +54,7 @@ $route['default_controller'] = 'accueil';
 $route['signUp'] = 'accueil/signUp';
 $route['signIn'] = 'accueil/signIn';
 $route['signOut'] = 'accueil/signOut';
+$route['frmResume'] = 'Resume/frmResume';
 $route['forgetPassword'] = 'accueil/forgetPassword';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

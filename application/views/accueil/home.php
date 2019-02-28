@@ -1,15 +1,19 @@
     <!-------------------------------------------Début de la boîte acceuil--------------------------------------------->
+
     <div class="home">  <!-- background-image: url('../assets/img/img1.jpg'); -->
-        <div class="txt">
-            <p>Bienvenue sur le site de Michel Dupont Company !</p>
-            <p>Vous pouvez nous partagez votre CV avec ou sans moyen de connexion.</p> </br>
-            <a href="#">AVEC CONNEXION</a>
-            <a href="#">SANS CONNEXION</a>
+        <div class="shadow">
+            <div class="txt">
+                <p>Bienvenue sur le site de Michel Dupont Company !</p>
+                <p>Vous pouvez nous partagez votre CV avec ou sans moyen de connexion.</p> </br>
+                <a href="#">AVEC CONNEXION</a>
+                <a href="#">SANS CONNEXION</a>
+            </div>
         </div>
     </div>
     <!-------------------------------------------Fin de la boîte acceuil----------------------------------------------->
 
     <!-------------------------------------------Début de la boîte contact--------------------------------------------->
+
     <div class="home2"> <!-- background-image: url('../assets/img/img2.jpg'); -->
         <div class="txt3">
             <div id="form-main">
@@ -41,4 +45,5 @@
             </div>
         </div>
     </div>
+
     <!---------------------------------------------Fin de la boîte contact--------------------------------------------->

@@ -52,7 +52,7 @@ class Accueil extends CI_Controller {
                 'label' => 'Password',
                 'rules' => 'required',
                 'errors' => array(
-                    'required' => 'You must provide a %s.',
+                    'required' => ' %s est requis.',
                 ),
             ),
             array(

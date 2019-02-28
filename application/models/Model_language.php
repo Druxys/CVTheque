@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Model_candidat extends CI_Model
+class Model_language extends CI_Model
 {
     function __construct()
     {
@@ -20,10 +20,9 @@ class Model_candidat extends CI_Model
     {
         $this->db->select("*")
             ->from($this->table)
-            ->where("idcvt_resume", $id)
+            ->where("idcvt_skills ", $id)
             ->limit(1);
 
         return $this->db->get();
     }
-
 }

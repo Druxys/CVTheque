@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: admin
- * Date: 25/02/2019
- * Time: 15:47
- */
 
 class Model_resume extends CI_Model
 {
@@ -14,55 +8,71 @@ class Model_resume extends CI_Model
         $this->table = "cvt_resume";
     }
 
-    public function create_resume_part1($firstName, $lastName, $birthDate, $nationality, $sexe, $addr, $pastCode, $city, $tel, $mail) {
+    function get_all()
+    {
+        return $this->db->get($this->table);
+    }
 
+    function get_one($id)
+    {
+        $this->db->select("id")
+            ->from($this->table)
+            ->where("id", $id)
+            ->limit(1);
+        return $this->db->get();
+    }
 
+    function insert1($genre, $firstName, $lastName, $nationality, $birthDate, $application, $description)
+    {
         $data = array(
-            'resume_firstNamel' => $firstName,
-            'resume_lastName'   => $lastName,
-            'resume_birthDate' => $birthDate,
-            'resume_nationality'  => $nationality,
-            'resume_sexe' => $sexe,
-            'resume_addr' => $addr,
-            'reume_postCode' => $pastCode,
-            'resume_city' => $city,
-            'resume_tel' => $tel,
-            'resume_mail' => $mail,
+            "resume_sexe" => $genre,
+            "resume_firstName" => $firstName,
+            "resume_lastName" => $lastName,
+            "resume_nationality" => $nationality,
+            "resume_birthDate" => $birthDate,
+            "resume_posteCible" => $application,
+            "resume_describ" => $description
         );
-
-        return $this->db->insert('cvt_resume', $data);
-
+        return $this->db->insert($this->table, $data);
     }
 
-    public function userVerify($mail, $password) {
-
-        $this->db->select('user_pwd');
-        $this->db->from('cvt_users');
-        $this->db->where('user_mail', $mail);
-        $hash = $this->db->get()->row('user_pwd');
-        $resultat = password_verify($password, $hash);
-        return $resultat;
-
+    function insert2($address, $postCode, $city, $mail, $tel)
+    {
+        $data = array(
+            "resume_addr" => $address,
+            "resume_postCode" => $postCode,
+            "resume_city" => $city,
+            "resume_mail" => $mail,
+            "resume_tel" => $tel
+        );
+        return $this->db->insert($this->table, $data);
     }
 
-    public function getUser($mail) {
-
-        $this->db->from('cvt_users');
-        $this->db->where('idcvt_users ', $mail);
-        return $this->db->get()->row();
-
+    function update1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description)
+    {
+        $data = array(
+            "resume_sexe" => $genre,
+            "resume_firstName" => $firstName,
+            "resume_lastName" => $lastName,
+            "resume_nationality" => $nationality,
+            "resume_birthDate" => $birthDate,
+            "resume_posteCible" => $application,
+            "resume_describ" => $description
+        );
+        return $this->db->where("id", $id)
+            ->update($this->table, $data);
     }
 
-    public function getEmail($mail) {
-        $this->db->from('cvt_users');
-        $this->db->where('user_mail', $mail);
-//        print_r($this->db->get()->row('mail'));
-        if ($this->db->get()->row('user_mail') == $mail){
-            return TRUE;
-        } else {
-            return FALSE;
-        }
-//        return $this->db->get()->row();
-
+    function update2($id, $address, $postCode, $city, $mail, $tel)
+    {
+        $data = array(
+            "resume_addr" => $address,
+            "resume_postCode" => $postCode,
+            "resume_city" => $city,
+            "resume_mail" => $mail,
+            "resume_tel" => $tel,
+        );
+        return $this->db->where("id, $id")
+            ->update($this->table, $data);
     }
 }

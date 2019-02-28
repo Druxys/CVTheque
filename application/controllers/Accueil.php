@@ -7,6 +7,7 @@ class Accueil extends CI_Controller {
         $this->load->database();
         $this->load->model("Model_user");
         $this->load->library('session');
+        $this->load->library('javascript');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->library('email');
@@ -52,7 +53,7 @@ class Accueil extends CI_Controller {
                 'label' => 'Password',
                 'rules' => 'required',
                 'errors' => array(
-                    'required' => 'You must provide a %s.',
+                    'required' => ' %s est requis.',
                 ),
             ),
             array(
@@ -168,15 +169,16 @@ class Accueil extends CI_Controller {
 
     public function signOut() {
 
+        $data = array();
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             // user logout ok
             $this->session->sess_destroy();
+            $this->load->view('accueil/signIn', $data);
 
         }
-//        else {
-//            redirect('accueil/home');
-//
-//        }
+        else {
+            $this->load->view('accueil/loginSuccess', $data);
+       }
 
     }
 
@@ -220,72 +222,4 @@ class Accueil extends CI_Controller {
             }
         }
     }
-
-    public function frmResume($page = 'frmResume'){
-
-        if ( ! file_exists(APPPATH.'views/accueil/'.$page.'.php'))
-        {
-            // Whoops, we don't have a page for that!
-            show_404();
-        }
-        $this->load->helper('url');
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-        $config = array(
-            array(
-                'field' => 'firstName',
-                'label' => 'FirstName',
-                'rules' => 'required',
-                'errors' => array(
-                    'required' => 'You must provide a %s.',
-                ),
-            ),
-            array(
-                'field' => 'lastName',
-                'label' => 'lastName',
-                'rules' => 'required',
-                'errors' => array(
-                    'required' => 'You must provide a %s.',
-                ),
-            ),
-            array(
-                'field' => 'nationality',
-                'label' => 'nationality',
-                'rules' => 'required',
-                'errors' => array(
-                    'required' => 'You must provide a %s.',
-                ),
-            ),
-            array(
-                'field' => 'birthDate',
-                'label' => 'birthDate',
-                'rules' => 'required',
-                'errors' => array(
-                    'required' => 'You must provide a %s.',
-                ),
-            ),
-            array(
-                'field' => 'application',
-                'label' => 'application',
-                'rules' => 'required',
-                'errors' => array(
-                    'required' => 'You must provide a %s.',
-                ),
-            ),
-            array(
-                'field' => 'description',
-                'label' => 'description',
-                'rules' => 'required',
-                'errors' => array(
-                    'required' => 'You must provide a %s.',
-                ),
-            ),
-        );
-
-        $this->form_validation->set_rules($config);
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('accueil/'.$page, $data);
-        $this->load->view('templates/footer', $data);
-    }
-
 }

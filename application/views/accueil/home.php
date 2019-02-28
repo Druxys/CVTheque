@@ -4,17 +4,21 @@
         <div class="shadow">
             <div class="txt">
                 <p>Bienvenue sur le site de Michel Dupont Company !</p>
-                <p>Vous pouvez nous partagez votre CV avec ou sans moyen de connexion.</p> </br>
+                <p>Vous pouvez nous partagez votre CV avec ou sans moyen de connexion.</p>
                 <a href="#">AVEC CONNEXION</a>
+                </br> </br>
                 <a href="#">SANS CONNEXION</a>
             </div>
         </div>
     </div>
     <!-------------------------------------------Fin de la boîte acceuil----------------------------------------------->
-
+    <div class="homebis">
+        <p>Il vous suffit de poster votre CV et votre lettre de motivation</p>
+    </div>
     <!-------------------------------------------Début de la boîte contact--------------------------------------------->
 
     <div class="home2"> <!-- background-image: url('../assets/img/img2.jpg'); -->
+        <div class="shadow2">
         <div class="txt3">
             <div id="form-main">
                 <div id="form-div">
@@ -24,7 +28,7 @@
                     <form class="form" id="form1">  <!-- Début du formulaire de contact -->
 
                         <p class="name">
-                            <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" />
+                            <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Nom" id="name" />
                         </p>
 
                         <p class="email">
@@ -32,17 +36,18 @@
                         </p>
 
                         <p class="text">
-                            <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea>
+                            <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Commentaire"></textarea>
                         </p>
 
 
                         <div class="submit">
-                            <input type="submit" value="SEND" id="button-blue"/>
+                            <input type="submit" value="ENVOYER" id="button-blue"/>
                             <div class="ease"></div>
                         </div>
                     </form>                         <!-- Fin du formulaire de contact -->
                 </div>
             </div>
+        </div>
         </div>
     </div>
 

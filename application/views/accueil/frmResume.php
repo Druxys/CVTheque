@@ -1,7 +1,7 @@
-<form id="regForm" >
+<form id="regForm" method="post" >
     <?php echo validation_errors(); ?>
 
-    <?php echo form_open('form'); ?>
+    <?php echo form_open(''); ?>
 
     <h1>Créer mon CV</h1>
 
@@ -12,21 +12,21 @@
             <option>Femme</option>
             <option>Autre</option>
         </select></br>
-        <input class="firstInput" type="text" name="firstName" value="" size="50" placeholder="Prénom"/></br>
-        <input type="text" name="lastName" value="" size="50" placeholder="Nom"/></br>
-        <input type="text" name ="nationality" value ="" size="50" placeholder="Nationalité"/></br>
-        <input type="date" name="birthDate" value="" size="50" /></br>
-        <input type="text" name ="application" value ="" size="50" placeholder="Poste visé"/></br>
-        <input type="text" name ="description" value ="" size="50" placeholder="Courte description"/></br>
+        <input class="firstInput" type="text" name="firstName" value="<?php echo set_value('firstName'); ?>" size="50" placeholder="Prénom"/></br>
+        <input type="text" name="lastName" value="<?php echo set_value('lastName'); ?>" size="50" placeholder="Nom"/></br>
+        <input type="text" name ="nationality" value ="<?php echo set_value('nationality'); ?>" size="50" placeholder="Nationalité"/></br>
+        <input type="date" name="birthDate" value="<?php echo set_value('birthDate'); ?>" size="50" /></br>
+        <input type="text" name ="application" value ="<?php echo set_value('application'); ?>" size="50" placeholder="Poste visé"/></br>
+        <input type="text" name ="description" value ="<?php echo set_value('description'); ?>" size="50" placeholder="Courte description"/></br>
     </div>
 
     <div class="tab">
         <h3>Coordonnées</h3>
-        <input type="text" name ="address" value ="" size="50" placeholder="Addresse"/></br>
-        <input type="number" name ="postCode" value ="" size="50" placeholder="Code Postal"/></br>
-        <input type="text" name ="city" value ="" size="50" placeholder="Ville"/></br>
-        <input type="email" name="mail" value="" size="50" placeholder="Email"/></br>
-        <input type="number" name="tel" value="" size="50" placeholder="Téléphone"/></br>
+        <input type="text" name ="address" value ="<?php echo set_value('address'); ?>" size="50" placeholder="Addresse"/></br>
+        <input type="number" name ="postCode" value ="<?php echo set_value('postCode'); ?>" size="50" placeholder="Code Postal"/></br>
+        <input type="text" name ="city" value ="<?php echo set_value('city'); ?>" size="50" placeholder="Ville"/></br>
+        <input type="email" name="mail" value="<?php echo set_value('mail'); ?><?php echo set_value('email'); ?>" size="50" placeholder="Email"/></br>
+        <input type="number" name="tel" value="<?php echo set_value('tel'); ?>" size="50" placeholder="Téléphone"/></br>
     </div>
 
     <div class="tab">

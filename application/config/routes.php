@@ -60,3 +60,6 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['profiler'] = "Profiler_controller";
 $route['profiler/disable'] = "Profiler_controller/disable";
+
+$route["api/v1/candidat"]["get"]           = "api/v1/candidat";
+$route["api/v1/candidat/(:num)"]["get"]    = "api/v1/candidat/view/$1";

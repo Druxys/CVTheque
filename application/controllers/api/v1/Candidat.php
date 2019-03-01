@@ -8,15 +8,36 @@ class Candidat extends CI_Controller
         parent::__construct();
         $this->load->database();
         $this->load->model("Model_candidat");
+        $this->load->model("Model_skill");
     }
 
     public function index()
     {
-        $data = $this->Model_product->get_all();
-
+        $data = $this->Model_candidat->get_all();
+        $data2 = $this->Model_skill->getSkills();
         if ($data->num_rows() > 0) {
             foreach ($data->result() as $row) {
-                $result[] = array("id" => intval($row->id), "title" => $row->title);
+                $result[] = array("id" => intval($row->idcvt_resume),
+                    "firstName" => $row->resume_firstNamel,
+                    "lastName" => $row->resume_lastName,
+                    "birthDate" => $row->resume_birthDate,
+                    "nationality" => $row->resume_nationality,
+                    "sexe" => $row->resume_sexe,
+                    "addr" => $row->resume_addr,
+                    "postCode" => $row->reume_postCode,
+                    "city" => $row->resume_city,
+                    "tel" => $row->resume_tel,
+                    "mail" => $row->resume_mail,
+                    "description" => $row->resume_describ,
+                    "posteCible" => $row->resume_posteCible,
+                    "created" => $row->resume_created,
+                    "modified" => $row->resume_modified,
+                    "idcvt_users" => $row->cvt_users_idcvt_users,
+                    "idtemplatecvuser" => $row->idtemplatecvuser,
+                        "skill" =>
+
+
+                );
             }
             echo json_encode($result);
         } else {
@@ -27,11 +48,28 @@ class Candidat extends CI_Controller
 
     public function view($id)
     {
-        $data = $this->Model_product->get_one($id);
+        $data = $this->Model_candidat->get_one($id);
 
         if ($data->num_rows() > 0) {
             foreach ($data->result() as $row) {
-                $result[] = array("id" => intval($row->id), "title" => $row->title);
+                $result[] = array("id" => intval($row->idcvt_resume),
+                    "firstName" => $row->resume_firstNamel,
+                    "lastName" => $row->resume_lastName,
+                    "birthDate" => $row->resume_birthDate,
+                    "nationality" => $row->resume_nationality,
+                    "sexe" => $row->resume_sexe,
+                    "addr" => $row->resume_addr,
+                    "postCode" => $row->reume_postCode,
+                    "city" => $row->resume_city,
+                    "tel" => $row->resume_tel,
+                    "mail" => $row->resume_mail,
+                    "description" => $row->resume_describ,
+                    "posteCible" => $row->resume_posteCible,
+                    "created" => $row->resume_created,
+                    "modified" => $row->resume_modified,
+                    "idcvt_users" => $row->cvt_users_idcvt_users,
+                    "idtemplatecvuser" => $row->idtemplatecvuser
+                );
             }
             echo json_encode($result);
         } else {
@@ -40,48 +78,6 @@ class Candidat extends CI_Controller
         }
     }
 
-    public function create()
-    {
-        $title = $this->input->post('title', TRUE);
 
-        if (!empty($title)) {
-            $this->Model_product->post($title);
-            echo json_encode('Product created');
-        } else {
-            header("HTTP/1.0 400 Bad Request");
-            echo json_encode("400: Empty value");
-        }
-    }
-
-    public function update($id)
-    {
-        $title = utf8_encode($this->input->input_stream('title', TRUE));
-
-        if ($this->Model_product->get_one($id)->num_rows() == 1) {
-
-            if (!empty($title)) {
-                $this->Model_product->put($id, $title);
-                echo json_encode("200: Product #$id updated");
-            } else {
-                header("HTTP/1.0 400 Bad Request");
-                echo json_encode("400: Empty value");
-            }
-
-        } else {
-            header("HTTP/1.0 404 Not Found");
-            echo json_encode("404: Product #$id not found");
-        }
-    }
-
-    public function delete($id)
-    {
-        if ($this->Model_product->get_one($id)->num_rows() == 1) {
-            $this->Model_product->delete($id);
-            echo json_encode("200: Product #$id deleted");
-        } else {
-            header("HTTP/1.0 404 Not Found");
-            echo json_encode("404: Product $id not found");
-        }
-    }
 }
 

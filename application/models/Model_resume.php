@@ -22,7 +22,7 @@ class Model_resume extends CI_Model
         return $this->db->get();
     }
 
-    function insert1($genre, $firstName, $lastName, $nationality, $birthDate, $application, $description)
+    function insert1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel)
     {
         $data = array(
             "resume_sexe" => $genre,
@@ -31,7 +31,14 @@ class Model_resume extends CI_Model
             "resume_nationality" => $nationality,
             "resume_birthDate" => $birthDate,
             "resume_posteCible" => $application,
-            "resume_describ" => $description
+            "resume_describ" => $description,
+            "resume_addr" => $address,
+            "resume_postCode" => $postCode,
+            "resume_city" => $city,
+            "resume_mail" => $mail,
+            "resume_tel" => $tel,
+            "cvt_users_idcvt_users" => $id
+
         );
         return $this->db->insert($this->table, $data);
     }

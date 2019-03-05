@@ -139,12 +139,16 @@ class Accueil extends CI_Controller {
             // set variables from the form
             $mail = $this->input->post('email');
             $password = $this->input->post('password');
+            $user = $this->Model_user->test_mail($mail);
+
 
             if ($this->Model_user->userVerify($mail, $password)) {
 
                 // user login ok
+               // $id = $this->input->get('id', TRUE)
                 $newdata = array(
                     'email'     => $mail,
+                    'id' => $user[0]['idcvt_users'],
                     'logged_in' => TRUE
                 );
 

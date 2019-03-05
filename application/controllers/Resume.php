@@ -86,30 +86,34 @@ class Resume  extends CI_Controller
             $data['title'] = ucfirst($page); // Capitalize the first letter
             $this->load->view('templates/header', $data);
             $this->load->view( 'accueil/'.$page, $data);
+            var_dump($_SESSION);
             $this->load->view('templates/footer', $data);
         } else {
+            $id = $_SESSION['id'];
             $genre = $this->input->post('genre');
             $firstName = $this->input->post('firstName');
             $lastName = $this->input->post('lastName');
             $nationality = $this->input->post('nationality');
             $birthDate = $this->input->post('birthDate');
             $application = $this->input->post('application');
+            $description = $this->input->post('description');
             $address = $this->input->post('address');
             $postCode = $this->input->post('postCode');
             $city = $this->input->post('city');
             $mail = $this->input->post('mail');
             $tel = $this->input->post('tel');
 
-            if ($this->Model_resume->insert1($genre, $firstName, $lastName, $nationality, $birthDate, $application, $description) === TRUE && $this->Model_resume->insert2($address, $postCode, $city, $mail, $tel)) {
+
+            if ($this->Model_resume->insert1( $id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description , $address, $postCode, $city, $mail, $tel) === TRUE ) {
 
                 // resume creation ok
                 $this->load->view('templates/header');
-                $this->load->view('accueil/loginSucces', $data);
+                $this->load->view('accueil/succesResume', $data);
                 $this->load->view('templates/footer');
 
             } else {
                 $this->load->view('templates/header', $data);
-                $this->load->view('accueil/' . $page, $data);
+                $this->load->view('trou/' . $page, $data);
                 $this->load->view('templates/footer', $data);
 
             }

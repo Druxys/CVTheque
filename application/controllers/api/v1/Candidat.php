@@ -14,7 +14,7 @@ class Candidat extends CI_Controller
     public function index()
     {
         $data = $this->Model_candidat->get_all();
-
+        $data2 = $this->Model_skill->getSkills();
         if ($data->num_rows() > 0) {
             foreach ($data->result() as $row) {
                 $result[] = array("id" => intval($row->idcvt_resume),
@@ -34,6 +34,8 @@ class Candidat extends CI_Controller
                     "modified" => $row->resume_modified,
                     "idcvt_users" => $row->cvt_users_idcvt_users,
                     "idtemplatecvuser" => $row->idtemplatecvuser,
+                        "skill" =>
+
 
                 );
             }

@@ -60,4 +60,14 @@ class Model_user extends CI_Model
 //        return $this->db->get()->row();
 
     }
+
+
+    public function test_mail($mail)
+    {
+        $this->db->from($this->table)
+            ->where("user_mail", $mail);
+        return $this->db->get()->result_array();
+    }
+
+
 }

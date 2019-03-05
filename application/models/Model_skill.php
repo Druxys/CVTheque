@@ -18,7 +18,7 @@ class Model_skill extends CI_Model
     }
 
     function getSkills($id)
-    {
+        {
         $this->db->select("*")
             ->from($this->table)
             ->where("idskills_resume ", $id);

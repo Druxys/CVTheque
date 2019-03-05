@@ -86,7 +86,7 @@ class Resume  extends CI_Controller
             $data['title'] = ucfirst($page); // Capitalize the first letter
             $this->load->view('templates/header', $data);
             $this->load->view( 'accueil/'.$page, $data);
-          //  var_dump($_SESSION);
+
 
 
 //           echo '<pre>';
@@ -108,9 +108,10 @@ class Resume  extends CI_Controller
             $city = $this->input->post('city');
             $mail = $this->input->post('mail');
             $tel = $this->input->post('tel');
+            $idtemplatecvuser = $this->input->post('idtemplatecvuser');
 
 
-                if ($this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel) === TRUE) {
+                if ($this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser) === TRUE) {
 
                     // resume creation ok
                     $this->load->view('templates/header');

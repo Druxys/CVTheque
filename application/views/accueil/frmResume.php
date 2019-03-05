@@ -67,6 +67,12 @@
 
     <div class="tab">CV model:
 
+        <input name="idtemplatecvuser" type="radio" id="model1" value="1" <?php if($try[0]['idtemplatecvuser'] === '1'){ echo 'checked'; } ?> />Model 1
+            <input name="idtemplatecvuser" type="radio" id="model2" value="2"  <?php if($try[0]['idtemplatecvuser'] === '2'){ echo 'checked';} ?> />Model 2
+            <input name="idtemplatecvuser" type="radio" id="model3" value="3"  <?php if($try[0]['idtemplatecvuser'] === '3'){ echo 'checked';} ?> />Model 3
+            <input name="idtemplatecvuser" type="radio" id="model4" value="4"  <?php if($try[0]['idtemplatecvuser'] === '4'){ echo 'checked';} ?>  />Model 4
+
+
     </div>
     <div class="customButton">
         <div style="overflow:auto;">

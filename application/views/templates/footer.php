@@ -1,8 +1,43 @@
 
         <footer id="footer">
                 <div class="wrap">
+                    <div class="columns">
+                        <div class="column-info">
+                            <h3>Plus d'informations</h3>
+                            <address>
+                                <strong>NFactory School</strong><br>
+                                76600 Rouen, <br>
+                                Haute-Normandie, France.<br>
+                            </address>
+                        </div>
+                    </div>
 
+                    <div class="columns">
+                        <ul class="social-icons">
+                            <li><a href="#" class="facebook"></a></li>
+                            <li><a href="#" class="twitter"></a></li>
+                            <li><a href="#" class="dribble"></a></li>
+                            <li><a href="#" class="rss"></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="columns">
+                        <div class="column-info">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
                 </div>
+
+
+            <div class="copyright">
+                <p>Copyright 2019 Michel Dupont Compagny. Tous droit réservés.</p>
+            </div>
+
+
         </footer>
 
         <!-----------------------------------------------Custom Navbar-------------------------------------------------->

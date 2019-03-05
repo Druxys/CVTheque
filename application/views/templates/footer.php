@@ -9,6 +9,7 @@
                                 76600 Rouen, <br>
                                 Haute-Normandie, France.<br>
                             </address>
+                            <p>NFactory, Incubateur & Accélérateur Normand.</p>
                         </div>
                     </div>
 

@@ -21,7 +21,8 @@
     </div>
     <!-------------------------------------------Début de la boîte contact--------------------------------------------->
 
-    <div class="home2">                                        <!-- background-image: url('../assets/img/img2.jpg'); -->
+    <div class="home2">
+        <a id="ancre"></a><!-- background-image: url('../assets/img/img2.jpg'); -->
         <div class="shadow2">
         <div class="txt3">
             <div id="form-main">
@@ -30,7 +31,6 @@
                     <div class="contacter">
                         <p>Nous contacter</p>
                     </div>
-                    <a id="ancre"></a>
                     <form class="form" id="form1">                               <!-- Début du formulaire de contact -->
 
                         <p class="name">

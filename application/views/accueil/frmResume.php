@@ -14,12 +14,13 @@
         <div class="customSelect">
 
         <select name="genre">
-            <option  value="<?php if(set_select('genre', $try[0]['sexe']) == 'homme') echo 'selected'; ?>">Homme</option>
-            <option  value="<?php echo set_select('genre', $try[0]['sexe'] == 'femme') ?>">Femme</option>
-            <option  value="<?php echo set_select('genre', $try[0]['sexe'] == 'autre') ?>">Autre</option>
-        </select>
-        </div>
+            <option  <?php if ($try[0]['sexe'] === 'homme') {echo 'selected';} ?> >Homme</option>
+            <option  <?php if ( $try[0]['sexe'] === 'femme') {echo 'selected';} ?> >Femme</option>
+            <option  <?php if ( $try[0]['sexe'] === 'autre'){ echo 'selected';} ?> >Autre</option>
+        </select></br>
 
+
+        </div>
         <input class="firstInput" type="text" name="firstName" value="<?php echo set_value('firstName', $try[0]['firstName'] ); ?>" size="50" placeholder="Prénom"/></br>
         <input type="text" name="lastName" value="<?php echo set_value('lastName', $try[0]['lastName']); ?>" size="50" placeholder="Nom"/></br>
         <input type="text" name ="nationality" value ="<?php echo set_value('nationality', $try[0]['nationality']); ?>" size="50" placeholder="Nationalité"/></br>

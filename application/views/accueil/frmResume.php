@@ -1,9 +1,7 @@
-<<<<<<< HEAD
+
 <div class="txt6">
-<form id="regForm" >
-=======
 <form id="regForm" method="post" >
->>>>>>> 0fadf3732597870f377e41beafe1b4e0b6aa8795
+
     <?php echo validation_errors(); ?>
 
     <?php echo form_open(''); ?>
@@ -17,24 +15,16 @@
             <option>Homme</option>
             <option>Femme</option>
             <option>Autre</option>
-<<<<<<< HEAD
         </select>
         </div>
-        <input class="firstInput" type="text" name="firstName" value="" size="50" placeholder="Prénom"/></br>
-        <input type="text" name="lastName" value="" size="50" placeholder="Nom"/></br>
-        <input type="text" name ="nationality" value ="" size="50" placeholder="Nationalité"/></br>
-        <input type="date" name="birthDate" value="" size="50" /></br>
-        <input type="text" name ="application" value ="" size="50" placeholder="Poste visé"/></br>
-        <input type="text" name ="description" value ="" size="50" placeholder="Courte description"/></br>
-=======
-        </select></br>
+
         <input class="firstInput" type="text" name="firstName" value="<?php echo set_value('firstName'); ?>" size="50" placeholder="Prénom"/></br>
         <input type="text" name="lastName" value="<?php echo set_value('lastName'); ?>" size="50" placeholder="Nom"/></br>
         <input type="text" name ="nationality" value ="<?php echo set_value('nationality'); ?>" size="50" placeholder="Nationalité"/></br>
         <input type="date" name="birthDate" value="<?php echo set_value('birthDate'); ?>" size="50" /></br>
         <input type="text" name ="application" value ="<?php echo set_value('application'); ?>" size="50" placeholder="Poste visé"/></br>
         <input type="text" name ="description" value ="<?php echo set_value('description'); ?>" size="50" placeholder="Courte description"/></br>
->>>>>>> 0fadf3732597870f377e41beafe1b4e0b6aa8795
+
     </div>
 
     <div class="tab">

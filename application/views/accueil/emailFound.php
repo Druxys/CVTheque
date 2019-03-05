@@ -1,10 +1,14 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="page-header">
-                <h1>Un mail vas vous être envoyé pour reset pour votre mot de passe!</h1>
+
+<div class="txt2">
+    <div class="txt3">
+        <div id="form-main">
+            <div id="form-div">
+                <form class="emailFound">                                        <!-- Début du formulaire emailFound -->
+                <h1>Un mail de changement de mot de passe a été envoyé à l'adresse indiqué.</h1>
+                    <h3><a href="../../CVTheque">Retourner à la page d'accueil</a></h3>
+                </form>                                                            <!-- Fin du formulaire emailFound -->
             </div>
         </div>
-    </div><!-- .row -->
-</div><!-- .container -->
+    </div>
+</div>

@@ -7,7 +7,7 @@
                     <p>Connexion</p>
                 </div>
                 <p>
-                    <a href="" class="btn btn-block btn-linkedin"> <i class="fab fa-linkedin"></i>Login via LinkedIn</a>
+                    <a href="" class="btn btn-block btn-linkedin"> <i class="fab fa-linkedin"></i>Connexion via LinkedIn</a>
                 </p>
                 <?php echo form_open('accueil/signIn'); ?>  <!-- Début du formulaire de connexion -->
 
@@ -16,11 +16,11 @@
                     </p>
 
                     <p class="password">
-                        <input name="password" type="password" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Password" id="name" value="<?php echo set_value('password'); ?>" />
+                        <input name="password" type="password" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Mot de passe" id="name" value="<?php echo set_value('password'); ?>" />
                     </p>
 
                     <div class="submit">
-                        <input type="submit" value="SEND" id="button-blue"/>
+                        <input type="submit" value="ENVOYER" id="button-blue"/>
                         <div class="ease"></div>
                     </div>
                     <?php    echo validation_errors(); ?>

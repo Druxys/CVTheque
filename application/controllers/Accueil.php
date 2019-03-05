@@ -177,11 +177,13 @@ class Accueil extends CI_Controller {
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             // user logout ok
             $this->session->sess_destroy();
-            $this->load->view('accueil/signIn', $data);
+            $this->load->view('templates/header');
+            $this->load->view('accueil/deconnexionSuccess');
+            $this->load->view('templates/footer');
 
         }
         else {
-            $this->load->view('accueil/loginSuccess', $data);
+            $this->load->view('accueil', $data);
        }
 
     }

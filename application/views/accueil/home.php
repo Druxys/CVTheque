@@ -1,23 +1,23 @@
     <!-------------------------------------------Début de la boîte acceuil--------------------------------------------->
 
-    <div class="home">  <!-- background-image: url('../assets/img/img1.jpg'); -->
-        <div class="shadow">
-            <div class="txt">
+    <div class="home">                                         <!-- background-image: url('../assets/img/img1.jpg'); -->
+        <div class="shadow">                                                                   <!-- transition ombre -->
+            <div class="cache" >
                 <p>Bienvenue sur le site de Michel Dupont Company !</p>
                 <p>Vous pouvez nous partagez votre CV avec ou sans moyen de connexion.</p>
-                <a href="#">AVEC CONNEXION</a>
-                </br> </br>
-                <a href="#">SANS CONNEXION</a>
+<!--                <a href="#">AVEC CONNEXION</a>-->
+<!--                </br> </br>-->
+<!--                <a href="#">SANS CONNEXION</a>-->
             </div>
         </div>
     </div>
     <!-------------------------------------------Fin de la boîte acceuil----------------------------------------------->
     <div class="homebis">
-        <p>Il vous suffit de poster votre CV et votre lettre de motivation</p>
+<!--        <p>Il vous suffit de poster votre CV et votre lettre de motivation</p>-->
     </div>
     <!-------------------------------------------Début de la boîte contact--------------------------------------------->
 
-    <div class="home2"> <!-- background-image: url('../assets/img/img2.jpg'); -->
+    <div class="home2">                                        <!-- background-image: url('../assets/img/img2.jpg'); -->
         <div class="shadow2">
         <div class="txt3">
             <div id="form-main">
@@ -25,7 +25,8 @@
                     <div class="contacter">
                         <p>Nous contacter</p>
                     </div>
-                    <form class="form" id="form1">  <!-- Début du formulaire de contact -->
+                    <a id="ancre"></a>
+                    <form class="form" id="form1">                               <!-- Début du formulaire de contact -->
 
                         <p class="name">
                             <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Nom" id="name" />
@@ -44,7 +45,7 @@
                             <input type="submit" value="ENVOYER" id="button-blue"/>
                             <div class="ease"></div>
                         </div>
-                    </form>                         <!-- Fin du formulaire de contact -->
+                    </form>                                                        <!-- Fin du formulaire de contact -->
                 </div>
             </div>
         </div>

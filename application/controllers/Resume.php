@@ -87,6 +87,12 @@ class Resume  extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view( 'accueil/'.$page, $data);
             var_dump($_SESSION);
+
+
+//           echo '<pre>';
+//             print_r($this->Model_resume->view($_SESSION['id']));
+//            echo '</pre>';
+
             $this->load->view('templates/footer', $data);
         } else {
             $id = $_SESSION['id'];
@@ -104,19 +110,20 @@ class Resume  extends CI_Controller
             $tel = $this->input->post('tel');
 
 
-            if ($this->Model_resume->insert1( $id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description , $address, $postCode, $city, $mail, $tel) === TRUE ) {
+                if ($this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel) === TRUE) {
 
-                // resume creation ok
-                $this->load->view('templates/header');
-                $this->load->view('accueil/succesResume', $data);
-                $this->load->view('templates/footer');
+                    // resume creation ok
+                    $this->load->view('templates/header');
+                    $this->load->view('accueil/succesResume', $data);
+                    $this->load->view('templates/footer');
 
-            } else {
-                $this->load->view('templates/header', $data);
-                $this->load->view('trou/' . $page, $data);
-                $this->load->view('templates/footer', $data);
+                } else {
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('trou/' . $page, $data);
+                    $this->load->view('templates/footer', $data);
 
-            }
+                }
+
          }
         }
     }

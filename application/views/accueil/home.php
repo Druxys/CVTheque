@@ -25,6 +25,7 @@
         <a id="ancre"></a><!-- background-image: url('../assets/img/img2.jpg'); -->
         <div class="shadow2">
         <div class="txt3">
+            <div class="form-contact">
             <div id="form-main">
                 <div class="form-home2">
                 <div id="form-div">
@@ -56,5 +57,6 @@
         </div>
         </div>
     </div>
-
+    </div>
+    </div>
     <!---------------------------------------------Fin de la boîte contact--------------------------------------------->

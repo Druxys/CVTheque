@@ -69,10 +69,10 @@
 
         <h3> Veuillez choisir un modèle de CV</h3>
 
-        <div class="preview"><input name="idtemplatecvuser" type="radio" id="model1" value="1" <?php if($try[0]['idtemplatecvuser'] === '1'){ echo 'checked'; } ?> /><img src="../assets/img/cv1.png"/></div>
-        <div class="preview"><input name="idtemplatecvuser" type="radio" id="model2" value="2" <?php if($try[0]['idtemplatecvuser'] === '2'){ echo 'checked';} ?> /><img src="../assets/img/cv2.png"/></div>
-        <div class="preview"><input name="idtemplatecvuser" type="radio" id="model3" value="3" <?php if($try[0]['idtemplatecvuser'] === '3'){ echo 'checked';} ?> /><img src="../assets/img/cv3.png"/></div>
-        <div class="preview"><input name="idtemplatecvuser" type="radio" id="model4" value="4" <?php if($try[0]['idtemplatecvuser'] === '4'){ echo 'checked';} ?> /><img src="../assets/img/cv4.jpg"/></div>
+        <div class="preview"><input class="input-hidden" name="idtemplatecvuser" type="radio" id="model1" value="1" <?php if($try[0]['idtemplatecvuser'] === '1'){ echo 'checked';} ?> /><label for="model1"><img src="assets/img/cv1.png" alt="CV1"/></label></div>
+        <div class="preview"><input class="input-hidden" name="idtemplatecvuser" type="radio" id="model2" value="2" <?php if($try[0]['idtemplatecvuser'] === '2'){ echo 'checked';} ?> /><label for="model2"><img src="assets/img/cv2.png" alt="CV2"/></label></div>
+        <div class="preview"><input class="input-hidden" name="idtemplatecvuser" type="radio" id="model3" value="3" <?php if($try[0]['idtemplatecvuser'] === '3'){ echo 'checked';} ?> /><label for="model3"><img src="assets/img/cv3.png" alt="CV3"/></label></div>
+        <div class="preview"><input class="input-hidden" name="idtemplatecvuser" type="radio" id="model4" value="4" <?php if($try[0]['idtemplatecvuser'] === '4'){ echo 'checked';} ?> /><label for="model4"><img src="assets/img/cv4.jpg" alt="CV4"/></label></div>
 
 
 

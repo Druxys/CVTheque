@@ -1,4 +1,5 @@
 <div class="txt6">
+
 <form id="regForm" method="post" >
 
     <?php echo validation_errors();
@@ -11,18 +12,22 @@
     <div class="tab">
         <h3>Infos Générales</h3>
         <div class="customSelect">
+
         <select name="genre">
-            <option  value="<?php if(set_select('genre', $try[0]['sexe']) == 'homme') echo 'selected'; ?>">Homme</option>
-            <option  value="<?php if (set_select('genre', $try[0]['sexe']) == 'femme') echo 'selected'; ?>">Femme</option>
-            <option  value="<?php if (set_select('genre', $try[0]['sexe']) == 'autre') echo 'selected'; ?>">Autre</option>
+            <option  <?php if ($try[0]['sexe'] === 'homme') {echo 'selected';} ?> >Homme</option>
+            <option  <?php if ( $try[0]['sexe'] === 'femme') {echo 'selected';} ?> >Femme</option>
+            <option  <?php if ( $try[0]['sexe'] === 'autre'){ echo 'selected';} ?> >Autre</option>
         </select></br>
+
+
+        </div>
         <input class="firstInput" type="text" name="firstName" value="<?php echo set_value('firstName', $try[0]['firstName'] ); ?>" size="50" placeholder="Prénom"/></br>
         <input type="text" name="lastName" value="<?php echo set_value('lastName', $try[0]['lastName']); ?>" size="50" placeholder="Nom"/></br>
         <input type="text" name ="nationality" value ="<?php echo set_value('nationality', $try[0]['nationality']); ?>" size="50" placeholder="Nationalité"/></br>
         <input type="date" name="birthDate" value="<?php echo set_value('birthDate', $try[0]['birthDate']); ?>" size="50" /></br>
         <input type="text" name ="application" value ="<?php echo set_value('application', $try[0]['posteCible']); ?>" size="50" placeholder="Poste visé"/></br>
         <input type="text" name ="description" value ="<?php echo set_value('description', $try[0]['description']) ; ?>" size="50" placeholder="Courte description"/></br>
-
+    </div>
 
     <div class="tab">
         <h3>Coordonnées</h3>

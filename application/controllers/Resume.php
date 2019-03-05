@@ -89,9 +89,9 @@ class Resume  extends CI_Controller
             var_dump($_SESSION);
 
 
-           echo '<pre>';
-             print_r($this->Model_resume->view($_SESSION['id']));
-            echo '</pre>';
+//           echo '<pre>';
+//             print_r($this->Model_resume->view($_SESSION['id']));
+//            echo '</pre>';
 
             $this->load->view('templates/footer', $data);
         } else {

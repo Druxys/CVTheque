@@ -1,4 +1,4 @@
-        <div class="shadow3"></div>
+
         <footer id="footer">
                 <div class="wrap">
 

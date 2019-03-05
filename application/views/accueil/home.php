@@ -13,7 +13,11 @@
     </div>
     <!-------------------------------------------Fin de la boîte acceuil----------------------------------------------->
     <div class="homebis">
-<!--        <p>Il vous suffit de poster votre CV et votre lettre de motivation</p>-->
+        <div class="wrap">
+    <!--    <p>Il vous suffit de poster votre CV et votre lettre de motivation</p>  -->
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+        </div>
     </div>
     <!-------------------------------------------Début de la boîte contact--------------------------------------------->
 

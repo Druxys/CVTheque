@@ -7,10 +7,10 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: "Quicksand", sans-serif;
-    font-size: 62.5%;
     font-size: 10px;
     scroll-behavior: smooth;
-    background-color: #e6e6e4;
+    background-color: #202020;
+    line-height: 1.5;
 }
 
 /* --> https://codepen.io/abdosteif/pen/bRoyMb?editors=1100*/
@@ -30,7 +30,7 @@ body {
     background-image: url('../assets/img/logo.png');
     width: 50px;
     height: 50px;
-    float: inline-start;
+    float: left;
     margin-left: 10px;
     margin-top: 8px;
 }
@@ -121,6 +121,7 @@ body {
     font-size: 3em;
     padding-top: 20px;
     padding-bottom: 60px;
+
 }
 .shadow2 {
     width: 100%;
@@ -808,26 +809,111 @@ input:focus, textarea:focus {
 /*************************Footer************************************/
 #footer {
     background-color: #202020;
+    color: #FFF;
+    vertical-align: baseline;
+    height: 100%;
+    left: 0;
+    bottom: 0;
     width: 100%;
-    height: 150px;
+    position:relative;
+    border-top: 2px solid #51a5de;
 }
 
 .wrap {
     max-width: 1000px;
     width: 100%;
     margin: 0 auto;
-    background: linear-gradient(180deg, rgba(20, 20, 20, 0.0) 0, #FFFF);
 }
 
-.shadow3 {
-    width: 100%;
+/*************************Footer Social Icons***********************************/
 
-    height: 200px;
-
-    overflow: hidden;
-
-    background: linear-gradient(180deg, transparent 0, #202020);
-
-    z-index: 0;
-
+.columns {
+    width: 33.3333%;
+    float: left;
+    font-size: 1.3em;
 }
+
+.column-info {
+   padding-top: 15px;
+}
+
+.social-icons li
+{
+    float: left;
+    margin-right: 5px;
+    list-style-type: none;
+}
+
+.social-icons
+{
+    margin: 5px;
+    margin-top: 50px;
+}
+
+.social-icons li a
+{
+    width: 46px;
+    height: 46px;
+    display:block;
+    background: url('../assets/img/social-icons.png');
+}
+
+.social-icons li a.facebook:hover
+{
+    background: url('../assets/img/social-icons.png') no-repeat 0 -47px;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.twitter
+{
+    background: url('../assets/img/social-icons.png') no-repeat -52px 0;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.twitter:hover
+{
+    background: url('../assets/img/social-icons.png') no-repeat -52px -47px;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.dribble
+{
+    background: url('../assets/img/social-icons.png') no-repeat -104px 0;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.dribble:hover
+{
+    background: url('../assets/img/social-icons.png') no-repeat -104px -47px;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.rss
+{
+    background: url('../assets/img/social-icons.png') no-repeat -156px 0;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.rss:hover
+{
+    background: url('../assets/img/social-icons.png') no-repeat -156px -47px;
+    width: 46px;
+    height: 46px;
+}
+
+.copyright{
+    color: #FFF;
+    background-color: #202020;
+    text-align: center;
+}
+/*************************<div class="clear=></div>***********************************/
+.clear:before, .clear:after {content:'';display:table;}
+.clear:after{clear:both}
+.clear{*zoom:1;}
+/*************************************************************************************/

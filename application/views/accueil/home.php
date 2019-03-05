@@ -21,6 +21,7 @@
         <div class="shadow2">
         <div class="txt3">
             <div id="form-main">
+                <div class="form-home2">
                 <div id="form-div">
                     <div class="contacter">
                         <p>Nous contacter</p>
@@ -47,7 +48,7 @@
                         </div>
                     </form>                                                        <!-- Fin du formulaire de contact -->
                 </div>
-            </div>
+                </div>
         </div>
         </div>
     </div>

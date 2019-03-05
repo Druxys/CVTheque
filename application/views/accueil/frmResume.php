@@ -42,27 +42,27 @@
         <h2>Contenu </h2>
         <h3>Qualifications</h3>
         <div id="demoQualif"></div><div class="clear"></div>
-        <input class="button2" type="button" id="addQualif" value="Ajouter une qualification"/><div class="clear"></div>
+        <input class="button2" type="button" id="addQualif" value="Ajouter une qualification" onclick="addInputQualif()"/><div class="clear"></div>
 
         <h3>Expériences (professionelles ou personnelles)</h3>
         <div id="demoExp"></div>
-        <input class="button2" type="button" id="addExp" value="Ajouter une expérience"/>
+        <input class="button2" type="button" id="addExp" value="Ajouter une expérience" onclick="addInputExp()"/>
 
         <h3>Centres D'interêts</h3>
         <div id="demoHobby"></div>
-        <input class="button2" type="button" id="addHobby" value="Ajouter un centre d'interêt"/>
+        <input class="button2" type="button" id="addHobby" value="Ajouter un centre d'interêt" onclick="addInputHobby()"/>
 
         <h3>Compétences</h3>
         <div id="demoSkills"></div>
-        <input class="button2" type="button" id="addSkills" value="Ajouter une compétence"/>
+        <input class="button2" type="button" id="addSkills" value="Ajouter une compétence" onclick="addInputSkills()"/>
 
         <h3>Langages</h3>
         <div id="demoLanguages"></div>
-        <input class="button2" type="button" id="addLanguages" value="Ajouter une langue"/>
+        <input class="button2" type="button" id="addLanguages" value="Ajouter une langue" onclick="addInputLanguages()"/>
 
         <h3>Logiciels</h3>
         <div id="demoSoftwares"></div>
-        <input class="button2" type="button" id="addSoftwares" value="Ajouter un logiciel maitrisé"/>
+        <input class="button2" type="button" id="addSoftwares" value="Ajouter un logiciel maitrisé" onclick="addInputSoftwares()"/>
     </div>
 
     <div class="tab">

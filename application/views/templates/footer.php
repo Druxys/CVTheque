@@ -137,149 +137,178 @@
         <script>
             // Script affichage 3e partie
             var num = 1;
-            document.getElementById('addQualif').addEventListener("click",addInputQualif);
 
             function addInputQualif(){
                 var demo = document.getElementById('demoQualif');
                 demo.insertAdjacentHTML('beforeend',
 
-                    '<div>' +
+                    '<div id="aErase'+num+'">' +
                     '<div class="form-holder" >' +
-                    '<a class="form-label" style="float:left;">Diplômes Reçus</a> <br>' +
-                    '<input name="tname'+num+'" type="text" placeholder="Ex : Baccalauréat Général" style="float:left;width: 75%;" />' +
+                    '<input name="atitle'+num+'" type="text" placeholder="Diplômes Reçus"/>' +
                     '</div>' +
 
-                    '<div class="form-holder" style="float: right; width: 18%;">' +
-                    '<input name="tquan'+num+'" type="date" style="width: 100%;" />' +
+                    '<div class="form-holder">' +
+                    '<input name="adate'+num+'" type="date"/>' +
                     '</div>' +
-                    '</div><div class="clear"></div>');
+                    '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputQualif('+num+')"/>'+
+                    '</div>'
+                );
                 num++;
+            }
+
+            function rmInputQualif(num){
+                var remove = document.getElementById('aErase'+num);
+                remove.remove();
             }
         </script>
 
         <script>
             // Script affichage 4e partie
             var num = 1;
-            document.getElementById('addExp').addEventListener("click",addInputExp);
 
             function addInputExp(){
                 var demo = document.getElementById('demoExp');
                 demo.insertAdjacentHTML('beforeend',
 
-                    '<div>' +
+                    '<div id="bErase'+num+'">' +
                     '<div class="form-holder" >' +
-                    '<a class="form-label" style="float:left;">Expériences(professionelles ou personnelles)</a> <br>' +
-                    '<input name="tname'+num+'" type="text" placeholder="Ex : Garde d\'enfants, Organisations d\évenements" style="float:left;width: 75%;" />' +
+                    '<input name="btitle'+num+'" type="text" placeholder="Titre"/>' +
                     '</div>' +
 
-                    '<div class="form-holder" style="float: right; width: 18%;">' +
-                    '<input name="tquan'+num+'" type="date" style="width: 100%;" />' +
+                    '<div class="form-holder" >' +
+                    '<input name="bdesc'+num+'" type="text" placeholder="Description"/>' +
                     '</div>' +
-                    '</div><div class="clear"></div>');
+
+                    '<div class="form-holder">' +
+                    '<input name="bdate'+num+'" type="date" />' +
+                    '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputExp('+num+')"/>' +
+                    '</div>'+
+                    '</div>');
                 num++;
+            }
+
+            function rmInputExp(num){
+                var remove = document.getElementById('bErase'+num);
+                remove.remove();
             }
         </script>
 
         <script>
             // Script affichage 5e partie
             var num = 1;
-            document.getElementById('addHobby').addEventListener("click",addInputHobby);
 
             function addInputHobby(){
                 var demo = document.getElementById('demoHobby');
                 demo.insertAdjacentHTML('beforeend',
 
-                    '<div>' +
-                    '<div class="form-holder" >' +
-                    '<a class="form-label" style="float:left;">Centre d\'interêt</a> <br>' +
-                    '<input name="tname'+num+'" type="text" placeholder="Ex : Sport, Voyages..." style="float:left;width: 75%;" />' +
-                    '</div>' +
-                    '</div><div class="clear"></div>');
+                    '<div id="cErase'+num+'">' +
+                        '<div class="form-holder" >' +
+                            '<input name="cname'+num+'" type="text" placeholder="Centre d\'intérêt"/>' +
+                        '</div>' +
+                    '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputHobby('+num+')"/>' +
+                    '</div>' );
                 num++;
+            }
+
+            function rmInputHobby(num){
+                var remove = document.getElementById('cErase'+num);
+                remove.remove();
             }
         </script>
 
         <script>
             // Script affichage 6e partie
             var num = 1;
-            document.getElementById('addSkills').addEventListener("click",addInputSkills);
 
             function addInputSkills(){
                 var demo = document.getElementById('demoSkills');
                 demo.insertAdjacentHTML('beforeend',
 
-                    '<div>' +
-                    '<div class="form-holder" >' +
-                    '<a class="form-label" style="float:left;">Compétences</a> <br>' +
-                    '<input name="tname'+num+'" type="text" placeholder="Ex : informatique, communication" style="float:left;width: 50%;" />' +
-                    '</div>' +
+                    '<div id="dErase'+num+'">' +
+                        '<div class="form-holder" >' +
+                            '<input name="dname'+num+'" type="text" placeholder="Compétences" style="float:left;width: 50%;" />' +
+                        '</div>' +
 
-                    '<div class="form-holder" style="float: right; width: 40%;">' +
-                    '<select name="ttype'+num+'">' +
-                    '<option value="normal">Débutant</option>' +
-                    '<option value="add-on">Confirmé</option>' +
-                    '<option value="add-on">Expert</option>' +
-                    '</select>' +
-                    '</div><div class="clear"></div>');
+                        '<div class="form-holder">' +
+                            '<select name="dtype'+num+'">' +
+                                '<option value="normal">Débutant</option>' +
+                                '<option value="add-on">Confirmé</option>' +
+                                '<option value="add-on">Expert</option>' +
+                            '</select>' +
+                        '</div>' +
+                    '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputSkills('+num+')"/>' +
+                    '</div>');
                 num++;
+            }
+
+            function rmInputSkills(num){
+                var remove = document.getElementById('dErase'+num);
+                remove.remove();
             }
         </script>
 
         <script>
             // Script affichage 7e partie
             var num = 1;
-            document.getElementById('addLanguages').addEventListener("click",addInputLanguages);
 
             function addInputLanguages(){
                 var demo = document.getElementById('demoLanguages');
                 demo.insertAdjacentHTML('beforeend',
 
-                    '<div>' +
-                    '<div class="form-holder" >' +
-                    '<a class="form-label" style="float:left;">Langages</a> <br>' +
-                    '<input name="tname'+num+'" type="text" placeholder="Ex : English..." style="float:left;width: 50%;" />' +
-                    '</div>' +
+                    '<div id="eErase'+num+'">' +
+                        '<div class="form-holder" >' +
+                            '<input name="ename'+num+'" type="text" placeholder="Langage"/>' +
+                        '</div>' +
 
-                    '<div class="form-holder" style="float: right; width: 40%;">' +
-                    '<select name="ttype'+num+'">' +
-                    '<option value="normal">A1</option>' +
-                    '<option value="add-on">A2</option>' +
-                    '<option value="add-on">B1</option>' +
-                    '<option value="add-on">B2</option>' +
-                    '<option value="add-on">C1</option>' +
-                    '<option value="add-on">C2</option>' +
-                    '</select>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="clear"></div>');
+                        '<div class="form-holder">' +
+                            '<select name="etype'+num+'">' +
+                                '<option value="normal">A1</option>' +
+                                '<option value="add-on">A2</option>' +
+                                '<option value="add-on">B1</option>' +
+                                '<option value="add-on">B2</option>' +
+                                '<option value="add-on">C1</option>' +
+                                '<option value="add-on">C2</option>' +
+                            '</select>' +
+                        '</div>' +
+                    '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputLanguages('+num+')"/>' +
+                    '</div>');
                 num++;
+            }
+
+            function rmInputLanguages(num){
+                var remove = document.getElementById('eErase'+num);
+                remove.remove();
             }
         </script>
 
         <script>
             // Script affichage 8e partie
             var num = 1;
-            document.getElementById('addSoftwares').addEventListener("click",addInputSoftwares);
 
             function addInputSoftwares(){
                 var demo = document.getElementById('demoSoftwares');
                 demo.insertAdjacentHTML('beforeend',
 
-                    '<div>' +
-                    '<div class="form-holder" >' +
-                    '<a class="form-label" style="float:left;">Compétences</a> <br>' +
-                    '<input name="tname'+num+'" type="text" placeholder="Ex : informatique, communication" style="float:left;width: 50%;" />' +
-                    '</div>' +
+                    '<div id="fErase'+num+'">' +
+                        '<div class="form-holder" >' +
+                            '<input name="fname'+num+'" type="text" placeholder="Ex : informatique, communication" style="float:left;width: 50%;" />' +
+                        '</div>' +
 
-                    '<div class="form-holder" style="float: right; width: 40%;">' +
-                    '<select name="ttype'+num+'">' +
-                    '<option value="normal">Débutant</option>' +
-                    '<option value="add-on">Confirmé</option>' +
-                    '<option value="add-on">Expert</option>' +
-                    '</select>' +
-                    '</div>' +
-                    '</div><div class="clear"></div>');
+                        '<div class="form-holder" style="float: right; width: 40%;">' +
+                            '<select name="ftype'+num+'">' +
+                                '<option value="normal">Débutant</option>' +
+                                '<option value="add-on">Confirmé</option>' +
+                                '<option value="add-on">Expert</option>' +
+                            '</select>' +
+                        '</div>' +
+                    '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputSoftwares('+num+')"/>' +
+                    '</div>');
                 num++;
+            }
+
+            function rmInputSoftwares(num){
+                var remove = document.getElementById('fErase'+num);
+                remove.remove();
             }
         </script>
     </body>

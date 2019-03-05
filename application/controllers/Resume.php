@@ -27,7 +27,6 @@ class Resume  extends CI_Controller
             show_404();
         }
         else {
-        $this->load->helper('url');
         $data['title'] = ucfirst($page); // Capitalize the first letter
         $config = array(
             array(

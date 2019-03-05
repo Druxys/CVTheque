@@ -13,8 +13,7 @@
                 </p>
 
                 <div class="submit">
-                    <input type="submit" value="SEND" id="button-blue"/>
-                    <div class="ease"></div>
+                    <input type="submit" value="ENVOYER" id="button-blue"/>
                 </div>
                 <?php    echo validation_errors(); ?>
                 </form>                         <!-- Fin du formulaire de connexion -->

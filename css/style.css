@@ -9,8 +9,10 @@ body {
     font-family: "Quicksand", sans-serif;
     font-size: 62.5%;
     font-size: 10px;
+    scroll-behavior: smooth;
+    background-color: #e6e6e4;
 }
-/*-- Inspiration taken from abdo steif -->
+
 /* --> https://codepen.io/abdosteif/pen/bRoyMb?editors=1100*/
 
 /* Navbar section */
@@ -24,21 +26,31 @@ body {
     z-index: 10;
 }
 
-.nav div.logo {
+.logo {
+    background-image: url('../assets/img/logo.png');
+    width: 50px;
+    height: 50px;
+    float: inline-start;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+
+.nav div.titre {
     float: left;
     width: auto;
     height: auto;
-    padding-left: 3rem;
+    padding-left: 1rem;
 }
 
-.nav div.logo a {
+.nav div.titre a {
     text-decoration: none;
     color: #fff;
     font-size: 2.5rem;
 }
 
-.nav div.logo a:hover {
+.nav div.titre a:hover {
     color: #00E676;
+    transition: 1s;
 }
 
 .nav div.main_list {
@@ -71,6 +83,7 @@ body {
 
 .nav div.main_list ul li a:hover {
     color: #00E676;
+    transition: 1s;
 }
 
 
@@ -79,12 +92,13 @@ body {
 .home {
     width: 100%;
     height: 800px;
-    background-image: url('../assets/img/5.jpg');
+    background-image: url('../assets/img/img1.jpg');
     background-position: center top;
     background-size:cover;
     background-repeat: no-repeat;
     padding-top: 200px;
 }
+
 
 .shadow {
     position: absolute;
@@ -104,12 +118,13 @@ body {
     background-color: #202020;
     color: #FFF;
     text-align: center;
-    font-size: 4em;
+    font-size: 3em;
     padding-top: 20px;
+    padding-bottom: 60px;
 }
 .shadow2 {
     width: 100%;
-    height: 1000px;
+    height: 1281px;
     overflow: hidden;
     background: linear-gradient(0deg, transparent 0, #202020);
     z-index: 0;
@@ -127,7 +142,7 @@ body {
 }
 
 
-/* Media qurey section */
+/* Media query section */
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .container {
@@ -135,11 +150,11 @@ body {
     }
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:650px) {
     .navTrigger {
         display: block;
     }
-    .nav div.logo {
+    .nav div.titre {
         margin-left: 15px;
     }
     .nav div.main_list {
@@ -158,7 +173,7 @@ body {
         right: 0;
         left: 0;
         bottom: 0;
-        background-color: #111;
+        background-color: #51a5de;
         /*same background color of navbar*/
         background-position: center top;
     }
@@ -408,47 +423,76 @@ body {
         padding:2%;
     }
 }
+/************************************************************************/
+.cache {
+    opacity:0;
+    -moz-animation: anim 1s linear forwards 0.5s;
+    -webkit-animation: anim 1s linear forwards 0.5s;
+    -o-animation: anim 1s linear forwards 0.5s;
+    -ms-animation: anim 1s linear forwards 0.5s;
+    animation: anim 1s linear forwards 0.5s;
+}
+@-moz-keyframes anim {
+    0%  {opacity:0;}
+    100% {opacity:1;}
+}
+@-webkit-keyframes anim {
+    0%  {opacity:0;}
+    100% {opacity:1;}
+}
+@-o-keyframes anim {
+    0%  {opacity:0;}
+    100% {opacity:1;}
+}
+@-ms-keyframes anim {
+    0%  {opacity:0;}
+    100% {opacity:1;}
+}
+@keyframes anim {
+    0%  {opacity:0;}
+    100% {opacity:1;}
+}
 
-.txt {
+.cache {
     width:60%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 150px;
-    /*background-color: #white;*/
-    /*opacity: 0.9;*/
     text-align: center;
     padding: 5%;
     z-index: -1;
 }
 
-.txt p {
+.cache p {
     font-size: 4em;
     color: #FFF;
 }
 @media all and (max-width:700px){
-    .txt p {
+    .cache p {
         font-size: 2.5em;
         color: #FFF;
     }
 }
-.txt a {
-    text-decoration: none;
-    font-size: 2em;
-    color: #FFF;
-    width: 50%;
-    text-align: center;
+/*.cache a {*/
+    /*text-decoration: none;*/
+    /*font-size: 2em;*/
+    /*color: #FFF;*/
+    /*width: 50%;*/
+    /*text-align: center;*/
+    /*!*transition: 0.5s;*!*/
+/*}*/
 
-}
+/*.cache a:hover {*/
+    /*color: #00E676;*/
+    /*transition: 1s;*/
+/*}*/
 
-.txt a:hover {
-    color: #00E676;
-}
+/*.button {*/
+    /*width: 100%;*/
+/*}*/
 
-.button {
-    width: 100%;
-}
 .home2 {
-    background-image: url('../assets/img/7.jpg');
+    background-image: url('../assets/img/img2.jpg');
     width: 100%;
     height: 100%;
     background-position: center top;
@@ -457,13 +501,29 @@ body {
 }
 
 .txt2 {
-    background-image: url('../assets/img/2.jpeg');
+    background-image: url('../assets/img/img5.jpg');
     width: 100%;
     height: 100vh;
     background-position: center top;
     background-size:cover;
 }
 
+.txt4 {
+    background-image: url('../assets/img/img3.jpeg');
+    width: 100%;
+    height: 100vh;
+    background-position: center top;
+    background-size:cover;
+}
+
+.txt6 {
+    background-image: url('../assets/img/img6.jpg');
+    width: 100%;
+    height: 1262px;
+    background-position: center top;
+    background-size:auto;
+    background-repeat: repeat;
+}
 /*Formulaire de contact*/
 
 #feedback-page{
@@ -486,7 +546,7 @@ body {
     float: left;
     left: 50%;
     position: absolute;
-    margin-top:225px;
+    margin-top:302px;
     margin-left: -260px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -634,24 +694,43 @@ input:focus, textarea:focus {
 
 /* Style the form */
 #regForm {
-    background-color: #ffffff;
-    margin: 100px auto;
-    padding: 40px;
-    width: 70%;
+    background-color: #eeeeee;
     min-width: 300px;
+    width: 60%;
+    margin-left: 18%;
+    margin-right: auto;
+    text-align: center;
+    padding-left: 35px;
+    padding-right: 55px;
+    padding-top: 35px;
+    padding-bottom: 50px;
+    float: left;
+    position: absolute;
+    margin-top: 150px;
+    -webkit-border-radius: 7px;
 }
 
 /* Style the input fields */
-input {
-    padding: 10px;
+#regForm input {
     width: 100%;
-    font-size: 17px;
-    font-family: Raleway;
-    border: 1px solid #aaaaaa;
+    color: #3c3c3c;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fbfbfb;
+    padding: 13px 13px 13px 54px;
+    margin-bottom: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 3px solid rgba(0,0,0,0);
+    margin-top: 10px;
 }
 
 /* Mark input boxes that gets an error on validation: */
-input.invalid {
+#regForm input.invalid {
     background-color: #ffdddd;
 }
 
@@ -681,4 +760,70 @@ input.invalid {
 .step.finish {
     background-color: #4CAF50;
 }
-/********************************************************************************/
+/*************************LoginSuccess************************************/
+
+.loginSuccess{
+    text-align: center;
+}
+
+/*************************Custom Select************************************/
+.customSelect {
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa url("../assets/img/icon-select.png") no-repeat 90% 50%;
+}
+
+.customSelect select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.customSelect select:focus {
+    outline: none;
+}
+
+/*************************Custom Button************************************/
+.customButton button {
+    background-color: #ffffff; /* Green */
+    border: 1px solid #ccc;
+    padding: 5px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+}
+
+/*************************Footer************************************/
+#footer {
+    background-color: #202020;
+    width: 100%;
+    height: 150px;
+}
+
+.wrap {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.0) 0, #FFFF);
+}
+
+.shadow3 {
+    width: 100%;
+
+    height: 200px;
+
+    overflow: hidden;
+
+    background: linear-gradient(180deg, transparent 0, #202020);
+
+    z-index: 0;
+
+}

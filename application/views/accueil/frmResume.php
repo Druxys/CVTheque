@@ -1,32 +1,32 @@
 <form id="regForm" method="post" >
-    <?php echo validation_errors(); ?>
-
-    <?php echo form_open(''); ?>
+    <?php echo validation_errors();
+    $try = $this->Model_resume->view($_SESSION['id']);
+     echo form_open(''); ?>
 
     <h1>Créer mon CV</h1>
 
     <div class="tab">
         <h3>Infos Générales</h3>
         <select name="genre">
-            <option>Homme</option>
-            <option>Femme</option>
-            <option>Autre</option>
+            <option  value="<?php if(set_select('genre', $try[0]['sexe']) == 'homme') echo 'selected'; ?>">Homme</option>
+            <option  value="<?php echo set_select('genre', $try[0]['sexe'] == 'femme') ?>">Femme</option>
+            <option  value="<?php echo set_select('genre', $try[0]['sexe'] == 'autre') ?>">Autre</option>
         </select></br>
-        <input class="firstInput" type="text" name="firstName" value="<?php echo set_value('firstName'); ?>" size="50" placeholder="Prénom"/></br>
-        <input type="text" name="lastName" value="<?php echo set_value('lastName'); ?>" size="50" placeholder="Nom"/></br>
-        <input type="text" name ="nationality" value ="<?php echo set_value('nationality'); ?>" size="50" placeholder="Nationalité"/></br>
-        <input type="date" name="birthDate" value="<?php echo set_value('birthDate'); ?>" size="50" /></br>
-        <input type="text" name ="application" value ="<?php echo set_value('application'); ?>" size="50" placeholder="Poste visé"/></br>
-        <input type="text" name ="description" value ="<?php echo set_value('description'); ?>" size="50" placeholder="Courte description"/></br>
+        <input class="firstInput" type="text" name="firstName" value="<?php echo set_value('firstName', $try[0]['firstName'] ); ?>" size="50" placeholder="Prénom"/></br>
+        <input type="text" name="lastName" value="<?php echo set_value('lastName', $try[0]['lastName']); ?>" size="50" placeholder="Nom"/></br>
+        <input type="text" name ="nationality" value ="<?php echo set_value('nationality', $try[0]['nationality']); ?>" size="50" placeholder="Nationalité"/></br>
+        <input type="date" name="birthDate" value="<?php echo set_value('birthDate', $try[0]['birthDate']); ?>" size="50" /></br>
+        <input type="text" name ="application" value ="<?php echo set_value('application', $try[0]['posteCible']); ?>" size="50" placeholder="Poste visé"/></br>
+        <input type="text" name ="description" value ="<?php echo set_value('description', $try[0]['description']) ; ?>" size="50" placeholder="Courte description"/></br>
     </div>
 
     <div class="tab">
         <h3>Coordonnées</h3>
-        <input type="text" name ="address" value ="<?php echo set_value('address'); ?>" size="50" placeholder="Addresse"/></br>
-        <input type="number" name ="postCode" value ="<?php echo set_value('postCode'); ?>" size="50" placeholder="Code Postal"/></br>
-        <input type="text" name ="city" value ="<?php echo set_value('city'); ?>" size="50" placeholder="Ville"/></br>
-        <input type="email" name="mail" value="<?php echo set_value('mail'); ?><?php echo set_value('email'); ?>" size="50" placeholder="Email"/></br>
-        <input type="number" name="tel" value="<?php echo set_value('tel'); ?>" size="50" placeholder="Téléphone"/></br>
+        <input type="text" name ="address" value ="<?php echo set_value('address', $try[0]['addr']) ; ?>" size="50" placeholder="Addresse"/></br>
+        <input type="number" name ="postCode" value ="<?php echo set_value('postCode', $try[0]['postCode']) ; ?>" size="50" placeholder="Code Postal"/></br>
+        <input type="text" name ="city" value ="<?php echo set_value('city', $try[0]['city']) ; ?>" size="50" placeholder="Ville"/></br>
+        <input type="email" name="mail" value="<?php echo set_value('mail', $try[0]['mail']) ; ?>" size="50" placeholder="Email"/></br>
+        <input type="number" name="tel" value="<?php echo set_value('tel', $try[0]['tel']) ; ?>" size="50" placeholder="Téléphone"/></br>
     </div>
 
     <div class="tab">

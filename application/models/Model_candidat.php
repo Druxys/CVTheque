@@ -6,13 +6,9 @@ class Model_candidat extends CI_Model
     function __construct()
     {
         parent::__construct();
-<<<<<<< HEAD
-        $this->table = "cv  thek";
-=======
+
         $this->table = "cvt_resume";
 
-
->>>>>>> 014fe3616ac7e72d739a4daf6c8ce58dfbee92b8
     }
 
     function get_all()

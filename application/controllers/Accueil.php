@@ -24,6 +24,46 @@ class Accueil extends CI_Controller {
         $this->load->helper('url');
         $data['title'] = ucfirst($page); // Capitalize the first letter
 
+
+        $this->load->library('form_validation');
+
+        if (isset($_POST['submit'])) {
+
+            $rules = array(
+                array(
+                    'field' => 'name',
+                    'label' => 'Nom',
+                    'rules' => 'trim|required|alpha|minLength[2]|maxLength[100]'
+                ),
+                array(
+                    'field' => 'email',
+                    'label' => 'Email',
+                    'rules' => 'trim|required|valid_email'
+                ),
+                array(
+                    'field' => 'text',
+                    'label' => 'Texte',
+                    'rules' => 'trim|required|maxLength[255]'
+                ),
+                array(
+                    'field' => 'password',
+                    'label' => 'Password',
+                    'rules' => 'trim|required'
+                ),
+                array(
+                    'field' => 'mail',
+                    'label' => 'Email',
+                    'rules' => 'trim|required|valid_email   '
+                ),
+            );
+
+            $this->form_validation->set_rules($rules);
+
+            if ($this->form_validation->run() === TRUE) {
+                // fonction envoi mail
+            }
+        }
+
         $this->load->view('templates/header', $data);
         $this->load->view('accueil/'.$page, $data);
         $this->load->view('templates/footer', $data);
@@ -155,6 +195,7 @@ class Accueil extends CI_Controller {
                 $this->session->set_userdata($newdata);
 
                 $this->load->view('templates/header', $data);
+                header( "refresh:3;url=accueil" );
                 $this->load->view('accueil/loginSuccess', $data);
                 $this->load->view('templates/footer', $data);
 
@@ -177,11 +218,14 @@ class Accueil extends CI_Controller {
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             // user logout ok
             $this->session->sess_destroy();
-            $this->load->view('accueil/signIn', $data);
+            $this->load->view('templates/header');
+            header( "refresh:3;url=accueil" );
+            $this->load->view('accueil/deconnexionSuccess');
+            $this->load->view('templates/footer');
 
         }
         else {
-            $this->load->view('accueil/loginSuccess', $data);
+            $this->load->view('accueil', $data);
        }
 
     }

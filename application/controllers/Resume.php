@@ -27,7 +27,6 @@ class Resume  extends CI_Controller
             show_404();
         }
         else {
-        $this->load->helper('url');
         $data['title'] = ucfirst($page); // Capitalize the first letter
         $config = array(
             array(
@@ -86,7 +85,13 @@ class Resume  extends CI_Controller
             $data['title'] = ucfirst($page); // Capitalize the first letter
             $this->load->view('templates/header', $data);
             $this->load->view( 'accueil/'.$page, $data);
-            var_dump($_SESSION);
+
+
+
+//           echo '<pre>';
+//             print_r($this->Model_resume->view($_SESSION['id']));
+//            echo '</pre>';
+
             $this->load->view('templates/footer', $data);
         } else {
             $id = $_SESSION['id'];
@@ -102,21 +107,23 @@ class Resume  extends CI_Controller
             $city = $this->input->post('city');
             $mail = $this->input->post('mail');
             $tel = $this->input->post('tel');
+            $idtemplatecvuser = $this->input->post('idtemplatecvuser');
 
 
-            if ($this->Model_resume->insert1( $id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description , $address, $postCode, $city, $mail, $tel) === TRUE ) {
+                if ($this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser) === TRUE) {
 
-                // resume creation ok
-                $this->load->view('templates/header');
-                $this->load->view('accueil/succesResume', $data);
-                $this->load->view('templates/footer');
+                    // resume creation ok
+                    $this->load->view('templates/header');
+                    $this->load->view('accueil/succesResume', $data);
+                    $this->load->view('templates/footer');
 
-            } else {
-                $this->load->view('templates/header', $data);
-                $this->load->view('trou/' . $page, $data);
-                $this->load->view('templates/footer', $data);
+                } else {
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('trou/' . $page, $data);
+                    $this->load->view('templates/footer', $data);
 
-            }
+                }
+
          }
         }
     }

@@ -32,26 +32,29 @@
                     <div class="contacter">
                         <p>Nous contacter</p>
                     </div>
-                    <form class="form" id="form1">                               <!-- Début du formulaire de contact -->
+                    <?= form_open('', 'class="form" id="form1"'); ?>            <!-- Début du formulaire de contact -->
 
                         <p class="name">
-                            <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Nom" id="name" />
+                            <?= form_input('name', '', 'class="feedback-input" placeholder="Nom" id="name"'); ?>
                         </p>
+                        <?= form_error('name'); ?>
 
                         <p class="email">
-                            <input name="email" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
+                            <?= form_input('email', '', 'class="feedback-input" id="email" placeholder="Email"'); ?>
                         </p>
+                        <?= form_error('email'); ?>
 
                         <p class="text">
-                            <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Commentaire"></textarea>
+                            <?= form_textarea('text', '', 'class="feedback-input" id="comment" placeholder="Commentaire"'); ?>
                         </p>
+                        <?= form_error('text'); ?>
 
 
                         <div class="submit">
-                            <input type="submit" value="ENVOYER" id="button-blue"/>
+                            <?= form_submit('submit', 'ENVOYER', 'id="button-blue"'); ?>
                             <div class="ease"></div>
                         </div>
-                    </form>                                                        <!-- Fin du formulaire de contact -->
+                    <?= form_close(); ?><!-- Fin du formulaire de contact -->
                 </div>
                 </div>
         </div>

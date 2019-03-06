@@ -22,6 +22,15 @@ class Model_resume extends CI_Model
         return $this->db->get();
     }
 
+    function get_id($id)
+    {
+        $this->db->select("*")
+            ->from($this->table)
+            ->where("cvt_users_idcvt_users = $id")
+            ->limit(1);
+        return $this->db->get();
+    }
+
     function insert1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel , $idtemplatecvuser)
     {
         $data = array(
@@ -41,7 +50,14 @@ class Model_resume extends CI_Model
             "idtemplatecvuser" => $idtemplatecvuser
 
         );
-        return $this->db->insert($this->table, $data);
+        $findId = $this->Model_resume->get_id($id);
+
+        if (!empty($findId))
+        {
+            return $this->db->update($this->cvt_users_idcvt_users, $data);
+        }else {
+            return $this->db->insert($this->table, $data);
+        }
     }
 
     function insert2($address, $postCode, $city, $mail, $tel)

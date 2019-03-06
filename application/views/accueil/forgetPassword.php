@@ -9,13 +9,15 @@
                 <?php echo form_open('accueil/forgetPassword'); ?>  <!-- Début du formulaire de mot de passe oublié -->
 
                 <p class="email">
-                    <input name="mail" type="email" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" value="<?php echo set_value('email'); ?>" />
+<!--                    <input name="mail" type="email" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" value="--><?php //echo set_value('email'); ?><!--" />-->
+                    <?= form_input('mail', '', 'class="feedback-input" id="email" placeholder="Email"'); ?>
                 </p>
+                <?= form_error('mail'); ?>
 
                 <div class="submit">
-                    <input type="submit" value="ENVOYER" id="button-blue"/>
+                    <?= form_submit('submit', 'ENVOYER', 'id="button-blue"'); ?>
                 </div>
-                <?php    echo validation_errors(); ?>
+
                 </form>                         <!-- Fin du formulaire de connexion -->
             </div>
         </div>

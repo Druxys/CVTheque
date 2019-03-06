@@ -8,6 +8,7 @@
     <meta name="keyword" content="Michel Dupont, CV">
     <meta name="author" content="Michel Dupont">
     <meta name="robots" content="all|(no)follow|(no)index|none">
+    <!----------------------------------------------------------------------------------------------------------------->
     <title>Company</title>
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png"/>
     <!---------------------------------------------Css page d'acceuil-------------------------------------------------->

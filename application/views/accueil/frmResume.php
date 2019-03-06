@@ -7,7 +7,7 @@
      echo form_open(''); ?>
 
 
-    <h1>Créer mon CV</h1>
+    <h1>Créer ou modifier mon CV</h1>
 
     <div class="tab">
         <h3>Infos Générales</h3>
@@ -75,8 +75,8 @@
         <div class="preview"><input class="input-hidden" name="idtemplatecvuser" type="radio" id="model4" value="4" <?php if($try[0]['idtemplatecvuser'] === '4'){ echo 'checked';} ?> /><label for="model4"><img src="assets/img/cv4.jpg" alt="CV4"/></label></div>
 
 
-
     </div>
+    <div class="clear"></div>
     <div class="customButton">
         <div style="overflow:auto;">
             <div style="float:right;">

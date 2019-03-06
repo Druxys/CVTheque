@@ -34,7 +34,7 @@ class Candidat extends CI_Controller
                     "modified" => $row->resume_modified,
                     "idcvt_users" => $row->cvt_users_idcvt_users,
                     "idtemplatecvuser" => $row->idtemplatecvuser,
-                        "skill" =>
+
 
 
                 );

@@ -39,9 +39,17 @@ class Candidat extends CI_Controller
         $result["skill"] = $this->Model_skill->getSkills($id)->result_array();
         $result["langue"] = $this->Model_language->getLanguages($id)->result_array();
         $result["exp"] = $this->Model_experience->getExp($id)->result_array();
-//        $result["certification"] = $this->Model_certification->getCertif($id)->result_array();
+        $result["certification"] = $this->Model_certification->getCertif($id)->result_array();
 
-        echo json_encode($result, FALSE);
+        if (isset($dataCandidat)) {
+
+            echo json_encode($result, FALSE);
+        }
+        else{
+            header("HTTP/1.0 204 No Content");
+            echo json_encode("204: no products in the database");
+        }
+
 
 
     }

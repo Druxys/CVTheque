@@ -170,8 +170,6 @@ class Model_resume extends CI_Model
               return $result;
 
         } else {
-            header("HTTP/1.0 404 Not Found");
-            echo json_encode("404 : Product #$id not found");
         }
     }
 

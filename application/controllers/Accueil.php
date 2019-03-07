@@ -11,6 +11,8 @@ class Accueil extends CI_Controller {
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->library('email');
+        $this->load->library('form_validation');
+        $this->load->library('ConfirmationMail');
     }
 
 
@@ -25,15 +27,13 @@ class Accueil extends CI_Controller {
         $data['title'] = ucfirst($page); // Capitalize the first letter
 
 
-        $this->load->library('form_validation');
-
         if (isset($_POST['submit'])) {
 
             $rules = array(
                 array(
                     'field' => 'name',
                     'label' => 'Nom',
-                    'rules' => 'trim|required|alpha|minLength[2]|maxLength[100]'
+                    'rules' => 'trim|required|alpha|min_length[2]|max_length[100]'
                 ),
                 array(
                     'field' => 'email',
@@ -43,24 +43,25 @@ class Accueil extends CI_Controller {
                 array(
                     'field' => 'text',
                     'label' => 'Texte',
-                    'rules' => 'trim|required|maxLength[255]'
-                ),
-                array(
-                    'field' => 'password',
-                    'label' => 'Password',
-                    'rules' => 'trim|required'
+                    'rules' => 'trim|required|max_length[255]'
                 ),
                 array(
                     'field' => 'mail',
                     'label' => 'Email',
-                    'rules' => 'trim|required|valid_email   '
+                    'rules' => 'trim|required|valid_email'
+                ),
+                array(
+                    'field' => 'checkbox',
+                    'label' => 'Checkbox',
+                    'rules' => 'trim|required'
                 ),
             );
 
             $this->form_validation->set_rules($rules);
 
-            if ($this->form_validation->run() === TRUE) {
+            if ($this->form_validation->run() === FALSE) {
                 // fonction envoi mail
+                $this->ConfirmationMail->contactMail();
             }
         }
 
@@ -124,6 +125,7 @@ class Accueil extends CI_Controller {
 
                 // user creation ok
                 $this->load->view('templates/header');
+                header( "refresh:3;url=../" );
                 $this->load->view('accueil/registerSuccess', $data);
                 $this->load->view('templates/footer');
 

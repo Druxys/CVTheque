@@ -25,6 +25,12 @@
                 </p>
                 <?= form_error('password'); ?>
 
+                <p class="condition">
+                <?= form_checkbox('checkbox', '','TRUE','')?>
+                    J'ai lu et j'accepte <a href="">les conditions générales d'utilisation,</a> notamment la mention relative à la protection des données personnelles.
+                </p>
+                <?= form_error('checkbox');     ?>
+
 
                 <div class="submit">
                     <?= form_submit('submit', 'ENVOYER', 'id="button-blue"'); ?>

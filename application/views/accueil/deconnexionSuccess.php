@@ -4,7 +4,7 @@
     <div class="txt2">
         <div id="form-main">
             <div id="form-div">
-                <div class="loginSuccess">
+                <div class="success">
                     <h1>Vous êtes déconnecté !</h1>
                     <p>Redirection vers la page d'accueil dans <div id="countdown"></div> </p>
                 </div>

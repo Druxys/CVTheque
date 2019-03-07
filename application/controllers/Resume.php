@@ -16,7 +16,8 @@ class Resume  extends CI_Controller
         $this->load->library('session');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-        $this->load->library('email');
+        $this->load->library('email');/*
+        $this->load->library('ConfirmationMail');*/
     }
 
     public function frmResume($page = 'frmResume')
@@ -139,12 +140,11 @@ class Resume  extends CI_Controller
                 array(
                     'field' => 'tel',
                     'label' => 'telephone',
-                    'rules' => 'trim|required|numeric|exact_length[10]',
+                    'rules' => 'trim|required|numeric',
                     'errors' => array(
                         'trim' => 'Le numéro de téléphone renseigné est invalide.',
                         'required' => 'Veuillez renseigner un numéro de téléphone.',
                         'numeric' => 'Le numéro de téléphone doit être composé de caractères numériques.',
-                        'exact_length[10]' => 'Le numéro de téléphone doit faire 10 caractères.'
                     ),
                 ),
             );
@@ -153,6 +153,7 @@ class Resume  extends CI_Controller
 
         if ($this->form_validation->run() === FALSE) {
             $data['title'] = ucfirst($page); // Capitalize the first letter
+
             $this->load->view('templates/header', $data);
             $this->load->view( 'accueil/'.$page, $data);
 
@@ -164,6 +165,9 @@ class Resume  extends CI_Controller
 
             $this->load->view('templates/footer', $data);
         } else {
+
+
+
             $id = $_SESSION['id'];
             $genre = $this->input->post('genre');
             $firstName = $this->input->post('firstName');
@@ -178,9 +182,6 @@ class Resume  extends CI_Controller
             $mail = $this->input->post('mail');
             $tel = $this->input->post('tel');
             $idtemplatecvuser = $this->input->post('idtemplatecvuser');
-
-
-
 
             if(isset($_POST["atitle"]) === true) {
                 $atitle = $_POST["atitle"];
@@ -239,6 +240,7 @@ class Resume  extends CI_Controller
                 }
             }
 
+
             if($this->Model_resume->get_id($id) != false )
             {
                if($this->Model_resume->replace1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser) === TRUE) {
@@ -256,6 +258,10 @@ class Resume  extends CI_Controller
                     $this->load->view('templates/footer');
                 }
             }
+
+            // Envoie de mail pour confirmer
+/*
+              $this->confirmationmail->confirmationCv();*/
         }
     }
 }
@@ -266,6 +272,43 @@ class Resume  extends CI_Controller
     }
     public function addCertifStatus($id){
         $this->Model_resume->addCertifStatus($id);
+        header('Location: ../frmResume');
+    }
+
+    public function deleteExpStatus($id){
+        $this->Model_resume->deleteExpStatus($id);
+        header('Location: ../frmResume');
+    }
+    public function addExpStatus($id){
+        $this->Model_resume->addExpStatus($id);
+        header('Location: ../frmResume');
+    }
+
+    public function deleteSoftwareStatus($id){
+    $this->Model_resume->deleteSoftwareStatus($id);
+    header('Location: ../frmResume');
+    }
+    public function addSoftwareStatus($id){
+        $this->Model_resume->addSoftwareStatus($id);
+        header('Location: ../frmResume');
+    }
+
+    public function deleteHobbyStatus($id)
+    {
+        $this->Model_resume->deleteHobbyStatus($id);
+        header('Location: ../frmResume');
+    }
+    public function addHobbyStatus($id){
+        $this->Model_resume->addHobbyStatus($id);
+        header('Location: ../frmResume');
+    }
+
+    public function deleteLanguageStatus($id){
+    $this->Model_resume->deleteLanguageStatus($id);
+    header('Location: ../frmResume');
+    }
+    public function addLanguageStatus($id){
+        $this->Model_resume->addLanguageStatus($id);
         header('Location: ../frmResume');
     }
 

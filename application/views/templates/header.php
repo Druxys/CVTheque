@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<?php //echo current_url(); ?>
 <html lang="en">
 
 <head>
@@ -33,17 +33,30 @@
                 <ul class="navlinks">
 
             <?php if(($this->session->userdata('logged_in') != 1 )) {
-                echo  '<ul class="navlinks">
 
+                if (current_url()== "http://127.0.0.1/CVTheque/"){
+                    $lien = "#ancre";
+                } else {
+                    $lien = "accueil#ancre";
+                }
+
+                echo  '<ul class="navlinks">
+                    
+                    
                     <li><a href="signUp">Inscription</a></li>
                     <li><a href="signIn">Connexion</a></li>
-                    <li><a href="#ancre">Nous contacter</a></li>
+                    <li><a href="'.$lien.'">Nous contacter</a></li>
                 </ul>'; }
                 else {
+                    if (current_url()== "http://127.0.0.1/CVTheque/"){
+                        $lien = "#ancre";
+                    } else {
+                        $lien = "accueil#ancre";
+                    }
                echo ' 
                     <li><a href="signOut">Déconnexion</a></li>
                     <li><a href="frmResume">Mon CV</a></li>
-                    <li><a href="#form1">Nous contacter</a></li>
+                    <li><a href="'. $lien .'">Nous contacter</a></li>
                 </ul>' ;
             } ?>
 

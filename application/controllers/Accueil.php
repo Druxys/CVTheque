@@ -11,6 +11,8 @@ class Accueil extends CI_Controller {
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->library('email');
+        $this->load->library('form_validation');
+        $this->load->library('ConfirmationMail');
     }
 
 
@@ -25,15 +27,13 @@ class Accueil extends CI_Controller {
         $data['title'] = ucfirst($page); // Capitalize the first letter
 
 
-        $this->load->library('form_validation');
-
         if (isset($_POST['submit'])) {
 
             $rules = array(
                 array(
                     'field' => 'name',
                     'label' => 'Nom',
-                    'rules' => 'trim|required|alpha|minLength[2]|maxLength[100]'
+                    'rules' => 'trim|required|alpha|min_length[2]|max_length[100]'
                 ),
                 array(
                     'field' => 'email',
@@ -43,12 +43,7 @@ class Accueil extends CI_Controller {
                 array(
                     'field' => 'text',
                     'label' => 'Texte',
-                    'rules' => 'trim|required|maxLength[255]'
-                ),
-                array(
-                    'field' => 'password',
-                    'label' => 'Password',
-                    'rules' => 'trim|required'
+                    'rules' => 'trim|required|max_length[255]'
                 ),
                 array(
                     'field' => 'mail',
@@ -59,8 +54,9 @@ class Accueil extends CI_Controller {
 
             $this->form_validation->set_rules($rules);
 
-            if ($this->form_validation->run() === TRUE) {
+            if ($this->form_validation->run() === FALSE) {
                 // fonction envoi mail
+                $this->ConfirmationMail->contactMail();
             }
         }
 

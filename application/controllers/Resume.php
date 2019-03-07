@@ -16,8 +16,8 @@ class Resume  extends CI_Controller
         $this->load->library('session');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-        $this->load->library('email');
-        $this->load->library('ConfirmationMail');
+        $this->load->library('email');/*
+        $this->load->library('ConfirmationMail');*/
     }
 
     public function frmResume($page = 'frmResume')
@@ -234,16 +234,20 @@ class Resume  extends CI_Controller
                 }
             }
 
-            if($this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser) === TRUE){
-                    // resume creation ok
+            if($this->Model_resume->get_id($id) === TRUE){
+                $this->Model_resume->replace1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser);
                     $this->load->view('templates/header');
                     $this->load->view('accueil/succesResume', $data);
                     $this->load->view('templates/footer');
-                } else {
+            }else{
                 $this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser);
-            }
+                    $this->load->view('templates/header');
+                    $this->load->view('accueil/succesResume', $data);
+                    $this->load->view('templates/footer');
+                }
             // Envoie de mail pour confirmer
-              $this->confirmationmail->confirmationCv();
+/*
+              $this->confirmationmail->confirmationCv();*/
         }
     }
 }
@@ -254,6 +258,43 @@ class Resume  extends CI_Controller
     }
     public function addCertifStatus($id){
         $this->Model_resume->addCertifStatus($id);
+        header('Location: ../frmResume');
+    }
+
+    public function deleteExpStatus($id){
+        $this->Model_resume->deleteExpStatus($id);
+        header('Location: ../frmResume');
+    }
+    public function addExpStatus($id){
+        $this->Model_resume->addExpStatus($id);
+        header('Location: ../frmResume');
+    }
+
+    public function deleteSoftwareStatus($id){
+    $this->Model_resume->deleteSoftwareStatus($id);
+    header('Location: ../frmResume');
+    }
+    public function addSoftwareStatus($id){
+        $this->Model_resume->addSoftwareStatus($id);
+        header('Location: ../frmResume');
+    }
+
+    public function deleteHobbyStatus($id)
+    {
+        $this->Model_resume->deleteHobbyStatus($id);
+        header('Location: ../frmResume');
+    }
+    public function addHobbyStatus($id){
+        $this->Model_resume->addHobbyStatus($id);
+        header('Location: ../frmResume');
+    }
+
+    public function deleteLanguageStatus($id){
+    $this->Model_resume->deleteLanguageStatus($id);
+    header('Location: ../frmResume');
+    }
+    public function addLanguageStatus($id){
+        $this->Model_resume->addLanguageStatus($id);
         header('Location: ../frmResume');
     }
 

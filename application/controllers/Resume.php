@@ -24,11 +24,16 @@ class Resume  extends CI_Controller
     public function frmResume($page = 'frmResume')
     {
 
-        if (!file_exists(APPPATH . 'views/accueil/' . $page . '.php')) {
+        if (!file_exists(APPPATH . 'views/accueil/' . $page . '.php')  ) {
             // Whoops, we don't have a page for that!
             show_404();
         }
         else {
+
+            if(!isset($_SESSION['id'])){
+                // Whoops, we don't have a page for that!
+                show_404();
+            }
         $data['title'] = ucfirst($page); // Capitalize the first letter
             $config = array(
                 array(

@@ -857,6 +857,7 @@ input:focus, textarea:focus {
 .column-info {
    padding-top: 15px;
     text-align: justify;
+    margin-left: 25px;
 }
 
 .social-icons li

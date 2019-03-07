@@ -65,10 +65,6 @@ class Model_resume extends CI_Model
        // }
     }
 
-
-
-    function insertCertif($atitle,$adate)
-
     function replace1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel , $idtemplatecvuser){
         $data = array(
             "cvt_users_idcvt_users" => $id,
@@ -106,7 +102,7 @@ class Model_resume extends CI_Model
         $data = array(
             "exp_name" => $btitle,
             "exp_date" => $bdate,
-        "exp_description" => $bdesc
+            "exp_description" => $bdesc
         );
         return $this->db->insert('cvt_experiences', $data);
     }
@@ -185,12 +181,12 @@ class Model_resume extends CI_Model
         return $this->db->get()->result_array();}
 
     function getExp($id){
-        $this->db->from('cvt_software')
+        $this->db->from('cvt_experiences')
             ->where("id_user", $id);
         return $this->db->get()->result_array();}
 
     function getSoftware($id){
-        $this->db->from('cvt_certification')
+        $this->db->from('cvt_software')
             ->where("id_user", $id);
         return $this->db->get()->result_array();}
 
@@ -219,18 +215,65 @@ class Model_resume extends CI_Model
         $this->db->update('cvt_certification', $data);
     }
 
-    function rmExpStatus(){
+    function deleteExpStatus($id){
+        $data = array(
+            'exp_status' => '0'
+        );
+        $this->db->where("idcvt_experiences", $id);
+        $this->db->update('cvt_experiences', $data);
+    }
+    function addExpStatus($id){
+        $data = array(
+            'exp_status' => '1'
+        );
+        $this->db->where("idcvt_experiences", $id);
+        $this->db->update('cvt_experiences', $data);
     }
 
-    function modifSoftwareStatus(){
-
+    function deleteSoftwareStatus($id){
+        $data = array(
+            'software_status' => '0'
+        );
+        $this->db->where("idcvt_software", $id);
+        $this->db->update('cvt_software', $data);
+    }
+    function addSoftwareStatus($id){
+        $data = array(
+            'software_status' => '0'
+        );
+        $this->db->where("idcvt_software", $id);
+        $this->db->update('cvt_software', $data);
     }
 
-    function modifHobbyStatus(){
-
+    function deleteHobbyStatus(){
+        $data = array(
+            'category_status' => '0'
+        );
+        $this->db->where("idcvt_category", $id);
+        $this->db->update('cvt_category', $data);
+    }
+    function addHobbyStatus(){
+        $data = array(
+            'category_status' => '1'
+        );
+        $this->db->where("idcvt_category", $id);
+        $this->db->update('cvt_category', $data);
     }
 
-    function modifLanguageStatus(){
+    function deleteLanguageStatus(){
+        $data = array(
+            'lang_status' => '0'
+        );
+        $this->db->where("idcvt_languages", $id);
+        $this->db->update('cvt_languages', $data);
+
+    }
+    function addLanguageStatus(){
+        $data = array(
+            'lang_status' => '1'
+        );
+        $this->db->where("idcvt_languages", $id);
+        $this->db->update('cvt_languages', $data);
 
     }
 }

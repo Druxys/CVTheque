@@ -139,12 +139,11 @@ class Resume  extends CI_Controller
                 array(
                     'field' => 'tel',
                     'label' => 'telephone',
-                    'rules' => 'trim|required|numeric|exact_length[10]',
+                    'rules' => 'trim|required|numeric',
                     'errors' => array(
                         'trim' => 'Le numéro de téléphone renseigné est invalide.',
                         'required' => 'Veuillez renseigner un numéro de téléphone.',
                         'numeric' => 'Le numéro de téléphone doit être composé de caractères numériques.',
-                        'exact_length[10]' => 'Le numéro de téléphone doit faire 10 caractères.'
                     ),
                 ),
             );
@@ -178,10 +177,6 @@ class Resume  extends CI_Controller
             $mail = $this->input->post('mail');
             $tel = $this->input->post('tel');
             $idtemplatecvuser = $this->input->post('idtemplatecvuser');
-
-
-
-var_dump($_POST);
 
             if(isset($_POST["atitle"]) === true) {
                 $atitle = $_POST["atitle"];
@@ -234,11 +229,9 @@ var_dump($_POST);
                 }
             }
 
-            if($this->Model_resume->replace1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser) === TRUE){
-
+            if($this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser) === TRUE){
                     // resume creation ok
                     $this->load->view('templates/header');
-                    var_dump($_POST["atitle"]);
                     $this->load->view('accueil/succesResume', $data);
                     $this->load->view('templates/footer');
                 } else {

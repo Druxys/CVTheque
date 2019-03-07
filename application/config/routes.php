@@ -57,6 +57,7 @@ $route['signOut'] = 'accueil/signOut';
 $route['frmResume'] = 'Resume/frmResume';
 $route['forgetPassword'] = 'accueil/forgetPassword';
 $route['accueil/frmResume'] = 'Resume/frmResume';
+$route['resume'] = '';
 $route['resume/signIn'] = 'accueil/signIn';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

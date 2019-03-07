@@ -22,6 +22,15 @@ class Model_resume extends CI_Model
         return $this->db->get();
     }
 
+    function get_id($id)
+    {
+        $this->db->select("*")
+            ->from($this->table)
+            ->where("cvt_users_idcvt_users = $id")
+            ->limit(1);
+        return $this->db->get();
+    }
+
     function insert1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel , $idtemplatecvuser)
     {
         $data = array(
@@ -41,20 +50,101 @@ class Model_resume extends CI_Model
             "idtemplatecvuser" => $idtemplatecvuser
 
         );
-        return $this->db->insert($this->table, $data);
+       // $findId = $this->Model_resume->get_id($id);
+
+       // if (!empty($findId))
+       // {
+           // return $this->db->update($this->cvt_users_idcvt_users, $data);
+
+
+           // $this->db->set($infos)->where('id',$id_cand)->update('candidat');
+
+
+        //}else {
+            return $this->db->insert($this->table, $data);
+       // }
     }
 
-    function insert2($address, $postCode, $city, $mail, $tel)
-    {
+
+
+    function insertCertif($atitle,$adate)
+
+    function replace1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel , $idtemplatecvuser){
         $data = array(
+            "cvt_users_idcvt_users" => $id,
+            "resume_sexe" => $genre,
+            "resume_firstName" => $firstName,
+            "resume_lastName" => $lastName,
+            "resume_nationality" => $nationality,
+            "resume_birthDate" => $birthDate,
+            "resume_posteCible" => $application,
+            "resume_describ" => $description,
             "resume_addr" => $address,
             "resume_postCode" => $postCode,
             "resume_city" => $city,
             "resume_mail" => $mail,
-            "resume_tel" => $tel
+            "resume_tel" => $tel,
+            "idtemplatecvuser" => $idtemplatecvuser
         );
-        return $this->db->insert($this->table, $data);
+        $this->db->set($data);
+        $this->db->where('cvt_users_idcvt_users', $id);
+        return $this->db->update($this->table);
     }
+
+    function insertCertif($atitle,$adate)
+    {
+        $data = array(
+            "certif_name" => $atitle,
+            "certif_date" => $adate
+        );
+        return $this->db->insert('cvt_certification', $data);
+    }
+
+
+    function insertExp($btitle,$bdate,$bdesc)
+    {
+        $data = array(
+            "exp_name" => $btitle,
+            "exp_date" => $bdate,
+        "exp_description" => $bdesc
+        );
+        return $this->db->insert('cvt_experiences', $data);
+    }
+
+    function insertHobby($ctitle)
+    {
+        $data = array(
+            "category_name" => $ctitle,
+        );
+        return $this->db->insert('cvt_category', $data);
+    }
+    function insertSkill($dtitle, $dtype)
+    {
+        $data = array(
+            "skills_name" => $dtitle,
+            "skills_level" => $dtype
+        );
+        return $this->db->insert('cvt_skills', $data);
+    }
+
+    function insertLang($etitle, $etype)
+    {
+        $data = array(
+            "lang_name" => $etitle,
+            "lang_level" => $etype
+        );
+        return $this->db->insert('cvt_languages', $data);
+    }
+
+    function insertSoft($ftitle, $ftype)
+    {
+        $data = array(
+            "software_name" => $ftitle,
+            "software_level" => $ftype
+        );
+        return $this->db->insert('cvt_software', $data);
+    }
+
 
     function update1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel)
     {

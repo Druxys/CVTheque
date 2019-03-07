@@ -486,23 +486,6 @@ body {
         color: #FFF;
     }
 }
-/*.cache a {*/
-    /*text-decoration: none;*/
-    /*font-size: 2em;*/
-    /*color: #FFF;*/
-    /*width: 50%;*/
-    /*text-align: center;*/
-    /*!*transition: 0.5s;*!*/
-/*}*/
-
-/*.cache a:hover {*/
-    /*color: #00E676;*/
-    /*transition: 1s;*/
-/*}*/
-
-/*.button {*/
-    /*width: 100%;*/
-/*}*/
 
 .home2 {
     background-image: url('../assets/img/img2.jpg');
@@ -564,6 +547,7 @@ body {
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
 }
+
 
 .form-contact {
     margin-top: -400px;
@@ -745,9 +729,31 @@ input:focus, textarea:focus {
     margin-top: 10px;
 }
 
+#regForm .form-cv:focus {
+    background: #fff;
+    box-shadow: 0;
+    border: 3px solid #3498db;
+    color: #3498db;
+    outline: none;
+    padding: 13px 13px 13px 54px;
+}
+
+#regForm .button:focus {
+    background: #fff;
+    box-shadow: 0;
+    border: 3px solid #3498db;
+    color: #3498db;
+    outline: none;
+    padding: 13px 13px 13px 54px;
+}
+
 /* Mark input boxes that gets an error on validation: */
 #regForm input.invalid {
-    background-color: #ffdddd;
+    background-color: #ff6e6e;
+}
+
+#regForm .button2 {
+    color: red;
 }
 
 /* Hide all steps by default: */
@@ -789,7 +795,7 @@ input:focus, textarea:focus {
 
 /*************************LoginSuccess************************************/
 
-.loginSuccess{
+.success{
     text-align: center;
 }
 
@@ -827,7 +833,6 @@ input:focus, textarea:focus {
     font-size: 16px;
     border-radius: 3px;
 }
-
 /*************************Footer************************************/
 #footer {
     background-color: #202020;
@@ -857,6 +862,7 @@ input:focus, textarea:focus {
 .column-info {
    padding-top: 15px;
     text-align: justify;
+    margin-left: 25px;
 }
 
 .social-icons li
@@ -982,3 +988,8 @@ input:focus, textarea:focus {
 .clear:before, .clear:after {content:'';display:table;}
 .clear:after{clear:both}
 .clear{*zoom:1;}
+
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}

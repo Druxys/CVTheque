@@ -17,6 +17,7 @@ class Resume  extends CI_Controller
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->load->library('email');
+        $this->load->library('ConfirmationMail');
     }
 
     public function frmResume($page = 'frmResume')
@@ -152,6 +153,7 @@ class Resume  extends CI_Controller
 
         if ($this->form_validation->run() === FALSE) {
             $data['title'] = ucfirst($page); // Capitalize the first letter
+
             $this->load->view('templates/header', $data);
             $this->load->view( 'accueil/'.$page, $data);
 
@@ -163,6 +165,9 @@ class Resume  extends CI_Controller
 
             $this->load->view('templates/footer', $data);
         } else {
+
+
+
             $id = $_SESSION['id'];
             $genre = $this->input->post('genre');
             $firstName = $this->input->post('firstName');
@@ -237,6 +242,8 @@ class Resume  extends CI_Controller
                 } else {
                 $this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser);
             }
+            // Envoie de mail pour confirmer
+              $this->confirmationmail->confirmationCv();
         }
     }
 }

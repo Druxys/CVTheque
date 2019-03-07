@@ -16,8 +16,8 @@ class Resume  extends CI_Controller
         $this->load->library('session');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-        $this->load->library('email');/*
-        $this->load->library('ConfirmationMail');*/
+        $this->load->library('email');
+        $this->load->library('ConfirmationMail');
     }
 
     public function frmResume($page = 'frmResume')
@@ -188,7 +188,8 @@ class Resume  extends CI_Controller
                 foreach ($atitle as $key => $value) {
                     $atitle = $_POST["atitle"][$key];
                     $adate = $_POST["adate"][$key];
-                    $this->Model_resume->insertCertif($atitle, $adate);
+                    $astatus = '1';
+                    $this->Model_resume->insertCertif($atitle, $adate,$astatus, $id);
                 }
             }
             if(isset($_POST["btitle"]) === true) {
@@ -197,7 +198,8 @@ class Resume  extends CI_Controller
                     $btitle = $_POST["btitle"][$key];
                     $bdate = $_POST["adate"][$key];
                     $bdesc = $_POST["bdesc"][$key];
-                    $this->Model_resume->insertExp($btitle, $bdate, $bdesc);
+                    $bstatus = '1';
+                    $this->Model_resume->insertExp($btitle, $bdate, $bdesc,$bstatus, $id);
                 }
             }
 
@@ -205,7 +207,8 @@ class Resume  extends CI_Controller
                 $ctitle = $_POST["ctitle"];
                 foreach ($ctitle as $key => $value) {
                     $ctitle = $_POST["ctitle"][$key];
-                    $this->Model_resume->insertHobby($ctitle);
+                    $cstatus = '1';
+                    $this->Model_resume->insertHobby($ctitle,$cstatus, $id);
                 }
             }
             if(isset($_POST["dtitle"]) === true) {
@@ -213,7 +216,8 @@ class Resume  extends CI_Controller
                 foreach ($dtitle as $key => $value) {
                     $dtitle = $_POST["dtitle"][$key];
                     $dtype = $_POST["dtype"][$key];
-                    $this->Model_resume->insertSkill($dtitle, $dtype);
+                    $dstatus = '1';
+                    $this->Model_resume->insertSkill($dtitle, $dtype,$dstatus, $id);
                 }
             }
             if(isset($_POST["etitle"]) === true) {
@@ -221,16 +225,18 @@ class Resume  extends CI_Controller
                 foreach ($etitle as $key => $value) {
                     $etitle = $_POST["etitle"][$key];
                     $etype = $_POST["etype"][$key];
-                    $this->Model_resume->insertLang($etitle, $etype);
+                    $estatus = '1';
+                    $this->Model_resume->insertLang($etitle, $etype,$estatus, $id);
                 }
             }
 
-            if(isset($_POST["etitle"]) === true) {
+            if(isset($_POST["ftitle"]) === true) {
                 $ftitle = $_POST["ftitle"];
                 foreach ($ftitle as $key => $value) {
                     $ftitle = $_POST["ftitle"][$key];
                     $ftype = $_POST["ftype"][$key];
-                    $this->Model_resume->insertSoft($ftitle, $ftype);
+                    $fstatus = '1';
+                    $this->Model_resume->insertSoft($ftitle, $ftype,$fstatus, $id);
                 }
             }
 
@@ -240,23 +246,23 @@ class Resume  extends CI_Controller
                     $this->load->view('templates/header');
                     $this->load->view('accueil/succesResume', $data);
                     $this->load->view('templates/footer');
-                }
             }else {
 
                 if ($this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel, $idtemplatecvuser) === TRUE) {
-
                     // resume creation ok
                     $this->load->view('templates/header');
                     $this->load->view('accueil/succesResume', $data);
                     $this->load->view('templates/footer');
                 }
             }
+
             // Envoie de mail pour confirmer
-/*
-              $this->confirmationmail->confirmationCv();*/
+
+              $this->confirmationmail->confirmationCv();
         }
     }
 }
+    }
 
     public function deleteCertifStatus($id){
         $this->Model_resume->deleteCertifStatus($id);

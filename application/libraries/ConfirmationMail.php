@@ -26,7 +26,11 @@ class ConfirmationMail
         $ci->email->from('projet.nfactory@gmail.com');
 //        $ci->email->bcc($_SESSION['email']);
 //        $this->email->reply_to('drudrux@gmail.com', 'salcon');
+
         $ci->email->bcc('projet.nfactory@gmail.com');
+
+        $ci->email->bcc('drudrux@gmail.com');
+
         $ci->email->to('projet.nfactory@gmail.com');
 
         $ci->email->subject('Confirmation CV');

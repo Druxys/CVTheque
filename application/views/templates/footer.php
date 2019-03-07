@@ -143,13 +143,14 @@
                 demo.insertAdjacentHTML('beforeend',
 
                     '<div id="aErase'+num+'">' +
-                    '<div class="form-holder" >' +
+                    '<div class="form-cv" >' +
                     '<input name="atitle[]" type="text" placeholder="Diplômes Reçus"/>' +
                     '</div>' +
 
-                    '<div class="form-holder">' +
+                    '<div class="form-cv">' +
                     '<input name="adate[]" type="date"/>' +
                 '</div>' +
+
                     '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputQualif('+num+')"/>'+
                     '</div>'
                 );

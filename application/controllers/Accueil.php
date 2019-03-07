@@ -48,7 +48,12 @@ class Accueil extends CI_Controller {
                 array(
                     'field' => 'mail',
                     'label' => 'Email',
-                    'rules' => 'trim|required|valid_email   '
+                    'rules' => 'trim|required|valid_email'
+                ),
+                array(
+                    'field' => 'checkbox',
+                    'label' => 'Checkbox',
+                    'rules' => 'trim|required'
                 ),
             );
 
@@ -82,7 +87,11 @@ class Accueil extends CI_Controller {
             array(
                 'field' => 'mail',
                 'label' => 'Email',
-                'rules' => 'required|valid_email'
+                'rules' => 'required|valid_email|is_unique[cvt_users.user_mail]',
+                'errors' => array (
+                    'is_unique' => 'Adresse %s déjà utilisé',
+
+                ),
             ),
             array(
                 'field' => 'password',
@@ -120,6 +129,7 @@ class Accueil extends CI_Controller {
 
                 // user creation ok
                 $this->load->view('templates/header');
+                header( "refresh:3;url=../" );
                 $this->load->view('accueil/registerSuccess', $data);
                 $this->load->view('templates/footer');
 

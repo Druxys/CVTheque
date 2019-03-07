@@ -140,12 +140,11 @@ class Resume  extends CI_Controller
                 array(
                     'field' => 'tel',
                     'label' => 'telephone',
-                    'rules' => 'trim|required|numeric|exact_length[10]',
+                    'rules' => 'trim|required|numeric',
                     'errors' => array(
                         'trim' => 'Le numéro de téléphone renseigné est invalide.',
                         'required' => 'Veuillez renseigner un numéro de téléphone.',
                         'numeric' => 'Le numéro de téléphone doit être composé de caractères numériques.',
-                        'exact_length[10]' => 'Le numéro de téléphone doit faire 10 caractères.'
                     ),
                 ),
             );
@@ -184,16 +183,13 @@ class Resume  extends CI_Controller
             $tel = $this->input->post('tel');
             $idtemplatecvuser = $this->input->post('idtemplatecvuser');
 
-
-
-var_dump($_POST);
-
             if(isset($_POST["atitle"]) === true) {
                 $atitle = $_POST["atitle"];
                 foreach ($atitle as $key => $value) {
                     $atitle = $_POST["atitle"][$key];
                     $adate = $_POST["adate"][$key];
-                    $this->Model_resume->insertCertif($atitle, $adate);
+                    $astatus = '1';
+                    $this->Model_resume->insertCertif($atitle, $adate,$astatus, $id);
                 }
             }
             if(isset($_POST["btitle"]) === true) {
@@ -202,7 +198,8 @@ var_dump($_POST);
                     $btitle = $_POST["btitle"][$key];
                     $bdate = $_POST["adate"][$key];
                     $bdesc = $_POST["bdesc"][$key];
-                    $this->Model_resume->insertExp($btitle, $bdate, $bdesc);
+                    $bstatus = '1';
+                    $this->Model_resume->insertExp($btitle, $bdate, $bdesc,$bstatus, $id);
                 }
             }
 
@@ -210,7 +207,8 @@ var_dump($_POST);
                 $ctitle = $_POST["ctitle"];
                 foreach ($ctitle as $key => $value) {
                     $ctitle = $_POST["ctitle"][$key];
-                    $this->Model_resume->insertHobby($ctitle);
+                    $cstatus = '1';
+                    $this->Model_resume->insertHobby($ctitle,$cstatus, $id);
                 }
             }
             if(isset($_POST["dtitle"]) === true) {
@@ -218,7 +216,8 @@ var_dump($_POST);
                 foreach ($dtitle as $key => $value) {
                     $dtitle = $_POST["dtitle"][$key];
                     $dtype = $_POST["dtype"][$key];
-                    $this->Model_resume->insertSkill($dtitle, $dtype);
+                    $dstatus = '1';
+                    $this->Model_resume->insertSkill($dtitle, $dtype,$dstatus, $id);
                 }
             }
             if(isset($_POST["etitle"]) === true) {
@@ -226,34 +225,45 @@ var_dump($_POST);
                 foreach ($etitle as $key => $value) {
                     $etitle = $_POST["etitle"][$key];
                     $etype = $_POST["etype"][$key];
-                    $this->Model_resume->insertLang($etitle, $etype);
+                    $estatus = '1';
+                    $this->Model_resume->insertLang($etitle, $etype,$estatus, $id);
                 }
             }
 
-            if(isset($_POST["etitle"]) === true) {
+            if(isset($_POST["ftitle"]) === true) {
                 $ftitle = $_POST["ftitle"];
                 foreach ($ftitle as $key => $value) {
                     $ftitle = $_POST["ftitle"][$key];
                     $ftype = $_POST["ftype"][$key];
-                    $this->Model_resume->insertSoft($ftitle, $ftype);
+                    $fstatus = '1';
+                    $this->Model_resume->insertSoft($ftitle, $ftype,$fstatus, $id);
                 }
             }
 
-            if($this->Model_resume->replace1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser) === TRUE){
+            if($this->Model_resume->get_id($id) != false )
+            {
+                if($this->Model_resume->replace1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser) === TRUE) {
+                    $this->load->view('templates/header');
+                    $this->load->view('accueil/succesResume', $data);
+                    $this->load->view('templates/footer');
+            }else {
 
+                if ($this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel, $idtemplatecvuser) === TRUE) {
                     // resume creation ok
                     $this->load->view('templates/header');
                     $this->load->view('accueil/succesResume', $data);
                     $this->load->view('templates/footer');
-                } else {
-                $this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser);
+                }
             }
-            phpinfo();
+
+
             // Envoie de mail pour confirmer
+
               $this->confirmationmail->confirmationCv();
         }
     }
 }
+    }
 
     public function deleteCertifStatus($id){
         $this->Model_resume->deleteCertifStatus($id);
@@ -261,6 +271,43 @@ var_dump($_POST);
     }
     public function addCertifStatus($id){
         $this->Model_resume->addCertifStatus($id);
+        header('Location: ../frmResume');
+    }
+
+    public function deleteExpStatus($id){
+        $this->Model_resume->deleteExpStatus($id);
+        header('Location: ../frmResume');
+    }
+    public function addExpStatus($id){
+        $this->Model_resume->addExpStatus($id);
+        header('Location: ../frmResume');
+    }
+
+    public function deleteSoftwareStatus($id){
+    $this->Model_resume->deleteSoftwareStatus($id);
+    header('Location: ../frmResume');
+    }
+    public function addSoftwareStatus($id){
+        $this->Model_resume->addSoftwareStatus($id);
+        header('Location: ../frmResume');
+    }
+
+    public function deleteHobbyStatus($id)
+    {
+        $this->Model_resume->deleteHobbyStatus($id);
+        header('Location: ../frmResume');
+    }
+    public function addHobbyStatus($id){
+        $this->Model_resume->addHobbyStatus($id);
+        header('Location: ../frmResume');
+    }
+
+    public function deleteLanguageStatus($id){
+    $this->Model_resume->deleteLanguageStatus($id);
+    header('Location: ../frmResume');
+    }
+    public function addLanguageStatus($id){
+        $this->Model_resume->addLanguageStatus($id);
         header('Location: ../frmResume');
     }
 

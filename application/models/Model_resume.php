@@ -87,56 +87,68 @@ class Model_resume extends CI_Model
         return $this->db->update($this->table);
     }
 
-    function insertCertif($atitle,$adate)
+    function insertCertif($atitle,$adate,$astatus, $id)
     {
         $data = array(
             "certif_name" => $atitle,
-            "certif_date" => $adate
+            "certif_date" => $adate,
+            "certif_status" => $astatus,
+            "id_user" => $id
         );
         return $this->db->insert('cvt_certification', $data);
     }
 
 
-    function insertExp($btitle,$bdate,$bdesc)
+    function insertExp($btitle,$bdate,$bdesc,$bstatus, $id)
     {
         $data = array(
             "exp_name" => $btitle,
             "exp_date" => $bdate,
-        "exp_description" => $bdesc
+            "exp_description" => $bdesc,
+            "exp_status" => $bstatus,
+            "id_user" => $id
         );
         return $this->db->insert('cvt_experiences', $data);
     }
 
-    function insertHobby($ctitle)
+    function insertHobby($ctitle,$cstatus, $id)
     {
         $data = array(
             "category_name" => $ctitle,
+            "category_status" => $cstatus,
+            "id_user" => $id
         );
         return $this->db->insert('cvt_category', $data);
     }
-    function insertSkill($dtitle, $dtype)
+    function insertSkill($dtitle, $dtype,$dstatus, $id)
     {
         $data = array(
             "skills_name" => $dtitle,
-            "skills_level" => $dtype
+            "skills_level" => $dtype,
+            "skills_status" => $dstatus,
+            "id_user" => $id
         );
         return $this->db->insert('cvt_skills', $data);
     }
 
-    function insertLang($etitle, $etype)
+    function insertLang($etitle, $etype,$estatus, $id)
     {
         $data = array(
             "lang_name" => $etitle,
-            "lang_level" => $etype
+            "lang_level" => $etype,
+            "lang_status" => $estatus,
+            "id_user" => $id
         );
         return $this->db->insert('cvt_languages', $data);
     }
 
-    function insertSoft($ftitle, $ftype)
+    function insertSoft($ftitle, $ftype,$fstatus, $id)
     {
         $data = array(
             "software_name" => $ftitle,
-            "software_level" => $ftype
+            "software_level" => $ftype,
+            "software_status" => $fstatus,
+            "id_user" => $id
         );
         return $this->db->insert('cvt_software', $data);
     }

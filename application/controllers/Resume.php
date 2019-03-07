@@ -179,24 +179,17 @@ class Resume  extends CI_Controller
             $tel = $this->input->post('tel');
             $idtemplatecvuser = $this->input->post('idtemplatecvuser');
 
-
-                if ($this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser) === TRUE) {
-
+            if($this->Model_resume->replace1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser) === TRUE){
                     // resume creation ok
                     $this->load->view('templates/header');
                     $this->load->view('accueil/succesResume', $data);
                     $this->load->view('templates/footer');
-
                 } else {
-                    $this->load->view('templates/header', $data);
-                    $this->load->view('trou/' . $page, $data);
-                    $this->load->view('templates/footer', $data);
-
-                }
-
-         }
+                $this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser);
+            }
         }
     }
+}
 
     public function showResume($idtemplatecvuser){
         $this->load->view('templates/cv_templates/cv'.$idtemplatecvuser.'/index.php');

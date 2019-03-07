@@ -44,6 +44,28 @@ class Model_resume extends CI_Model
         return $this->db->insert($this->table, $data);
     }
 
+    function replace1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel , $idtemplatecvuser){
+        $data = array(
+            "cvt_users_idcvt_users" => $id,
+            "resume_sexe" => $genre,
+            "resume_firstName" => $firstName,
+            "resume_lastName" => $lastName,
+            "resume_nationality" => $nationality,
+            "resume_birthDate" => $birthDate,
+            "resume_posteCible" => $application,
+            "resume_describ" => $description,
+            "resume_addr" => $address,
+            "resume_postCode" => $postCode,
+            "resume_city" => $city,
+            "resume_mail" => $mail,
+            "resume_tel" => $tel,
+            "idtemplatecvuser" => $idtemplatecvuser
+        );
+        $this->db->set($data);
+        $this->db->where('cvt_users_idcvt_users', $id);
+        return $this->db->update($this->table);
+    }
+
     function insert2($address, $postCode, $city, $mail, $tel)
     {
         $data = array(

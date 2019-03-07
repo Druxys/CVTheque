@@ -183,7 +183,6 @@ class Model_resume extends CI_Model
 
               return $result;
 
-        } else {
         }
     }
 

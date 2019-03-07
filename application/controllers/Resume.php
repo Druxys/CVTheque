@@ -16,6 +16,7 @@ class Resume  extends CI_Controller
         $this->load->library('session');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
+        $this->load->helper('date');
 //        $this->load->library('email');
         $this->load->library('ConfirmationMail');
     }
@@ -182,6 +183,7 @@ class Resume  extends CI_Controller
             $mail = $this->input->post('mail');
             $tel = $this->input->post('tel');
             $idtemplatecvuser = $this->input->post('idtemplatecvuser');
+            $time = date("Y-m-d H:i:s");
 
             if(isset($_POST["atitle"]) === true) {
                 $atitle = $_POST["atitle"];
@@ -242,13 +244,13 @@ class Resume  extends CI_Controller
 
             if($this->Model_resume->get_id($id) != false )
             {
-                if($this->Model_resume->replace1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser) === TRUE) {
+                if($this->Model_resume->replace1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser, $time) === TRUE) {
                     $this->load->view('templates/header');
                     $this->load->view('accueil/succesResume', $data);
                     $this->load->view('templates/footer');
             }else {
 
-                if ($this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel, $idtemplatecvuser) === TRUE) {
+                if ($this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel, $idtemplatecvuser, $time) === TRUE) {
                     // resume creation ok
                     $this->load->view('templates/header');
                     $this->load->view('accueil/succesResume', $data);

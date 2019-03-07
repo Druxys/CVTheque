@@ -234,17 +234,23 @@ class Resume  extends CI_Controller
                 }
             }
 
-            if($this->Model_resume->get_id($id) === TRUE){
-                $this->Model_resume->replace1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser);
-                    $this->load->view('templates/header');
-                    $this->load->view('accueil/succesResume', $data);
-                    $this->load->view('templates/footer');
-            }else{
-                $this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser);
+            if($this->Model_resume->get_id($id) != false )
+            {
+                if($this->Model_resume->replace1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser) === TRUE) {
                     $this->load->view('templates/header');
                     $this->load->view('accueil/succesResume', $data);
                     $this->load->view('templates/footer');
                 }
+            }else {
+
+                if ($this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel, $idtemplatecvuser) === TRUE) {
+
+                    // resume creation ok
+                    $this->load->view('templates/header');
+                    $this->load->view('accueil/succesResume', $data);
+                    $this->load->view('templates/footer');
+                }
+            }
             // Envoie de mail pour confirmer
 /*
               $this->confirmationmail->confirmationCv();*/

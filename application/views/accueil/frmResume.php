@@ -41,7 +41,7 @@
         <input class="form-cv" type="text" name ="address" value ="<?php echo set_value('address', $try[0]['addr']) ; ?>" size="50" placeholder="Addresse"/></br>
         <input class="form-cv" type="number" name ="postCode" value ="<?php echo set_value('postCode', $try[0]['postCode']) ; ?>" size="50" placeholder="Code Postal"/></br>
         <input class="form-cv" type="text" name ="city" value ="<?php echo set_value('city', $try[0]['city']) ; ?>" size="50" placeholder="Ville"/></br>
-        <input class="form-cv" type="email" name="mail" value="<?php echo set_value('mail', $try[0]['email']) ; ?>" size="50" placeholder="Email"/></br>
+        <input class="form-cv" type="email" name="mail" value="<?php echo set_value('mail', $try[0]['mail']) ; ?>" size="50" placeholder="Email"/></br>
         <input class="form-cv" type="number" name="tel" value="<?php echo set_value('tel', $try[0]['tel']) ; ?>" size="50" placeholder="Téléphone"/></br>
     </div>
 

@@ -548,6 +548,7 @@ body {
     -webkit-border-radius: 7px;
 }
 
+
 .form-contact {
     margin-top: -400px;
 }
@@ -737,7 +738,7 @@ input:focus, textarea:focus {
     padding: 13px 13px 13px 54px;
 }
 
-#aErase .form-cv:focus {
+#regForm .button:focus {
     background: #fff;
     box-shadow: 0;
     border: 3px solid #3498db;

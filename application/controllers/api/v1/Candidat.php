@@ -12,6 +12,7 @@ class Candidat extends CI_Controller
         $this->load->model("Model_language");
         $this->load->model("Model_experience");
         $this->load->model("Model_certification");
+        $this->load->model("Model_category");
     }
 
     public function index()
@@ -40,15 +41,16 @@ class Candidat extends CI_Controller
         $result["langue"] = $this->Model_language->getLanguages($id)->result_array();
         $result["exp"] = $this->Model_experience->getExp($id)->result_array();
         $result["certification"] = $this->Model_certification->getCertif($id)->result_array();
+        $result["categorie"] = $this->Model_category->getCategories($id)->result_array();
 
-        if (isset($dataCandidat)) {
+//        if (isset($dataCandidat)) {
 
             echo json_encode($result, FALSE);
-        }
-        else{
-            header("HTTP/1.0 204 No Content");
-            echo json_encode("204: no products in the database");
-        }
+//        }
+//        else{
+//            header("HTTP/1.0 204 No Content");
+//            echo json_encode("204: no products in the database");
+//        }
 
 
 

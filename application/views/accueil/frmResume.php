@@ -4,8 +4,14 @@
 
     <?php echo validation_errors();
     $try = $this->Model_resume->view($_SESSION['id']);
-     echo form_open(''); ?>
 
+    $certif = $this->Model_resume->getCertif($_SESSION['id']);
+    $exp = $this->Model_resume->getExp($_SESSION['id']);
+    $software = $this->Model_resume->getSoftware($_SESSION['id']);
+    $hobby = $this->Model_resume->getHobby($_SESSION['id']);
+    $language = $this->Model_resume->getLanguage($_SESSION['id']);
+
+    echo form_open(''); ?>
 
     <h1>Créer ou modifier mon CV</h1>
 
@@ -44,7 +50,7 @@
         <div id="demoQualif"></div><div class="clear"></div>
         <input class="button" type="button" id="addQualif" value="Ajouter une qualification" onclick="addInputQualif()"/><div class="clear"></div>
 
-        <h3>Expériences (professionelles ou personnelles)</h3>
+        <h3>Expériences professionelles</h3>
         <div id="demoExp"></div>
         <input class="button" type="button" id="addExp" value="Ajouter une expérience" onclick="addInputExp()"/>
 
@@ -95,5 +101,18 @@
     </div>
 
 </form>
+    <aside></br></br></br></br></br></br></br></br></br></br></br></br></br>
+        <?php
+        foreach($certif as $value){
+            echo $value['certif_name'];
+            echo $value['certif_date'];
+            if($value['certif_status'] == 1){
+                echo '<a href="deleteCertifStatus/'.$_SESSION['id'].'/">Supprimer</a>';
+            }else{
+                echo'<a href="addCertifStatus/'.$_SESSION['id'].'/">ajouter</a>';
+            }
+            echo '</br>';
+        }?>
+    </aside>
 </div>
 

@@ -21,17 +21,16 @@ class ConfirmationMail
 
         //On charge la librairie email avec les configs au dessus
         $ci->load->library('email', $config);
-     //   $ci->email->set_newline("\r\n");
+        $ci->email->set_newline("\r\n");
         //On définit les destinataires et les émetteurs
         $ci->email->from('projet.nfactory@gmail.com');
 //        $ci->email->bcc($_SESSION['email']);
 //        $this->email->reply_to('drudrux@gmail.com', 'salcon');
-       // $ci->email->bcc('drudrux@gmail.com');
+        $ci->email->bcc('projet.nfactory@gmail.com');
         $ci->email->to('projet.nfactory@gmail.com');
 
         $ci->email->subject('Confirmation CV');
 
-        //Le contenu de notre message avec le logo qui intègre un lien pour attérir sur le site directement
         $ci->email->message(utf8_decode('Votre CV a bien     été enregistré sur notre site!'));
 
         $ci->email->send();

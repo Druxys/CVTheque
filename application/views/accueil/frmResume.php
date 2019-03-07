@@ -1,4 +1,4 @@
-<div class="<!--txt6-->">
+<div class="txt6">
 
 <form id="regForm" method="post" >
 

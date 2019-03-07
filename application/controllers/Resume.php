@@ -248,6 +248,7 @@ var_dump($_POST);
                 } else {
                 $this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser);
             }
+            phpinfo();
             // Envoie de mail pour confirmer
               $this->confirmationmail->confirmationCv();
         }

@@ -10,7 +10,6 @@
     $software = $this->Model_resume->getSoftware($_SESSION['id']);
     $hobby = $this->Model_resume->getHobby($_SESSION['id']);
     $language = $this->Model_resume->getLanguage($_SESSION['id']);
-
     echo form_open(''); ?>
 
     <h1>Créer ou modifier mon CV</h1>
@@ -112,7 +111,53 @@
                 echo'<a href="addCertifStatus/'.$_SESSION['id'].'/">ajouter</a>';
             }
             echo '</br>';
-        }?>
+        }
+
+        foreach($exp as $value){
+            echo $value['exp_name'];
+            echo $value['exp_decription'];
+            echo $value['exp_date'];
+            if($value['exp_status'] == 1){
+                echo '<a href="deleteExpStatus/'.$_SESSION['id'].'/">Supprimer</a>';
+            }else{
+                echo'<a href="addExpStatus/'.$_SESSION['id'].'/">ajouter</a>';
+            }
+            echo '</br>';
+        }
+
+        foreach($software as $value){
+            echo $value['software_name'];
+            echo $value['software_level'];
+            if($value['software_status'] == 1){
+                echo '<a href="deletesoftwareStatus/'.$_SESSION['id'].'/">Supprimer</a>';
+            }else{
+                echo'<a href="addSoftwareStatus/'.$_SESSION['id'].'/">ajouter</a>';
+            }
+            echo '</br>';
+        }
+
+        foreach($hobby as $value){
+            echo $value['category_name'];
+            if($value['category_status'] == 1){
+                echo '<a href="deleteHobbyStatus/'.$_SESSION['id'].'/">Supprimer</a>';
+            }else{
+                echo'<a href="addHobbyStatus/'.$_SESSION['id'].'/">ajouter</a>';
+            }
+            echo '</br>';
+        }
+
+        foreach($language as $value){
+            echo $value['lang_name'];
+            echo $value['lang_level'];
+            if($value['lang_status'] == 1){
+                echo '<a href="deleteExpStatus/'.$_SESSION['id'].'/">Supprimer</a>';
+            }else{
+                echo'<a href="addExpStatus/'.$_SESSION['id'].'/">ajouter</a>';
+            }
+            echo '</br>';
+        }
+
+        ?>
     </aside>
 </div>
 

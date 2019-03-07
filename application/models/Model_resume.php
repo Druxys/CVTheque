@@ -22,6 +22,15 @@ class Model_resume extends CI_Model
         return $this->db->get();
     }
 
+    function get_id($id)
+    {
+        $this->db->select("*")
+            ->from($this->table)
+            ->where("cvt_users_idcvt_users = $id")
+            ->limit(1);
+        return $this->db->get();
+    }
+
     function insert1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel , $idtemplatecvuser)
     {
         $data = array(
@@ -41,8 +50,24 @@ class Model_resume extends CI_Model
             "idtemplatecvuser" => $idtemplatecvuser
 
         );
-        return $this->db->insert($this->table, $data);
+       // $findId = $this->Model_resume->get_id($id);
+
+       // if (!empty($findId))
+       // {
+           // return $this->db->update($this->cvt_users_idcvt_users, $data);
+
+
+           // $this->db->set($infos)->where('id',$id_cand)->update('candidat');
+
+
+        //}else {
+            return $this->db->insert($this->table, $data);
+       // }
     }
+
+
+
+    function insertCertif($atitle,$adate)
 
     function replace1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel , $idtemplatecvuser){
         $data = array(
@@ -66,51 +91,60 @@ class Model_resume extends CI_Model
         return $this->db->update($this->table);
     }
 
-    function insert2($address, $postCode, $city, $mail, $tel)
+    function insertCertif($atitle,$adate)
     {
         $data = array(
-            "resume_addr" => $address,
-            "resume_postCode" => $postCode,
-            "resume_city" => $city,
-            "resume_mail" => $mail,
-            "resume_tel" => $tel
+            "certif_name" => $atitle,
+            "certif_date" => $adate
         );
-        return $this->db->insert($this->table, $data);
+        return $this->db->insert('cvt_certification', $data);
     }
 
-   /* function update1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel)
+
+    function insertExp($btitle,$bdate,$bdesc)
     {
         $data = array(
-            "resume_sexe" => $genre,
-            "resume_firstName" => $firstName,
-            "resume_lastName" => $lastName,
-            "resume_nationality" => $nationality,
-            "resume_birthDate" => $birthDate,
-            "resume_posteCible" => $application,
-            "resume_describ" => $description,
-             "resume_addr" => $address,
-            "resume_postCode" => $postCode,
-            "resume_city" => $city,
-            "resume_mail" => $mail,
-            "resume_tel" => $tel,
-            "cvt_users_idcvt_users" => $id
+            "exp_name" => $btitle,
+            "exp_date" => $bdate,
+        "exp_description" => $bdesc
         );
-        return $this->db->where("cvt_users_idcvt_users", $id)
-            ->update($this->table, $data);
+        return $this->db->insert('cvt_experiences', $data);
     }
 
-    function update2($id, $address, $postCode, $city, $mail, $tel)
+    function insertHobby($ctitle)
     {
         $data = array(
-            "resume_addr" => $address,
-            "resume_postCode" => $postCode,
-            "resume_city" => $city,
-            "resume_mail" => $mail,
-            "resume_tel" => $tel,
+            "category_name" => $ctitle,
         );
-        return $this->db->where("id, $id")
-            ->update($this->table, $data);
-    }*/
+        return $this->db->insert('cvt_category', $data);
+    }
+    function insertSkill($dtitle, $dtype)
+    {
+        $data = array(
+            "skills_name" => $dtitle,
+            "skills_level" => $dtype
+        );
+        return $this->db->insert('cvt_skills', $data);
+    }
+
+    function insertLang($etitle, $etype)
+    {
+        $data = array(
+            "lang_name" => $etitle,
+            "lang_level" => $etype
+        );
+        return $this->db->insert('cvt_languages', $data);
+    }
+
+    function insertSoft($ftitle, $ftype)
+    {
+        $data = array(
+            "software_name" => $ftitle,
+            "software_level" => $ftype
+        );
+        return $this->db->insert('cvt_software', $data);
+    }
+
     public function view($id)
     {
         $data = $this->Model_resume->get_one($id);

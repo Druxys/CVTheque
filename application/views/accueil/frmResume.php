@@ -11,11 +11,7 @@
     $hobby = $this->Model_resume->getHobby($_SESSION['id']);
     $language = $this->Model_resume->getLanguage($_SESSION['id']);
 
-
-    echo form_open('');
-
-     ?>
-
+    echo form_open(''); ?>
 
     <h1>Créer ou modifier mon CV</h1>
 
@@ -54,7 +50,7 @@
         <div id="demoQualif"></div><div class="clear"></div>
         <input class="button2" type="button" id="addQualif" value="Ajouter une qualification" onclick="addInputQualif()"/><div class="clear"></div>
 
-        <h3>Expériences (professionelles ou personnelles)</h3>
+        <h3>Expériences professionelles</h3>
         <div id="demoExp"></div>
         <input class="button2" type="button" id="addExp" value="Ajouter une expérience" onclick="addInputExp()"/>
 

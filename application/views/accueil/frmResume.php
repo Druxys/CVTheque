@@ -10,6 +10,8 @@
     $software = $this->Model_resume->getSoftware($_SESSION['id']);
     $hobby = $this->Model_resume->getHobby($_SESSION['id']);
     $language = $this->Model_resume->getLanguage($_SESSION['id']);
+
+    var_dump($certif);
     echo form_open(''); ?>
 
     <h1>Créer ou modifier mon CV</h1>

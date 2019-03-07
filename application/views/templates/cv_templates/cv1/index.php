@@ -55,6 +55,7 @@
         font-size: 0.9em;
         margin-top: 2px;}
     #contactDetails ul li {
+        list-style-type:none;
         margin-bottom: 3px;
         color: #444;}
     #contactDetails ul li a:hover {
@@ -94,6 +95,8 @@
         font-size: 1em;
         color: #444;}
     .keySkills ul li {
+
+        list-style-type:none;
         margin-bottom: 3px;}
     @media all and (min-width: 602px) and (max-width: 800px) {
         #headshot {
@@ -144,10 +147,15 @@
 </style>
 </head>
 <body id="top">
-<?php
-    $try = $this->Model_resume->view($_SESSION['id']);
-var_dump($try);
-        ?>
+<?php $try = $this->Model_resume->view($_SESSION['id']);
+    $certif = $this->Model_resume->getCertif($_SESSION['id']);
+    $exp = $this->Model_resume->getExp($_SESSION['id']);
+    $skill = $this->Model_resume->getSkills($_SESSION['id']);
+    $software = $this->Model_resume->getSoftware($_SESSION['id']);
+    $hobby = $this->Model_resume->getHobby($_SESSION['id']);
+    $language = $this->Model_resume->getLanguage($_SESSION['id']);
+
+    var_dump($exp);?>
 <div id="cv" class="">
 	<div class="mainDetails">
 
@@ -186,23 +194,15 @@ var_dump($try);
 			</div>
 			
 			<div class="sectionContent">
-				<article>
-					<h2>Job Title at Company</h2>
-					<p class="subDetails">April 2011 - Present</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
-				</article>
-				
-				<article>
-					<h2>Job Title at Company</h2>
-					<p class="subDetails">Janruary 2007 - March 2011</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
-				</article>
-				
-				<article>
-					<h2>Job Title at Company</h2>
-					<p class="subDetails">October 2004 - December 2006</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
-				</article>
+				<?php
+                    foreach($exp as $value){
+                        echo    '<article>
+                                    <h2>'.$value['exp_name'].'</h2>
+					                <p class="subDetails">'.$value['exp_date'].'</p>
+					                <p>'.$value['exp_decription'].'</p>
+				                </article>';
+                    }
+                ?>
 			</div>
 			<div class="clear"></div>
 		</section>
@@ -214,22 +214,16 @@ var_dump($try);
             </div>
 
             <div class="sectionContent">
-                <ul class="keySkills">
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                </ul>
-                <ul>
-
-                </ul>
+                <?php foreach($skill as $value){
+                    echo '<ul class="keySkills">
+                            <li>'.$value['skills_name'].'</br><span>'.$value['skills_level'].'</span></li>
+                        </ul>';
+                } ?>
             </div>
             <div class="clear"></div>
         </section>
+
+
         <section>
             <div class="sectionTitle">
                 <h1>Langages</h1>
@@ -237,21 +231,19 @@ var_dump($try);
 
             <div class="sectionContent">
                 <ul class="keySkills">
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                </ul>
-                <ul>
+                <?php foreach($language as $value){
+                    echo '<ul>
+                            <li>'.$value['lang_name'].'</br><span>'.$value['lang_level'].'</li>
+                          </ul>';
+                }?>
 
-                </ul>
             </div>
             <div class="clear"></div>
         </section>
+
+
+
+
         <section>
             <div class="sectionTitle">
                 <h1>Logiciels</h1>

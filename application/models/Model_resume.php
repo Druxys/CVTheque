@@ -207,6 +207,11 @@ class Model_resume extends CI_Model
             ->where("id_user", $id);
         return $this->db->get()->result_array();}
 
+    function getSkills($id){
+        $this->db->from('cvt_skills')
+            ->where("id_user", $id);
+        return $this->db->get()->result_array();}
+
     function getLanguage($id){
         $this->db->from('cvt_languages')
             ->where("id_user", $id);

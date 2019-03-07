@@ -16,8 +16,8 @@ class Resume  extends CI_Controller
         $this->load->library('session');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-        $this->load->library('email');
-        $this->load->library('ConfirmationMail');
+        $this->load->library('email');/*
+        $this->load->library('ConfirmationMail');*/
     }
 
     public function frmResume($page = 'frmResume')
@@ -257,8 +257,7 @@ class Resume  extends CI_Controller
             }
 
             // Envoie de mail pour confirmer
-
-              $this->confirmationmail->confirmationCv();
+              /*$this->confirmationmail->confirmationCv();*/
         }
     }
 }

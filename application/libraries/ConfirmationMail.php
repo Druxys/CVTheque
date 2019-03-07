@@ -11,7 +11,7 @@ class ConfirmationMail
             'smtp_host' => 'ssl://smtp.googlemail.com',
             'smtp_port' => 465,
             'smtp_user' => 'projet.nfactory@gmail.com',
-            'smtp_pass' => 'kfyEjgX7aj1zmQ4ITo3U',
+            'smtp_pass' => 'Azert123456&',
             'mailtype' => 'html',
             'charset' => 'utf-8'
         );
@@ -26,16 +26,12 @@ class ConfirmationMail
         $ci->email->from('projet.nfactory@gmail.com');
 //        $ci->email->bcc($_SESSION['email']);
 //        $this->email->reply_to('drudrux@gmail.com', 'salcon');
-
-        $ci->email->bcc('projet.nfactory@gmail.com');
-
-        $ci->email->bcc('drudrux@gmail.com');
-
+        $ci->email->bcc($_SESSION['email']);
         $ci->email->to('projet.nfactory@gmail.com');
 
         $ci->email->subject('Confirmation CV');
 
-        $ci->email->message(utf8_decode('Votre CV a bien     été enregistré sur notre site!'));
+        $ci->email->message(utf8_decode('Votre CV a bien été enregistré sur notre site!'));
 
         $ci->email->send();
 

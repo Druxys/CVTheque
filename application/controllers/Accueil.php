@@ -15,9 +15,10 @@ class Accueil extends CI_Controller {
         $this->load->library('ConfirmationMail');
     }
 
-
+// <-------------------- Page d'accueil -------------------->
     public function index($page = 'home')
     {
+        // SI la page n'existe pas
         if ( ! file_exists(APPPATH.'views/accueil/'.$page.'.php'))
         {
             // Whoops, we don't have a page for that!
@@ -70,6 +71,8 @@ class Accueil extends CI_Controller {
         $this->load->view('templates/footer', $data);
     }
 
+
+    // <-------------------- Page d'inscription -------------------->
     public function signUp($page = 'signUp')
     {
         $data = array();

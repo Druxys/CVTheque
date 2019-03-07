@@ -191,6 +191,15 @@ class Resume  extends CI_Controller
     }
 }
 
+    public function deleteCertifStatus($id){
+        $this->Model_resume->deleteCertifStatus($id);
+        header('Location: ../frmResume');
+    }
+    public function addCertifStatus($id){
+        $this->Model_resume->addCertifStatus($id);
+        header('Location: ../frmResume');
+    }
+
     public function showResume($idtemplatecvuser){
         $this->load->view('templates/cv_templates/cv'.$idtemplatecvuser.'/index.php');
     }

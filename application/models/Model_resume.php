@@ -78,7 +78,7 @@ class Model_resume extends CI_Model
         return $this->db->insert($this->table, $data);
     }
 
-    function update1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel)
+   /* function update1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel)
     {
         $data = array(
             "resume_sexe" => $genre,
@@ -110,7 +110,7 @@ class Model_resume extends CI_Model
         );
         return $this->db->where("id, $id")
             ->update($this->table, $data);
-    }
+    }*/
     public function view($id)
     {
         $data = $this->Model_resume->get_one($id);
@@ -143,5 +143,60 @@ class Model_resume extends CI_Model
             header("HTTP/1.0 404 Not Found");
             echo json_encode("404 : Product #$id not found");
         }
+    }
+
+    function getCertif($id){
+        $this->db->from('cvt_certification')
+            ->where("id_user", $id);
+        return $this->db->get()->result_array();}
+
+    function getExp($id){
+        $this->db->from('cvt_software')
+            ->where("id_user", $id);
+        return $this->db->get()->result_array();}
+
+    function getSoftware($id){
+        $this->db->from('cvt_certification')
+            ->where("id_user", $id);
+        return $this->db->get()->result_array();}
+
+    function getHobby($id){
+        $this->db->from('cvt_category')
+            ->where("id_user", $id);
+        return $this->db->get()->result_array();}
+
+    function getLanguage($id){
+        $this->db->from('cvt_languages')
+            ->where("id_user", $id);
+        return $this->db->get()->result_array();}
+
+    function deleteCertifStatus($id){
+        $data = array(
+          'certif_status' => '0'
+        );
+        $this->db->where("idcvt_certification", $id);
+        $this->db->update('cvt_certification', $data);
+    }
+    function addCertifStatus($id){
+        $data = array(
+            'certif_status' => '1'
+        );
+        $this->db->where("idcvt_certification", $id);
+        $this->db->update('cvt_certification', $data);
+    }
+
+    function rmExpStatus(){
+    }
+
+    function modifSoftwareStatus(){
+
+    }
+
+    function modifHobbyStatus(){
+
+    }
+
+    function modifLanguageStatus(){
+
     }
 }

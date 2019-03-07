@@ -21,48 +21,48 @@
 
 
         </div>
-        <input class="firstInput" type="text" name="firstName" value="<?php echo set_value('firstName', $try[0]['firstName'] ); ?>" size="50" placeholder="Prénom"/></br>
-        <input type="text" name="lastName" value="<?php echo set_value('lastName', $try[0]['lastName']); ?>" size="50" placeholder="Nom"/></br>
-        <input type="text" name ="nationality" value ="<?php echo set_value('nationality', $try[0]['nationality']); ?>" size="50" placeholder="Nationalité"/></br>
-        <input type="date" name="birthDate" value="<?php echo set_value('birthDate', $try[0]['birthDate']); ?>" size="50" /></br>
-        <input type="text" name ="application" value ="<?php echo set_value('application', $try[0]['posteCible']); ?>" size="50" placeholder="Poste visé"/></br>
-        <input type="text" name ="description" value ="<?php echo set_value('description', $try[0]['description']) ; ?>" size="50" placeholder="Courte description"/></br>
+        <input class="form-cv" type="text" name="firstName" value="<?php echo set_value('firstName', $try[0]['firstName'] ); ?>" size="50" placeholder="Prénom"/></br>  <!--class="firstInput"-->
+        <input class="form-cv" type="text" name="lastName" value="<?php echo set_value('lastName', $try[0]['lastName']); ?>" size="50" placeholder="Nom"/></br>
+        <input class="form-cv" type="text" name ="nationality" value ="<?php echo set_value('nationality', $try[0]['nationality']); ?>" size="50" placeholder="Nationalité"/></br>
+        <input class="form-cv" type="date" name="birthDate" value="<?php echo set_value('birthDate', $try[0]['birthDate']); ?>" size="50" /></br>
+        <input class="form-cv" type="text" name ="application" value ="<?php echo set_value('application', $try[0]['posteCible']); ?>" size="50" placeholder="Poste visé"/></br>
+        <input class="form-cv" type="text" name ="description" value ="<?php echo set_value('description', $try[0]['description']) ; ?>" size="50" placeholder="Courte description"/></br>
     </div>
 
     <div class="tab">
         <h3>Coordonnées</h3>
-        <input type="text" name ="address" value ="<?php echo set_value('address', $try[0]['addr']) ; ?>" size="50" placeholder="Addresse"/></br>
-        <input type="number" name ="postCode" value ="<?php echo set_value('postCode', $try[0]['postCode']) ; ?>" size="50" placeholder="Code Postal"/></br>
-        <input type="text" name ="city" value ="<?php echo set_value('city', $try[0]['city']) ; ?>" size="50" placeholder="Ville"/></br>
-        <input type="email" name="mail" value="<?php echo set_value('mail', $try[0]['mail']) ; ?>" size="50" placeholder="Email"/></br>
-        <input type="number" name="tel" value="<?php echo set_value('tel', $try[0]['tel']) ; ?>" size="50" placeholder="Téléphone"/></br>
+        <input class="form-cv" type="text" name ="address" value ="<?php echo set_value('address', $try[0]['addr']) ; ?>" size="50" placeholder="Addresse"/></br>
+        <input class="form-cv" type="number" name ="postCode" value ="<?php echo set_value('postCode', $try[0]['postCode']) ; ?>" size="50" placeholder="Code Postal"/></br>
+        <input class="form-cv" type="text" name ="city" value ="<?php echo set_value('city', $try[0]['city']) ; ?>" size="50" placeholder="Ville"/></br>
+        <input class="form-cv" type="email" name="mail" value="<?php echo set_value('mail', $try[0]['mail']) ; ?>" size="50" placeholder="Email"/></br>
+        <input class="form-cv" type="number" name="tel" value="<?php echo set_value('tel', $try[0]['tel']) ; ?>" size="50" placeholder="Téléphone"/></br>
     </div>
 
     <div class="tab">
         <h2>Contenu </h2>
         <h3>Qualifications</h3>
         <div id="demoQualif"></div><div class="clear"></div>
-        <input class="button2" type="button" id="addQualif" value="Ajouter une qualification" onclick="addInputQualif()"/><div class="clear"></div>
+        <input class="button" type="button" id="addQualif" value="Ajouter une qualification" onclick="addInputQualif()"/><div class="clear"></div>
 
         <h3>Expériences (professionelles ou personnelles)</h3>
         <div id="demoExp"></div>
-        <input class="button2" type="button" id="addExp" value="Ajouter une expérience" onclick="addInputExp()"/>
+        <input class="button" type="button" id="addExp" value="Ajouter une expérience" onclick="addInputExp()"/>
 
         <h3>Centres D'interêts</h3>
         <div id="demoHobby"></div>
-        <input class="button2" type="button" id="addHobby" value="Ajouter un centre d'interêt" onclick="addInputHobby()"/>
+        <input class="button" type="button" id="addHobby" value="Ajouter un centre d'interêt" onclick="addInputHobby()"/>
 
         <h3>Compétences</h3>
         <div id="demoSkills"></div>
-        <input class="button2" type="button" id="addSkills" value="Ajouter une compétence" onclick="addInputSkills()"/>
+        <input class="button" type="button" id="addSkills" value="Ajouter une compétence" onclick="addInputSkills()"/>
 
         <h3>Langages</h3>
         <div id="demoLanguages"></div>
-        <input class="button2" type="button" id="addLanguages" value="Ajouter une langue" onclick="addInputLanguages()"/>
+        <input class="button" type="button" id="addLanguages" value="Ajouter une langue" onclick="addInputLanguages()"/>
 
         <h3>Logiciels</h3>
         <div id="demoSoftwares"></div>
-        <input class="button2" type="button" id="addSoftwares" value="Ajouter un logiciel maitrisé" onclick="addInputSoftwares()"/>
+        <input class="button" type="button" id="addSoftwares" value="Ajouter un logiciel maitrisé" onclick="addInputSoftwares()"/>
     </div>
 
     <div class="tab">

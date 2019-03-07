@@ -53,7 +53,12 @@ class Accueil extends CI_Controller {
                 array(
                     'field' => 'mail',
                     'label' => 'Email',
-                    'rules' => 'trim|required|valid_email   '
+                    'rules' => 'trim|required|valid_email'
+                ),
+                array(
+                    'field' => 'checkbox',
+                    'label' => 'Checkbox',
+                    'rules' => 'trim|required'
                 ),
             );
 
@@ -124,6 +129,7 @@ class Accueil extends CI_Controller {
 
                 // user creation ok
                 $this->load->view('templates/header');
+                header( "refresh:3;url=../" );
                 $this->load->view('accueil/registerSuccess', $data);
                 $this->load->view('templates/footer');
 

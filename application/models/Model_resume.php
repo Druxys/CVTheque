@@ -65,10 +65,6 @@ class Model_resume extends CI_Model
        // }
     }
 
-
-
-    function insertCertif($atitle,$adate)
-
     function replace1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel , $idtemplatecvuser){
         $data = array(
             "cvt_users_idcvt_users" => $id,

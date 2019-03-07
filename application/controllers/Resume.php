@@ -16,7 +16,7 @@ class Resume  extends CI_Controller
         $this->load->library('session');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-        $this->load->library('email');
+//        $this->load->library('email');
         $this->load->library('ConfirmationMail');
     }
 
@@ -256,11 +256,11 @@ class Resume  extends CI_Controller
                 }
             }
 
-            // Envoie de mail pour confirmer
 
-              $this->confirmationmail->confirmationCv();
+            }
+            // Envoie de mail pour confirmer
+            $this->confirmationmail->confirmationCv();
         }
-    }
 }
     }
 

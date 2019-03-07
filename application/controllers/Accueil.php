@@ -10,14 +10,15 @@ class Accueil extends CI_Controller {
         $this->load->library('javascript');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-        $this->load->library('email');
+//        $this->load->library('email');
         $this->load->library('form_validation');
         $this->load->library('ConfirmationMail');
     }
 
-
+// <-------------------- Page d'accueil -------------------->
     public function index($page = 'home')
     {
+        // SI la page n'existe pas
         if ( ! file_exists(APPPATH.'views/accueil/'.$page.'.php'))
         {
             // Whoops, we don't have a page for that!
@@ -61,7 +62,7 @@ class Accueil extends CI_Controller {
 
             if ($this->form_validation->run() === FALSE) {
                 // fonction envoi mail
-                $this->ConfirmationMail->contactMail();
+                $this->confirmationmail->contactMail($_POST['name'], $_POST['text']);
             }
         }
 
@@ -70,6 +71,8 @@ class Accueil extends CI_Controller {
         $this->load->view('templates/footer', $data);
     }
 
+
+    // <-------------------- Page d'inscription -------------------->
     public function signUp($page = 'signUp')
     {
         $data = array();
@@ -87,7 +90,11 @@ class Accueil extends CI_Controller {
             array(
                 'field' => 'mail',
                 'label' => 'Email',
-                'rules' => 'required|valid_email'
+                'rules' => 'required|valid_email|is_unique[cvt_users.user_mail]',
+                'errors' => array (
+                    'is_unique' => 'Adresse %s déjà utilisé',
+
+                ),
             ),
             array(
                 'field' => 'password',

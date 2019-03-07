@@ -62,4 +62,5 @@ $route['profiler'] = "Profiler_controller";
 $route['profiler/disable'] = "Profiler_controller/disable";
 
 $route["api/v1/candidat"]["get"]           = "api/v1/candidat";
-$route["api/v1/candidat/(:num)"]["get"]    = "api/v1/candidat/view/$1";
+$route["api/v1/candidat/view/(:num)"]["get"]    = "api/v1/candidat/view/$1";
+$route["api/v1/candidat/skill/(:num)"]["get"]    = "api/v1/candidat/getSkills/$1";

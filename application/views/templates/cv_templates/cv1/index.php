@@ -182,7 +182,7 @@ var_dump($try);
 		
 		<section>
 			<div class="sectionTitle">
-				<h1>Experiences                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </h1>
+				<h1>Experiences Professionnelles                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </h1>
 			</div>
 			
 			<div class="sectionContent">
@@ -206,28 +206,74 @@ var_dump($try);
 			</div>
 			<div class="clear"></div>
 		</section>
-		
-		
-		<section>
-			<div class="sectionTitle">
-				<h1>Key Skills</h1>
-			</div>
-			
-			<div class="sectionContent">
-				<ul class="keySkills">
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-				</ul>
-			</div>
-			<div class="clear"></div>
-		</section>
-		
+
+
+        <section>
+            <div class="sectionTitle">
+                <h1>Compétences</h1>
+            </div>
+
+            <div class="sectionContent">
+                <ul class="keySkills">
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                </ul>
+                <ul>
+
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </section>
+        <section>
+            <div class="sectionTitle">
+                <h1>Langages</h1>
+            </div>
+
+            <div class="sectionContent">
+                <ul class="keySkills">
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                </ul>
+                <ul>
+
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </section>
+        <section>
+            <div class="sectionTitle">
+                <h1>Logiciels</h1>
+            </div>
+
+            <div class="sectionContent">
+                <ul class="keySkills">
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                    <li>A Key Skill</li>
+                </ul>
+                <ul>
+
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </section>
 		
 		<section>
 			<div class="sectionTitle">

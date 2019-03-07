@@ -10,7 +10,7 @@ class Accueil extends CI_Controller {
         $this->load->library('javascript');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-        $this->load->library('email');
+//        $this->load->library('email');
         $this->load->library('form_validation');
         $this->load->library('ConfirmationMail');
     }
@@ -62,7 +62,7 @@ class Accueil extends CI_Controller {
 
             if ($this->form_validation->run() === FALSE) {
                 // fonction envoi mail
-                $this->ConfirmationMail->contactMail();
+                $this->confirmationmail->contactMail($_POST['name'], $_POST['text']);
             }
         }
 

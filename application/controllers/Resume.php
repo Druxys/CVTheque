@@ -239,15 +239,13 @@ var_dump($_POST);
                 }
             }
 
-            if($this->Model_resume->replace1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser) === TRUE){
+            if($this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser) === TRUE){
 
                     // resume creation ok
                     $this->load->view('templates/header');
                     $this->load->view('accueil/succesResume', $data);
                     $this->load->view('templates/footer');
-                } else {
-                $this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser);
-            }
+                }
             // Envoie de mail pour confirmer
               $this->confirmationmail->confirmationCv();
         }

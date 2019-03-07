@@ -4,8 +4,9 @@
 
     <?php echo validation_errors();
     $try = $this->Model_resume->view($_SESSION['id']);
-     echo form_open(''); ?>
+     echo form_open('');
 
+    ?>
 
     <h1>Créer ou modifier mon CV</h1>
 

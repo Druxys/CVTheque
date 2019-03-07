@@ -231,9 +231,9 @@
 
                         '<div class="form-holder">' +
                             '<select name="dtype[]">' +
-                                '<option value="normal">Débutant</option>' +
-                                '<option value="add-on">Confirmé</option>' +
-                                '<option value="add-on">Expert</option>' +
+                                '<option value="0">Débutant</option>' +
+                                '<option value="1">Confirmé</option>' +
+                                '<option value="2">Expert</option>' +
                             '</select>' +
                         '</div>' +
                     '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputSkills('+num+')"/>' +
@@ -262,12 +262,12 @@
 
                         '<div class="form-holder">' +
                             '<select name="etype[]">' +
-                                '<option value="normal">A1</option>' +
-                                '<option value="add-on">A2</option>' +
-                                '<option value="add-on">B1</option>' +
-                                '<option value="add-on">B2</option>' +
-                                '<option value="add-on">C1</option>' +
-                                '<option value="add-on">C2</option>' +
+                                '<option value="0">A1</option>' +
+                                '<option value="1">A2</option>' +
+                                '<option value="2">B1</option>' +
+                                '<option value="3">B2</option>' +
+                                '<option value="4">C1</option>' +
+                                '<option value="5">C2</option>' +
                             '</select>' +
                         '</div>' +
                     '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputLanguages('+num+')"/>' +
@@ -291,14 +291,14 @@
 
                     '<div id="fErase'+num+'">' +
                         '<div class="form-holder" >' +
-                            '<input name="fname[]" type="text" placeholder="Logiciel"/>' +
+                            '<input name="ftitle[]" type="text" placeholder="Logiciel"/>' +
                         '</div>' +
 
                         '<div class="form-holder">' +
                             '<select name="ftype[]">' +
-                                '<option value="normal">Débutant</option>' +
-                                '<option value="add-on">Confirmé</option>' +
-                                '<option value="add-on">Expert</option>' +
+                                '<option value="2">Débutant</option>' +
+                                '<option value="1">Confirmé</option>' +
+                                '<option value="0">Expert</option>' +
                             '</select>' +
                         '</div>' +
                     '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputSoftwares('+num+')"/>' +

@@ -10,11 +10,13 @@ class Model_candidat extends CI_Model
 
     }
 
+//    Récupérer tous les candidats
     function get_all()
     {
         return $this->db->get($this->table);
     }
 
+//    Récupérer un candidat avec l'id de la BDD
     function get_one($id)
     {
         $this->db->select("*")

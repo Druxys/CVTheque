@@ -130,6 +130,7 @@ class Accueil extends CI_Controller {
             $email    = $this->input->post('mail');
             $password = $this->input->post('password');
 
+//          Insertion d'un user dans la BDD
             if ($this->Model_user->create_user($email, $password)) {
 
                 // user creation ok
@@ -156,10 +157,7 @@ class Accueil extends CI_Controller {
             show_404();
         }
 
-
-
-
-
+//        Définition des règles pour le formulaire
         $config = array(
             array(
                 'field' => 'email',
@@ -192,20 +190,20 @@ class Accueil extends CI_Controller {
             $password = $this->input->post('password');
             $user = $this->Model_user->test_mail($mail);
 
-
+//           Véfirie si la saisie est corect dans la BDD
             if ($this->Model_user->userVerify($mail, $password)) {
 
-                // user login ok
-               // $id = $this->input->get('id', TRUE)
+                // création d'un tableau pour nourrir $_SESSION
                 $newdata = array(
                     'email'     => $mail,
                     'id' => $user[0]['idcvt_users'],
                     'logged_in' => TRUE
                 );
-
+                // Insertion du tableau
                 $this->session->set_userdata($newdata);
 
                 $this->load->view('templates/header', $data);
+                // Redirection de la page par un compteur
                 header( "refresh:3;url=accueil" );
                 $this->load->view('accueil/loginSuccess', $data);
                 $this->load->view('templates/footer', $data);
@@ -240,7 +238,7 @@ class Accueil extends CI_Controller {
        }
 
     }
-// <-------------------- Page de déconnexion -------------------->
+// <-------------------- Page mot de passe oublié -------------------->
     public function forgetPassword() {
         $data = array();
         $config = array(

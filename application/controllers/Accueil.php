@@ -21,7 +21,7 @@ class Accueil extends CI_Controller {
         // SI la page n'existe pas
         if ( ! file_exists(APPPATH.'views/accueil/'.$page.'.php'))
         {
-            // Whoops, we don't have a page for that!
+            // Erreur 404
             show_404();
         }
         $this->load->helper('url');
@@ -29,7 +29,7 @@ class Accueil extends CI_Controller {
 
 
         if (isset($_POST['submit'])) {
-
+//      Définition des règles pour le formulaire
             $rules = array(
                 array(
                     'field' => 'name',
@@ -57,15 +57,17 @@ class Accueil extends CI_Controller {
                     'rules' => 'trim|required'
                 ),
             );
-
+//            Attribution des règles au formulaire CONTACT
             $this->form_validation->set_rules($rules);
 
+            //Execution du formulaire
             if ($this->form_validation->run() === FALSE) {
                 // fonction envoi mail
                 $this->confirmationmail->contactMail($_POST['name'], $_POST['text']);
             }
         }
 
+//        Chargement de la page
         $this->load->view('templates/header', $data);
         $this->load->view('accueil/'.$page, $data);
         $this->load->view('templates/footer', $data);
@@ -75,17 +77,15 @@ class Accueil extends CI_Controller {
     // <-------------------- Page d'inscription -------------------->
     public function signUp($page = 'signUp')
     {
+        // SI la page n'existe pas
         $data = array();
         if ( ! file_exists(APPPATH.'views/accueil/'.$page.'.php'))
         {
-            // Whoops, we don't have a page for that!
+            // Erreur 404
             show_404();
         }
-//
-//        $this->load->helper(array('form', 'url'));
-//
-//        $this->load->library('form_validation');
 
+//      Définition des règles pour le formulaire
         $config = array(
             array(
                 'field' => 'mail',
@@ -112,10 +112,12 @@ class Accueil extends CI_Controller {
             )
         );
 
-
+//            Attribution des règles au formulaire CONTACT
         $this->form_validation->set_rules($config);
 
-
+        //Execution du formulaire
+//        SI il y a des erreur pendant la saisie du formulaire
+//        on revoit sur la page d'accueil fournissant les erreurs
         if ($this->form_validation->run() === FALSE)
         {
             $data['title'] = ucfirst($page); // Capitalize the first letter
@@ -145,7 +147,7 @@ class Accueil extends CI_Controller {
         }
 
     }
-
+// <-------------------- Page de connexion -------------------->
     public function signIn($page = 'signIn') {
         $data = array();
         if ( ! file_exists(APPPATH.'views/accueil/'.$page.'.php'))
@@ -220,7 +222,7 @@ class Accueil extends CI_Controller {
         }
 
     }
-
+// <-------------------- Page de déconnexion -------------------->
     public function signOut() {
 
         $data = array();
@@ -238,7 +240,7 @@ class Accueil extends CI_Controller {
        }
 
     }
-
+// <-------------------- Page de déconnexion -------------------->
     public function forgetPassword() {
         $data = array();
         $config = array(

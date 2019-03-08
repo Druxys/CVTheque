@@ -13,7 +13,7 @@
     </div>
 
 <script>
-    var timeleft = 3;
+    var timeleft = 2;
     var downloadTimer = setInterval(function(){
         document.getElementById("countdown").innerHTML = timeleft + " secondes restantes";
         timeleft -= 1;

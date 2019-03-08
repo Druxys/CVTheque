@@ -2,7 +2,7 @@
 
 <form id="regForm" method="post" >
 
-    <?php echo validation_errors();
+<!--    --><?php //echo validation_errors();
     $try = $this->Model_resume->view($_SESSION['id']);
 
     $certif = $this->Model_resume->getCertif($_SESSION['id']);
@@ -11,7 +11,6 @@
     $hobby = $this->Model_resume->getHobby($_SESSION['id']);
     $language = $this->Model_resume->getLanguage($_SESSION['id']);
 
-    var_dump($certif);
     echo form_open(''); ?>
 
     <h1>Créer ou modifier mon CV</h1>
@@ -74,8 +73,8 @@
 
     <div class="tab">
         <h3> Veuillez choisir un modèle de CV</h3>
-        <div class="preview"><input class="input-hidden" name="idtemplatecvuser" type="radio" id="model2" value="2" <?php if($try[0]['idtemplatecvuser'] === '2'){ echo 'checked';} ?> /><label for="model2"><img src="assets/img/cv2.png" alt="CV2"/></label></div>
-        <div class="preview"><input class="input-hidden" name="idtemplatecvuser" type="radio" id="model1" value="1" <?php if($try[0]['idtemplatecvuser'] === '1'){ echo 'checked';} ?> /><label for="model1"><img src="assets/img/cv1.png" alt="CV1"/></label></div>
+        <div class="preview"><input class="input-hidden" name="idtemplatecvuser" type="radio" id="model2" value="1" <?php if($try[0]['idtemplatecvuser'] === '1'){ echo 'checked';} ?> /><label for="model2"><img src="assets/img/cv2.png" alt="CV2"/></label></div>
+        <div class="preview"><input class="input-hidden" name="idtemplatecvuser" type="radio" id="model1" value="2" <?php if($try[0]['idtemplatecvuser'] === '2'){ echo 'checked';} ?> /><label for="model1"><img src="assets/img/cv1.png" alt="CV1"/></label></div>
     </div>
     <div class="clear"></div>
     <div class="customButton">
@@ -98,71 +97,71 @@
 </form>
     <div class="clear"></div>
 
-    <div class="list">
-        <?php
-        echo '<div class="boite">';
-
-        foreach($certif as $value){
-
-            echo '<div class="list-text">'.$value['certif_name'];
-            echo $value['certif_date'].'</div>';
-            if($value['certif_status'] == 1){
-                echo '<a href="deleteCertifStatus/'.$_SESSION['id'].'/">Supprimer</a>';
-            }else{
-                echo'<a href="addCertifStatus/'.$_SESSION['id'].'/">ajouter</a>';
-            }
-            echo '</br>';
-        }   echo '</div>';
-
-        echo '<div class="boite">';
-        foreach($exp as $value){
-            echo $value['exp_name'];
-            echo $value['exp_decription'];
-            echo $value['exp_date'];
-            if($value['exp_status'] == 1){
-                echo '<a href="deleteExpStatus/'.$_SESSION['id'].'/">Supprimer</a>';
-            }else{
-                echo'<a href="addExpStatus/'.$_SESSION['id'].'/">ajouter</a>';
-            }
-            echo '</br>';
-        }   echo '</div>';
-
-        echo '<div class="boite">';
-        foreach($software as $value){
-            echo $value['software_name'];
-            echo $value['software_level'];
-            if($value['software_status'] == 1){
-                echo '<a href="deletesoftwareStatus/'.$_SESSION['id'].'/">Supprimer</a>';
-            }else{
-                echo'<a href="addSoftwareStatus/'.$_SESSION['id'].'/">ajouter</a>';
-            }
-            echo '</br>';
-        }   echo '</div>';
-
-        echo '<div class="boite">';
-        foreach($hobby as $value){
-            echo $value['category_name'];
-            if($value['category_status'] == 1){
-                echo '<a href="deleteHobbyStatus/'.$_SESSION['id'].'/">Supprimer</a>';
-            }else{
-                echo'<a href="addHobbyStatus/'.$_SESSION['id'].'/">ajouter</a>';
-            }
-            echo '</br>';
-        }   echo '</div>';
-
-        echo '<div class="boite">';
-        foreach($language as $value){
-            echo $value['lang_name'];
-            echo $value['lang_level'];
-            if($value['lang_status'] == 1){
-                echo '<a href="deleteExpStatus/'.$_SESSION['id'].'/">Supprimer</a>';
-            }else{
-                echo'<a href="addExpStatus/'.$_SESSION['id'].'/">ajouter</a>';
-            }
-            echo '</br>';
-        }   echo '</div>';
-
-        ?>
-    </div>
+<!--    <div class="list">-->
+<!--        --><?php
+//        echo '<div class="boite">';
+//
+//        foreach($certif as $value){
+//
+//            echo '<div class="list-text">'.$value['certif_name'];
+//            echo $value['certif_date'].'</div>';
+//            if($value['certif_status'] == 1){
+//                echo '<a href="deleteCertifStatus/'.$_SESSION['id'].'/">Supprimer</a>';
+//            }else{
+//                echo'<a href="addCertifStatus/'.$_SESSION['id'].'/">ajouter</a>';
+//            }
+//            echo '</br>';
+//        }   echo '</div>';
+//
+//        echo '<div class="boite">';
+//        foreach($exp as $value){
+//            echo $value['exp_name'];
+//            echo $value['exp_decription'];
+//            echo $value['exp_date'];
+//            if($value['exp_status'] == 1){
+//                echo '<a href="deleteExpStatus/'.$_SESSION['id'].'/">Supprimer</a>';
+//            }else{
+//                echo'<a href="addExpStatus/'.$_SESSION['id'].'/">ajouter</a>';
+//            }
+//            echo '</br>';
+//        }   echo '</div>';
+//
+//        echo '<div class="boite">';
+//        foreach($software as $value){
+//            echo $value['software_name'];
+//            echo $value['software_level'];
+//            if($value['software_status'] == 1){
+//                echo '<a href="deletesoftwareStatus/'.$_SESSION['id'].'/">Supprimer</a>';
+//            }else{
+//                echo'<a href="addSoftwareStatus/'.$_SESSION['id'].'/">ajouter</a>';
+//            }
+//            echo '</br>';
+//        }   echo '</div>';
+//
+//        echo '<div class="boite">';
+//        foreach($hobby as $value){
+//            echo $value['category_name'];
+//            if($value['category_status'] == 1){
+//                echo '<a href="deleteHobbyStatus/'.$_SESSION['id'].'/">Supprimer</a>';
+//            }else{
+//                echo'<a href="addHobbyStatus/'.$_SESSION['id'].'/">ajouter</a>';
+//            }
+//            echo '</br>';
+//        }   echo '</div>';
+//
+//        echo '<div class="boite">';
+//        foreach($language as $value){
+//            echo $value['lang_name'];
+//            echo $value['lang_level'];
+//            if($value['lang_status'] == 1){
+//                echo '<a href="deleteExpStatus/'.$_SESSION['id'].'/">Supprimer</a>';
+//            }else{
+//                echo'<a href="addExpStatus/'.$_SESSION['id'].'/">ajouter</a>';
+//            }
+//            echo '</br>';
+//        }   echo '</div>';
+//
+//        ?>
+<!--    </div>-->
 </div>
 

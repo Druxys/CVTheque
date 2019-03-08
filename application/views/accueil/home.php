@@ -4,7 +4,7 @@
         <div class="shadow">                                                                   <!-- transition ombre -->
             <div class="cache" >
                 <p>Bienvenue sur le site de Michel Dupont Company !</p>
-                <p>Vous pouvez nous partagez votre CV avec ou sans moyen de connexion.</p>
+                <p>Vous pouvez nous partagez votre CV avec moyen de connexion.</p>
 <!--                <a href="#">AVEC CONNEXION</a>-->
 <!--                </br> </br>-->
 <!--                <a href="#">SANS CONNEXION</a>-->

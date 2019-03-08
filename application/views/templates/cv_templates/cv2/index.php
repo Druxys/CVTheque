@@ -126,9 +126,9 @@ $language = $this->Model_resume->getLanguage($_SESSION['id']);?>
         </dl>
         
         <div class="clear"></div>
-    
-    </div>
 
+        <a href="http://[::1]/CVTheque/accueil">Retour à l'accueil</a>
+    </div>
 </body>
 
 </html>

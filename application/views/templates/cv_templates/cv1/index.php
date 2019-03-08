@@ -297,9 +297,10 @@
             </div>
             <div class="clear"></div>
         </section>
-		
 
-		
+
+
+        <a href="http://[::1]/CVTheque/accueil">Retour à l'accueil</a>
 	</div>
 </div>
 </body>

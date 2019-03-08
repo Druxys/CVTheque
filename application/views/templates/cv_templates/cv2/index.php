@@ -28,29 +28,33 @@
 </head>
 
 <body>
+<?php $try = $this->Model_resume->view($_SESSION['id']);
+$certif = $this->Model_resume->getCertif($_SESSION['id']);
+$exp = $this->Model_resume->getExp($_SESSION['id']);
+$skill = $this->Model_resume->getSkills($_SESSION['id']);
+$software = $this->Model_resume->getSoftware($_SESSION['id']);
+$hobby = $this->Model_resume->getHobby($_SESSION['id']);
+$language = $this->Model_resume->getLanguage($_SESSION['id']);?>
 
     <div id="page-wrap">
-    
-        <img src="images/cthulu.png" alt="Photo of Cthulu" id="pic" />
+
 
             <div id="contact-info" class="vcard">
         
             <!-- Microformats! -->
         
-            <h1 class="fn">John Doe</h1>
+                <h1 class="fn"><?php echo $try[0]['firstName'];?> <?php echo $try[0]['lastName'];?></h1>
+                <h2 class="quickFade delayThree"><?php echo $try[0]['posteCible'];?></h2></h1>
         
             <p>
-                Cell: <span class="tel">555-666-7777</span><br />
-                Email: <a class="email" href="mailto:greatoldone@lovecraft.com">greatoldone@lovecraft.com</a>
+                Tel: <span class="tel"><?php echo $try[0]['tel'];?></span><br />
+                Email: <a class="email" href=""><?php echo $try[0]['mail'];?></a><br/>
+                Addresse : <?php echo $try[0]['addr'];?> - <?php echo $try[0]['postCode'];?> - <?php echo $try[0]['city'];?>
             </p>
         </div>
                 
         <div id="objective">
-            <p>
-                I am an outgoing and energetic (ask anybody) young professional, seeking a 
-                career that fits my professional skills, personality, and murderous tendencies. 
-                My squid-like head is a masterful problem solver and inspires fear in who gaze upon it. 
-                I can bring world domination to your organization. 
+            <p><?php echo $try[0]['description'];?>
             </p>
         </div>
         
@@ -59,54 +63,66 @@
         <dl>
             <dd class="clear"></dd>
             
-            <dt>Education</dt>
+            <dt>Expériences</dt>
             <dd>
-                <h2>Withering Madness University - Planet Vhoorl</h2>
-                <p><strong>Major:</strong> Public Relations<br />
-                   <strong>Minor:</strong> Scale Tending</p>
+            <?php
+            foreach($exp as $value){
+                echo    '<article>
+                                    <h2>'.$value['exp_name'].'<span>'.$value['exp_date'].'</span></h2>
+					                <span>'.$value['exp_decription'].'</span>
+				                </article>';
+            }
+            ?></dd>
+            <dd class="clear"></dd>
+            
+            <dt>Qualifications</dt>
+            <dd><?php foreach($certif as $value){
+                    echo    '<article>
+                                    <h2>'.$value['certif_name'].'<span>'.$value['certif_date'].'</span></h2>
+				                </article>';
+                }?>
             </dd>
             
             <dd class="clear"></dd>
             
-            <dt>Skills</dt>
+            <dt>Compétences</dt>
             <dd>
-                <h2>Office skills</h2>
-                <p>Office and records management, database administration, event organization, customer support, travel coordination</p>
-                
-                <h2>Computer skills</h2>
-                <p>Microsoft productivity software (Word, Excel, etc), Adobe Creative Suite, Windows</p>
+                <?php foreach($skill as $value){
+                    echo '<article>
+                            <h2>'.$value['skills_name'].'</h2>
+                            <p class="subDetails">'.$value['skills_level'].'</p>
+                        </article>';
+                } ?>
             </dd>
             
             <dd class="clear"></dd>
             
-            <dt>Experience</dt>
-            <dd>
-                <h2>Doomsday Cult <span>Leader/Overlord - Baton Rogue, LA - 1926-2010</span></h2>
-                <ul>
-                    <li>Inspired and won highest peasant death competition among servants</li>
-                    <li>Helped coordinate managers to grow cult following</li>
-                    <li>Provided untimely deaths to all who opposed</li>
-                </ul>
-                
-                <h2>The Watering Hole <span>Bartender/Server - Milwaukee, WI - 2009</span></h2>
-                <ul>
-                    <li>Worked on grass-roots promotional campaigns</li>
-                    <li>Reduced theft and property damage percentages</li>
-                    <li>Janitorial work, Laundry</li>
-                </ul> 
-            </dd>
+            <dt>Langages</dt>
+            <dd><?php foreach($language as $value){
+                    echo '<article>
+                            <h2>'.$value['lang_name'].'</h2>
+                            <p class="subDetails">'.$value['lang_level'].'</p>
+                          </article>';
+                }?></dd>
             
             <dd class="clear"></dd>
             
-            <dt>Hobbies</dt>
-            <dd>World Domination, Deep Sea Diving, Murder Most Foul</dd>
+            <dt>Logiciels</dt>
+            <dd><?php foreach($software as $value){
+                    echo '<article>
+                            <h2>'.$value['software_name'].'</h2>
+                            <p class="subDetails">'.$value['software_level'].'</p>
+                          </article>';
+                }?></dd>
             
             <dd class="clear"></dd>
-            
-            <dt>References</dt>
-            <dd>Available on request</dd>
-            
-            <dd class="clear"></dd>
+
+            <dt>Centres d'interêt</dt>
+            <dd>  <?php foreach($hobby as $value){
+                    echo '<article>
+                            <h2>'.$value['category_name'].'</h2>
+                          </article>';
+                }?></dd>
         </dl>
         
         <div class="clear"></div>

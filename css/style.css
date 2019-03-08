@@ -944,7 +944,7 @@ input:focus, textarea:focus {
 /***************************image input[type=radio] **********************************/
 
 .preview {
-    width: 25%;
+    width: 35%;
     float: left;
     margin-bottom: 100px;
 }
@@ -979,17 +979,52 @@ input:focus, textarea:focus {
 /* Stuff after this is only to make things more pretty */
 .preview input[type=radio] + label>img {
     border: 1px dashed #51a5de;
-    width: 218px;
-    height: 325px;
+    width: 300px;
+    height: 400px;
     transition: 500ms all;
+    margin-left: 50%;
+
 }
 
+/*************************<div class="list=></div>***********************************/
+
+.list {
+    background-color: #eeeeee;
+    width: 200px;
+    height: 690px;
+    margin-left: 150px;
+    margin-top: 150px;
+    -webkit-border-radius: 7px;
+    text-align: center;
+}
+
+.list a {
+    text-decoration: none;
+    font-size: 1.2em ;
+}
+
+.list a:hover {
+    color: red;
+}
+.list-text {
+    font-size: 1.2em;
+    /*margin-top: 50px;*/
+    color: crimson;
+}
+
+.boite {
+    padding-top: 10px;
+}
+
+@media only screen and (max-width: 580px) {
+    .list{
+        margin-left: 50px;
+        margin-top: 850px;
+        height: 400px;
+    }
+}
 /*************************<div class="clear=></div>***********************************/
 .clear:before, .clear:after {content:'';display:table;}
 .clear:after{clear:both}
 .clear{*zoom:1;}
 
-
-input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}

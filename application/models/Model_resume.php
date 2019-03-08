@@ -31,7 +31,7 @@ class Model_resume extends CI_Model
         return $this->db->get();
     }
 
-    function insert1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel , $idtemplatecvuser)
+    function insert1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel , $idtemplatecvuser, $time)
     {
         $data = array(
             "resume_sexe" => $genre,
@@ -47,7 +47,9 @@ class Model_resume extends CI_Model
             "resume_mail" => $mail,
             "resume_tel" => $tel,
             "cvt_users_idcvt_users" => $id,
-            "idtemplatecvuser" => $idtemplatecvuser
+            "idtemplatecvuser" => $idtemplatecvuser,
+            "resume_created" => $time
+
 
         );
        // $findId = $this->Model_resume->get_id($id);
@@ -65,7 +67,7 @@ class Model_resume extends CI_Model
        // }
     }
 
-    function replace1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel , $idtemplatecvuser){
+    function replace1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel , $idtemplatecvuser, $time){
         $data = array(
             "cvt_users_idcvt_users" => $id,
             "resume_sexe" => $genre,
@@ -80,7 +82,9 @@ class Model_resume extends CI_Model
             "resume_city" => $city,
             "resume_mail" => $mail,
             "resume_tel" => $tel,
-            "idtemplatecvuser" => $idtemplatecvuser
+            "idtemplatecvuser" => $idtemplatecvuser,
+            "resume_modified" => $time
+
         );
         $this->db->set($data);
         $this->db->where('cvt_users_idcvt_users', $id);
@@ -183,7 +187,6 @@ class Model_resume extends CI_Model
 
               return $result;
 
-        } else {
         }
     }
 

@@ -96,19 +96,25 @@
     </div>
 
 </form>
-    <div></br></br></br></br></br></br></br></br></br></br></br></br></br>
+    <div class="clear"></div>
+
+    <div class="list">
         <?php
+        echo '<div class="boite">';
+
         foreach($certif as $value){
-            echo $value['certif_name'];
-            echo $value['certif_date'];
+
+            echo '<div class="list-text">'.$value['certif_name'];
+            echo $value['certif_date'].'</div>';
             if($value['certif_status'] == 1){
                 echo '<a href="deleteCertifStatus/'.$_SESSION['id'].'/">Supprimer</a>';
             }else{
                 echo'<a href="addCertifStatus/'.$_SESSION['id'].'/">ajouter</a>';
             }
             echo '</br>';
-        }
+        }   echo '</div>';
 
+        echo '<div class="boite">';
         foreach($exp as $value){
             echo $value['exp_name'];
             echo $value['exp_decription'];
@@ -119,8 +125,9 @@
                 echo'<a href="addExpStatus/'.$_SESSION['id'].'/">ajouter</a>';
             }
             echo '</br>';
-        }
+        }   echo '</div>';
 
+        echo '<div class="boite">';
         foreach($software as $value){
             echo $value['software_name'];
             echo $value['software_level'];
@@ -130,8 +137,9 @@
                 echo'<a href="addSoftwareStatus/'.$_SESSION['id'].'/">ajouter</a>';
             }
             echo '</br>';
-        }
+        }   echo '</div>';
 
+        echo '<div class="boite">';
         foreach($hobby as $value){
             echo $value['category_name'];
             if($value['category_status'] == 1){
@@ -140,8 +148,9 @@
                 echo'<a href="addHobbyStatus/'.$_SESSION['id'].'/">ajouter</a>';
             }
             echo '</br>';
-        }
+        }   echo '</div>';
 
+        echo '<div class="boite">';
         foreach($language as $value){
             echo $value['lang_name'];
             echo $value['lang_level'];
@@ -151,7 +160,7 @@
                 echo'<a href="addExpStatus/'.$_SESSION['id'].'/">ajouter</a>';
             }
             echo '</br>';
-        }
+        }   echo '</div>';
 
         ?>
     </div>

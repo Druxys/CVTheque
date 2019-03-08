@@ -169,7 +169,7 @@ class Accueil extends CI_Controller {
                 'label' => 'Password',
                 'rules' => 'required',
                 'errors' => array(
-                    'required' => 'You must provide a %s.',
+                    'required' => 'Vous devez fournir un %s.',
                 ),
             )
         );
@@ -266,7 +266,8 @@ class Accueil extends CI_Controller {
             if ($this->Model_user->getEmail($email) === TRUE) {
 
                 // email ok
-
+                $this->Model_user->getTokenByMail($_POST['mail']);
+                $this->confirmationmail->sendMailPassword($_POST['mail']);
                 $this->load->view('templates/header', $data);
                 $this->load->view('accueil/emailFound', $data);
                 $this->load->view('templates/footer', $data);
@@ -275,6 +276,61 @@ class Accueil extends CI_Controller {
                 $this->load->view('templates/header', $data);
                 $this->load->view('accueil/forgetPassword', $data);
                 $this->load->view('templates/footer', $data);
+
+            }
+        }
+    }
+
+    // <-------------------- Page mot de passe oublié -------------------->
+    public function changePassword() {
+        $data = array();
+        $config = array(
+            array(
+                'field' => 'password1',
+                'label' => 'Password',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'Vous devez fournir un %s.',
+                )
+            ),
+            array(
+                'field' => 'password2',
+                'label' => 'Password',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'Vous devez fournir un %s.',
+                ),
+            )
+
+        );
+
+
+        $this->form_validation->set_rules($config);
+
+
+        if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('accueil/changePassword', $data);
+            $this->load->view('templates/footer', $data);
+        }
+        else
+        {
+                $email    = $this->input->post('mail');
+
+                if ($this->Model_user->getEmail($email) === TRUE) {
+
+                    // email ok
+                    $token = $this->Model_user->getTokenByMail($_POST['mail']);
+                    $this->confirmationmail->sendMailPassword($_POST['mail'], $token);
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('accueil/emailFound', $data);
+                    $this->load->view('templates/footer', $data);
+
+                } else {
+                    $this->load->view('templates/header', $data);
+                    $this->load->view('accueil/forgetPassword', $data);
+                    $this->load->view('templates/footer', $data);
 
             }
         }

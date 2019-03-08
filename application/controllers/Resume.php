@@ -203,7 +203,7 @@ class Resume  extends CI_Controller
                 $btitle = $_POST["btitle"];
                 foreach ($btitle as $key => $value) {
                     $btitle = $_POST["btitle"][$key];
-                    $bdate = $_POST["adate"][$key];
+                    $bdate = $_POST["bdate"][$key];
                     $bdesc = $_POST["bdesc"][$key];
                     $bstatus = '1';
                     $this->Model_resume->insertExp($btitle, $bdate, $bdesc,$bstatus, $id);
@@ -247,14 +247,13 @@ class Resume  extends CI_Controller
                 }
             }
 
-            if($this->Model_resume->get_id($id) != false )
+            if($this->Model_resume->getI($id) != NULL)
             {
                 if($this->Model_resume->replace1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel , $idtemplatecvuser, $time) === TRUE) {
                     $this->load->view('templates/header');
                     $this->load->view('accueil/succesResume', $data);
-                    $this->load->view('templates/footer');
+                    $this->load->view('templates/footer');  }
             }else {
-
                 if ($this->Model_resume->insert1($id, $genre, $firstName, $lastName, $nationality, $birthDate, $application, $description, $address, $postCode, $city, $mail, $tel, $idtemplatecvuser, $time) === TRUE) {
                     // resume creation ok
                     $this->load->view('templates/header');
@@ -264,7 +263,7 @@ class Resume  extends CI_Controller
             }
 
 
-            }
+
             // Envoie de mail pour confirmer
             $this->confirmationmail->confirmationCv();
         }

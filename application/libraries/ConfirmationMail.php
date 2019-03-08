@@ -60,4 +60,31 @@ class ConfirmationMail
         $ci->email->send();
 
     }
+
+    public function sendMailPassword($mail)
+    {
+            //Configuration des paramètres pour la librairies email
+        $config = array(
+        'protocol' => 'smtp',
+        'smtp_host' => 'ssl://smtp.googlemail.com',
+        'smtp_port' => 465,
+        'smtp_user' => 'projet.nfactory@gmail.com',
+        'smtp_pass' => 'Azert123456&',
+        'mailtype' => 'html',
+        'charset' => 'utf-8'
+        );
+
+            //On défini une instance général de CodeIgniter car le this ne fonctionne pas
+        $ci = get_instance();
+            //On charge la librairie email avec les configs au dessus
+        $ci->load->library('email', $config);
+        $ci->email->set_newline("\r\n");
+
+            //On définit les destinataires et les émetteurs
+        $ci->email->from('projet.nfactory@gmail.com');
+        $ci->email->to($mail);
+        $ci->email->subject('Mot de passe oublié');
+        $ci->email->message(utf8_decode('oui'));
+        $ci->email->send();
+    }
 }

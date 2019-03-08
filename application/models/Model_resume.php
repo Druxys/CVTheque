@@ -296,4 +296,9 @@ class Model_resume extends CI_Model
         $this->db->update('cvt_languages', $data);
 
     }
+
+    function getI($id){
+        $this->db->from($this->table)
+            ->where("cvt_users_idcvt_users", $id);
+        return $this->db->get()->result_array();}
 }

@@ -65,6 +65,13 @@ class Model_user extends CI_Model
 
     }
 
+    public function getTokenbyMail($mail)
+    {
+        $this->db->select("user_token")
+            ->from($this->table)
+            ->where("user_mail", $mail);
+        return $this->db->get();
+    }
 
     public function test_mail($mail)
     {

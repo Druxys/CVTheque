@@ -30,10 +30,10 @@ class Model_skill extends CI_Model
 //                 ->where("cvt_resume_idcvt_resume", $id);
 //            return $this->db->get();
 
-        $this->db->select("cvt_languages.lang_level , cvt_languages.lang_name")
+        $this->db->select("cvt_skills.skills_name, cvt_skills.skills_level")
             ->from($this->table)
             ->where("cvt_resume_idcvt_resume", $id)
-            ->join($this->jointable, "cvt_skills = cvt_skills.idcvt_skills");
+            ->join($this->jointable, "idcvt_skills = cvt_skills.idcvt_skills");
 
         return $this->db->get();
 

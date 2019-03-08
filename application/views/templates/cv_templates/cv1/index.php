@@ -143,6 +143,10 @@
     @media print {
         #cv {
             width: 100%;}}
+    li{
+
+        list-style-type:none;
+    }
 
 </style>
 </head>
@@ -153,9 +157,8 @@
     $skill = $this->Model_resume->getSkills($_SESSION['id']);
     $software = $this->Model_resume->getSoftware($_SESSION['id']);
     $hobby = $this->Model_resume->getHobby($_SESSION['id']);
-    $language = $this->Model_resume->getLanguage($_SESSION['id']);
+    $language = $this->Model_resume->getLanguage($_SESSION['id']);?>
 
-    var_dump($exp);?>
 <div id="cv" class="">
 	<div class="mainDetails">
 
@@ -166,8 +169,11 @@
 
         <div id="contactDetails" class="quickFade delayFour">
 			<ul>
+                <li><?php echo $try[0]['addr'];?></li>
+                <li><?php echo $try[0]['postCode'];?> - <?php echo $try[0]['city'];?></li>
 				<li><?php echo $try[0]['mail'];?></li>
-				<li><?php echo $try[0]['tel'];?></li>
+                <li><?php echo $try[0]['tel'];?></li>
+                <li><?php echo $try[0]['birthDate'];?></li>
 			</ul>
 		</div>
 		<div class="clear"></div>
@@ -207,6 +213,23 @@
 			<div class="clear"></div>
 		</section>
 
+        <section>
+            <div class="sectionTitle">
+                <h1>Qualifications</h1>
+            </div>
+
+            <div class="sectionContent">
+                <?php foreach($certif as $value){
+                    echo    '<article>
+                                    <h2>'.$value['certif_name'].'</h2>
+					                <p class="subDetails">'.$value['certif_date'].'</p>
+				                </article>';
+                }?>
+
+
+            </div>
+            <div class="clear"></div>
+        </section>
 
         <section>
             <div class="sectionTitle">
@@ -215,9 +238,10 @@
 
             <div class="sectionContent">
                 <?php foreach($skill as $value){
-                    echo '<ul class="keySkills">
-                            <li>'.$value['skills_name'].'</br><span>'.$value['skills_level'].'</span></li>
-                        </ul>';
+                    echo '<article>
+                            <h2>'.$value['skills_name'].'</h2>
+                            <p class="subDetails">'.$value['skills_level'].'</p>
+                        </article>';
                 } ?>
             </div>
             <div class="clear"></div>
@@ -230,13 +254,12 @@
             </div>
 
             <div class="sectionContent">
-                <ul class="keySkills">
                 <?php foreach($language as $value){
-                    echo '<ul>
-                            <li>'.$value['lang_name'].'</br><span>'.$value['lang_level'].'</li>
-                          </ul>';
+                    echo '<article>
+                            <h2>'.$value['lang_name'].'</h2>
+                            <p class="subDetails">'.$value['lang_level'].'</p>
+                          </article>';
                 }?>
-
             </div>
             <div class="clear"></div>
         </section>
@@ -250,43 +273,32 @@
             </div>
 
             <div class="sectionContent">
-                <ul class="keySkills">
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                    <li>A Key Skill</li>
-                </ul>
-                <ul>
+                <?php foreach($software as $value){
+                    echo '<article>
+                            <h2>'.$value['software_name'].'</h2>
+                            <p class="subDetails">'.$value['software_level'].'</p>
+                          </article>';
+                }?>
+            </div>
+            <div class="clear"></div>
+        </section>
 
-                </ul>
+        <section>
+            <div class="sectionTitle">
+                <h1>Centres d'Interêt</h1>
+            </div>
+
+            <div class="sectionContent">
+                <?php foreach($hobby as $value){
+                    echo '<article>
+                            <h2>'.$value['category_name'].'</h2>
+                          </article>';
+                }?>
             </div>
             <div class="clear"></div>
         </section>
 		
-		<section>
-			<div class="sectionTitle">
-				<h1>Education</h1>
-			</div>
-			
-			<div class="sectionContent">
-				<article>
-					<h2>College/University</h2>
-					<p class="subDetails">Qualification</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
-				</article>
-				
-				<article>
-					<h2>College/University</h2>
-					<p class="subDetails">Qualification</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
-				</article>
-			</div>
-			<div class="clear"></div>
-		</section>
+
 		
 	</div>
 </div>

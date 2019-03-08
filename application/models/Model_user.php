@@ -14,6 +14,7 @@ class Model_user extends CI_Model
         $this->table = "cvt_users";
     }
 
+    // Créer un user dans la BDD
     public function create_user($email, $password) {
 
         $hash = password_hash($password, PASSWORD_DEFAULT);
@@ -29,6 +30,7 @@ class Model_user extends CI_Model
 
     }
 
+//    Vérifier un user dans la BDD
     public function userVerify($mail, $password) {
 
         $this->db->select('user_pwd');
@@ -40,6 +42,7 @@ class Model_user extends CI_Model
 
     }
 
+//    Récupérer un user dans la BDD
     public function getUser($mail) {
 
         $this->db->from('cvt_users');
@@ -48,6 +51,7 @@ class Model_user extends CI_Model
 
     }
 
+    //    Vérififier un mail dans la BDD
     public function getEmail($mail) {
         $this->db->from('cvt_users');
         $this->db->where('user_mail', $mail);
@@ -61,6 +65,13 @@ class Model_user extends CI_Model
 
     }
 
+    public function getTokenbyMail($mail)
+    {
+        $this->db->select("user_token")
+            ->from($this->table)
+            ->where("user_mail", $mail);
+        return $this->db->get();
+    }
 
     public function test_mail($mail)
     {

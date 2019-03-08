@@ -22,7 +22,16 @@ class Model_resume extends CI_Model
         return $this->db->get();
     }
 
-    function insert1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel , $idtemplatecvuser)
+    function get_id($id)
+    {
+        $this->db->select("*")
+            ->from($this->table)
+            ->where("cvt_users_idcvt_users = $id")
+            ->limit(1);
+        return $this->db->get();
+    }
+
+    function insert1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel , $idtemplatecvuser, $time)
     {
         $data = array(
             "resume_sexe" => $genre,
@@ -38,27 +47,29 @@ class Model_resume extends CI_Model
             "resume_mail" => $mail,
             "resume_tel" => $tel,
             "cvt_users_idcvt_users" => $id,
-            "idtemplatecvuser" => $idtemplatecvuser
+            "idtemplatecvuser" => $idtemplatecvuser,
+            "resume_created" => $time
+
 
         );
-        return $this->db->insert($this->table, $data);
+       // $findId = $this->Model_resume->get_id($id);
+
+       // if (!empty($findId))
+       // {
+           // return $this->db->update($this->cvt_users_idcvt_users, $data);
+
+
+           // $this->db->set($infos)->where('id',$id_cand)->update('candidat');
+
+
+        //}else {
+            return $this->db->insert($this->table, $data);
+       // }
     }
 
-    function insert2($address, $postCode, $city, $mail, $tel)
-    {
+    function replace1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel , $idtemplatecvuser, $time){
         $data = array(
-            "resume_addr" => $address,
-            "resume_postCode" => $postCode,
-            "resume_city" => $city,
-            "resume_mail" => $mail,
-            "resume_tel" => $tel
-        );
-        return $this->db->insert($this->table, $data);
-    }
-
-    function update1($id ,$genre, $firstName, $lastName, $nationality, $birthDate, $application, $description ,$address, $postCode, $city, $mail, $tel)
-    {
-        $data = array(
+            "cvt_users_idcvt_users" => $id,
             "resume_sexe" => $genre,
             "resume_firstName" => $firstName,
             "resume_lastName" => $lastName,
@@ -66,29 +77,88 @@ class Model_resume extends CI_Model
             "resume_birthDate" => $birthDate,
             "resume_posteCible" => $application,
             "resume_describ" => $description,
-             "resume_addr" => $address,
-            "resume_postCode" => $postCode,
-            "resume_city" => $city,
-            "resume_mail" => $mail,
-            "resume_tel" => $tel,
-            "cvt_users_idcvt_users" => $id
-        );
-        return $this->db->where("cvt_users_idcvt_users", $id)
-            ->update($this->table, $data);
-    }
-
-    function update2($id, $address, $postCode, $city, $mail, $tel)
-    {
-        $data = array(
             "resume_addr" => $address,
             "resume_postCode" => $postCode,
             "resume_city" => $city,
             "resume_mail" => $mail,
             "resume_tel" => $tel,
+            "idtemplatecvuser" => $idtemplatecvuser,
+            "resume_modified" => $time
+
         );
-        return $this->db->where("id, $id")
-            ->update($this->table, $data);
+        $this->db->set($data);
+        $this->db->where('cvt_users_idcvt_users', $id);
+        return $this->db->update($this->table);
     }
+
+    function insertCertif($atitle,$adate,$astatus, $id)
+    {
+        $data = array(
+            "certif_name" => $atitle,
+            "certif_date" => $adate,
+            "certif_status" => $astatus,
+            "id_user" => $id
+        );
+        return $this->db->insert('cvt_certification', $data);
+    }
+
+
+    function insertExp($btitle,$bdate,$bdesc,$bstatus, $id)
+    {
+        $data = array(
+            "exp_name" => $btitle,
+            "exp_date" => $bdate,
+            "exp_decription" => $bdesc,
+            "exp_status" => $bstatus,
+            "id_user" => $id
+
+
+        );
+        return $this->db->insert('cvt_experiences', $data);
+    }
+
+    function insertHobby($ctitle,$cstatus, $id)
+    {
+        $data = array(
+            "category_name" => $ctitle,
+            "category_status" => $cstatus,
+            "id_user" => $id
+        );
+        return $this->db->insert('cvt_category', $data);
+    }
+    function insertSkill($dtitle, $dtype,$dstatus, $id)
+    {
+        $data = array(
+            "skills_name" => $dtitle,
+            "skills_level" => $dtype,
+            "skills_status" => $dstatus,
+            "id_user" => $id
+        );
+        return $this->db->insert('cvt_skills', $data);
+    }
+
+    function insertLang($etitle, $etype,$estatus, $id)
+    {
+        $data = array(
+            "lang_name" => $etitle,
+            "lang_level" => $etype,
+            "lang_status" => $estatus,
+            "id_user" => $id
+        );
+        return $this->db->insert('cvt_languages', $data);
+    }
+
+    function insertSoft($ftitle, $ftype,$fstatus, $id)
+    {
+        $data = array(
+            "software_name" => $ftitle,
+            "software_level" => $ftype,
+            "software_status" => $fstatus,
+            "id_user" => $id
+        );
+        return $this->db->insert('cvt_software', $data);
+    }
+
     public function view($id)
     {
         $data = $this->Model_resume->get_one($id);
@@ -117,9 +187,118 @@ class Model_resume extends CI_Model
 
               return $result;
 
-        } else {
-            header("HTTP/1.0 404 Not Found");
-            echo json_encode("404 : Product #$id not found");
         }
     }
+
+    function getCertif($id){
+        $this->db->from('cvt_certification')
+            ->where("id_user", $id);
+        return $this->db->get()->result_array();}
+
+    function getExp($id){
+        $this->db->from('cvt_experiences')
+            ->where("id_user", $id);
+        return $this->db->get()->result_array();}
+
+    function getSoftware($id){
+        $this->db->from('cvt_software')
+            ->where("id_user", $id);
+        return $this->db->get()->result_array();}
+
+    function getHobby($id){
+        $this->db->from('cvt_category')
+            ->where("id_user", $id);
+        return $this->db->get()->result_array();}
+
+    function getSkills($id){
+        $this->db->from('cvt_skills')
+            ->where("id_user", $id);
+        return $this->db->get()->result_array();}
+
+    function getLanguage($id){
+        $this->db->from('cvt_languages')
+            ->where("id_user", $id);
+        return $this->db->get()->result_array();}
+
+    function deleteCertifStatus($id){
+        $data = array(
+          'certif_status' => '0'
+        );
+        $this->db->where("idcvt_certification", $id);
+        $this->db->update('cvt_certification', $data);
+    }
+    function addCertifStatus($id){
+        $data = array(
+            'certif_status' => '1'
+        );
+        $this->db->where("idcvt_certification", $id);
+        $this->db->update('cvt_certification', $data);
+    }
+
+    function deleteExpStatus($id){
+        $data = array(
+            'exp_status' => '0'
+        );
+        $this->db->where("idcvt_experiences", $id);
+        $this->db->update('cvt_experiences', $data);
+    }
+    function addExpStatus($id){
+        $data = array(
+            'exp_status' => '1'
+        );
+        $this->db->where("idcvt_experiences", $id);
+        $this->db->update('cvt_experiences', $data);
+    }
+
+    function deleteSoftwareStatus($id){
+        $data = array(
+            'software_status' => '0'
+        );
+        $this->db->where("idcvt_software", $id);
+        $this->db->update('cvt_software', $data);
+    }
+    function addSoftwareStatus($id){
+        $data = array(
+            'software_status' => '0'
+        );
+        $this->db->where("idcvt_software", $id);
+        $this->db->update('cvt_software', $data);
+    }
+
+    function deleteHobbyStatus(){
+        $data = array(
+            'category_status' => '0'
+        );
+        $this->db->where("idcvt_category", $id);
+        $this->db->update('cvt_category', $data);
+    }
+    function addHobbyStatus(){
+        $data = array(
+            'category_status' => '1'
+        );
+        $this->db->where("idcvt_category", $id);
+        $this->db->update('cvt_category', $data);
+    }
+
+    function deleteLanguageStatus(){
+        $data = array(
+            'lang_status' => '0'
+        );
+        $this->db->where("idcvt_languages", $id);
+        $this->db->update('cvt_languages', $data);
+
+    }
+    function addLanguageStatus(){
+        $data = array(
+            'lang_status' => '1'
+        );
+        $this->db->where("idcvt_languages", $id);
+        $this->db->update('cvt_languages', $data);
+
+    }
+
+    function getI($id){
+        $this->db->from($this->table)
+            ->where("cvt_users_idcvt_users", $id);
+        return $this->db->get()->result_array();}
 }

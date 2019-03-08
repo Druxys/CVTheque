@@ -143,13 +143,14 @@
                 demo.insertAdjacentHTML('beforeend',
 
                     '<div id="aErase'+num+'">' +
-                    '<div class="form-holder" >' +
-                    '<input name="atitle'+num+'" type="text" placeholder="Diplômes Reçus"/>' +
+                    '<div class="form-cv" >' +
+                    '<input name="atitle[]" type="text" placeholder="Diplômes Reçus"/>' +
                     '</div>' +
 
-                    '<div class="form-holder">' +
-                    '<input name="adate'+num+'" type="date"/>' +
-                    '</div>' +
+                    '<div class="form-cv">' +
+                    '<input name="adate[]" type="date"/>' +
+                '</div>' +
+
                     '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputQualif('+num+')"/>'+
                     '</div>'
                 );
@@ -172,15 +173,15 @@
 
                     '<div id="bErase'+num+'">' +
                     '<div class="form-holder" >' +
-                    '<input name="btitle'+num+'" type="text" placeholder="Titre"/>' +
+                    '<input name="btitle[]" type="text" placeholder="Titre"/>' +
                     '</div>' +
 
                     '<div class="form-holder" >' +
-                    '<input name="bdesc'+num+'" type="text" placeholder="Description"/>' +
+                    '<input name="bdesc[]" type="text" placeholder="Description"/>' +
                     '</div>' +
 
                     '<div class="form-holder">' +
-                    '<input name="bdate'+num+'" type="date" />' +
+                    '<input name="bdate[]" type="date" />' +
                     '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputExp('+num+')"/>' +
                     '</div>'+
                     '</div>');
@@ -203,7 +204,7 @@
 
                     '<div id="cErase'+num+'">' +
                         '<div class="form-holder" >' +
-                            '<input name="cname'+num+'" type="text" placeholder="Centre d\'intérêt"/>' +
+                            '<input name="ctitle[]" type="text" placeholder="Centre d\'intérêt"/>' +
                         '</div>' +
                     '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputHobby('+num+')"/>' +
                     '</div>' );
@@ -226,14 +227,14 @@
 
                     '<div id="dErase'+num+'">' +
                         '<div class="form-holder" >' +
-                            '<input name="dname'+num+'" type="text" placeholder="Compétences" style="float:left;width: 50%;" />' +
+                            '<input name="dtitle[]" type="text" placeholder="Compétence"/>' +
                         '</div>' +
 
                         '<div class="form-holder">' +
-                            '<select name="dtype'+num+'">' +
-                                '<option value="normal">Débutant</option>' +
-                                '<option value="add-on">Confirmé</option>' +
-                                '<option value="add-on">Expert</option>' +
+                            '<select name="dtype[]">' +
+                                '<option value="1">Débutant</option>' +
+                                '<option value="2">Confirmé</option>' +
+                                '<option value="3">Expert</option>' +
                             '</select>' +
                         '</div>' +
                     '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputSkills('+num+')"/>' +
@@ -257,17 +258,17 @@
 
                     '<div id="eErase'+num+'">' +
                         '<div class="form-holder" >' +
-                            '<input name="ename'+num+'" type="text" placeholder="Langage"/>' +
+                            '<input name="etitle[]" type="text" placeholder="Langage"/>' +
                         '</div>' +
 
                         '<div class="form-holder">' +
-                            '<select name="etype'+num+'">' +
-                                '<option value="normal">A1</option>' +
-                                '<option value="add-on">A2</option>' +
-                                '<option value="add-on">B1</option>' +
-                                '<option value="add-on">B2</option>' +
-                                '<option value="add-on">C1</option>' +
-                                '<option value="add-on">C2</option>' +
+                            '<select name="etype[]">' +
+                                '<option value="1">A1</option>' +
+                                '<option value="2">A2</option>' +
+                                '<option value="3">B1</option>' +
+                                '<option value="4">B2</option>' +
+                                '<option value="5">C1</option>' +
+                                '<option value="6">C2</option>' +
                             '</select>' +
                         '</div>' +
                     '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputLanguages('+num+')"/>' +
@@ -291,18 +292,21 @@
 
                     '<div id="fErase'+num+'">' +
                         '<div class="form-holder" >' +
-                            '<input name="fname'+num+'" type="text" placeholder="Ex : informatique, communication" style="float:left;width: 50%;" />' +
+                            '<input name="ftitle[]" type="text" placeholder="Logiciel"/>' +
                         '</div>' +
 
-                        '<div class="form-holder" style="float: right; width: 40%;">' +
-                            '<select name="ftype'+num+'">' +
-                                '<option value="normal">Débutant</option>' +
-                                '<option value="add-on">Confirmé</option>' +
-                                '<option value="add-on">Expert</option>' +
+                        '<div class="form-holder">' +
+                            '<select name="ftype[]">' +
+                                '<option value="1">Débutant</option>' +
+                                '<option value="2">Confirmé</option>' +
+                                '<option value="3">Expert</option>' +
                             '</select>' +
                         '</div>' +
                     '<input class="button2" type="button" id="rmQualif" value="Supprimer" onclick="rmInputSoftwares('+num+')"/>' +
                     '</div>');
+
+
+
                 num++;
             }
 

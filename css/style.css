@@ -1,0 +1,1030 @@
+/*@import "reset.css";*/
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+    font-size: 10px;
+    scroll-behavior: smooth;
+    background-color: #202020;
+    line-height: 1.5;
+}
+
+/* --> https://codepen.io/abdosteif/pen/bRoyMb?editors=1100*/
+
+/* Navbar section */
+
+.nav {
+    width: 100%;
+    height: 65px;
+    position: fixed;
+    line-height: 65px;
+    text-align: center;
+    z-index: 10;
+}
+
+.logo {
+    background-image: url('../assets/img/logo.png');
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+
+.nav div.titre {
+    float: left;
+    width: auto;
+    height: auto;
+    padding-left: 1rem;
+}
+
+.nav div.titre a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+.nav div.titre a:hover {
+    color: #00E676;
+    transition: 1s;
+}
+
+.nav div.main_list {
+    height: 65px;
+    float: right;
+}
+
+.nav div.main_list ul {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav div.main_list ul li {
+    width: auto;
+    height: 65px;
+    padding: 0;
+    padding-right: 3rem;
+}
+
+.nav div.main_list ul li a {
+    text-decoration: none;
+    color: #fff;
+    line-height: 65px;
+    font-size: 2.4rem;
+}
+
+.nav div.main_list ul li a:hover {
+    color: #00E676;
+    transition: 1s;
+}
+
+
+/* Home section */
+
+.home {
+    width: 100%;
+    height: 800px;
+    background-image: url('../assets/img/img1.jpg');
+    background-position: center top;
+    background-size:cover;
+    background-repeat: no-repeat;
+    padding-top: 200px;
+}
+
+
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1000px;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.0) 0, #202020);
+    /*background: linear-gradient(to bottom, transparent, #111111);*/
+    z-index: 0;
+}
+
+.homebis {
+    width: 100%;
+    height: 100px;
+    background-color: #202020;
+    color: #FFF;
+    font-size: 3em;
+    padding-top: 20px;
+    padding-bottom: 60px;
+
+}
+
+.homebis p {
+    margin-top: -20px;
+    text-align: justify;
+}
+
+@media all and (max-width:700px){
+    .homebis p {
+        font-size: 0.6em;
+        color: #FFF;
+    }
+}
+
+.shadow2 {
+    width: 100%;
+    height: 1050px;
+    overflow: hidden;
+    background: linear-gradient(0deg, transparent 0, #202020);
+    z-index: 0;
+}
+
+.navTrigger {
+    display: none;
+}
+
+.nav {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+
+/* Media query section */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .navTrigger {
+        display: block;
+    }
+    .nav div.titre {
+        margin-left: 15px;
+    }
+    .nav div.main_list {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+    }
+    .nav div.show_list {
+        height: auto;
+        display: none;
+    }
+    .nav div.main_list ul {
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: #51a5de;
+        /*same background color of navbar*/
+        background-position: center top;
+    }
+    .nav div.main_list ul li {
+        width: 100%;
+        text-align: right;
+    }
+    .nav div.main_list ul li a {
+        text-align: center;
+        width: 100%;
+        font-size: 3rem;
+        padding: 20px;
+    }
+    .nav div.media_button {
+        display: block;
+    }
+}
+
+
+/* Animation */
+/* Inspiration taken from Dicson https://codemyui.com/simple-hamburger-menu-x-mark-animation/ */
+
+.navTrigger {
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    margin: auto;
+    position: absolute;
+    right: 30px;
+    top: 0;
+    bottom: 0;
+}
+
+.navTrigger i {
+    background-color: #fff;
+    border-radius: 2px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+}
+
+.navTrigger i:nth-child(1) {
+    -webkit-animation: outT 0.8s backwards;
+    animation: outT 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(2) {
+    margin: 5px 0;
+    -webkit-animation: outM 0.8s backwards;
+    animation: outM 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(3) {
+    -webkit-animation: outBtm 0.8s backwards;
+    animation: outBtm 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger.active i:nth-child(1) {
+    -webkit-animation: inT 0.8s forwards;
+    animation: inT 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(2) {
+    -webkit-animation: inM 0.8s forwards;
+    animation: inM 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(3) {
+    -webkit-animation: inBtm 0.8s forwards;
+    animation: inBtm 0.8s forwards;
+}
+
+@-webkit-keyframes inM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes inM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes outM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes outM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes inT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@keyframes inT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@keyframes outT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes inBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@keyframes inBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@keyframes outBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+.affix {
+    padding: 0;
+    background-color: #51a5de;
+}
+
+
+.myH2 {
+    text-align:center;
+    font-size: 4rem;
+}
+.myP {
+    text-align: justify;
+    padding-left:15%;
+    padding-right:15%;
+    font-size: 20px;
+}
+@media all and (max-width:700px){
+    .myP {
+        padding:2%;
+    }
+}
+
+
+.myH2 {
+    text-align:center;
+    font-size: 4rem;
+}
+.myP {
+    text-align: justify;
+    padding-left:15%;
+    padding-right:15%;
+    font-size: 20px;
+}
+@media all and (max-width:700px){
+    .myP {
+        padding:2%;
+    }
+}
+/************************************************************************/
+.cache {
+    opacity:0;
+    -moz-animation: anim 1s linear forwards 0.5s;
+    -webkit-animation: anim 1s linear forwards 0.5s;
+    -o-animation: anim 1s linear forwards 0.5s;
+    -ms-animation: anim 1s linear forwards 0.5s;
+    animation: anim 1s linear forwards 0.5s;
+}
+@-moz-keyframes anim {
+    0%  {opacity:0;}
+    100% {opacity:1;}
+}
+@-webkit-keyframes anim {
+    0%  {opacity:0;}
+    100% {opacity:1;}
+}
+@-o-keyframes anim {
+    0%  {opacity:0;}
+    100% {opacity:1;}
+}
+@-ms-keyframes anim {
+    0%  {opacity:0;}
+    100% {opacity:1;}
+}
+@keyframes anim {
+    0%  {opacity:0;}
+    100% {opacity:1;}
+}
+
+.cache {
+    width:60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    text-align: center;
+    padding: 5%;
+    z-index: -1;
+}
+
+.cache p {
+    font-size: 4em;
+    color: #FFF;
+}
+@media all and (max-width:700px){
+    .cache p {
+        font-size: 2.5em;
+        color: #FFF;
+    }
+}
+
+.home2 {
+    background-image: url('../assets/img/img2.jpg');
+    width: 100%;
+    height: 100%;
+    background-position: center top;
+    background-size: cover;
+
+}
+
+.txt2 {
+    background-image: url('../assets/img/img5.jpg');
+    width: 100%;
+    height: 100vh;
+    background-position: center top;
+    background-size:cover;
+}
+
+.txt4 {
+    background-image: url('../assets/img/img3.jpeg');
+    width: 100%;
+    height: 100vh;
+    background-position: center top;
+    background-size:cover;
+}
+
+.txt6 {
+    background-image: url('../assets/img/img6.jpg');
+    width: 100%;
+    height: 1262px;
+    background-position: center top;
+    background-size:auto;
+    background-repeat: repeat;
+}
+/*Formulaire de contact*/
+
+#feedback-page{
+    text-align:center;
+}
+
+#form-main{
+    width:100%;
+    float:left;
+    padding-top:0px;
+}
+
+#form-div {
+    background-color:#eeeeee;
+    padding-left:35px;
+    padding-right:35px;
+    padding-top:35px;
+    padding-bottom:50px;
+    width: 450px;
+    float: left;
+    left: 50%;
+    position: absolute;
+    margin-left: -260px;
+    margin-top: 200px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+}
+
+
+.form-contact {
+    margin-top: -400px;
+}
+
+.form-home2 {
+    margin-top: 400px;
+}
+
+#form-div .contacter {
+    text-align: center;
+    font-size: 35px;
+}
+
+.feedback-input {
+    color:#3c3c3c;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight:500;
+    font-size: 18px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fbfbfb;
+    padding: 13px 13px 13px 54px;
+    margin-bottom: 10px;
+    width:100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 3px solid rgba(0,0,0,0);
+}
+
+.feedback-input:focus{
+    background: #fff;
+    box-shadow: 0;
+    border: 3px solid #3498db;
+    color: #3498db;
+    outline: none;
+    padding: 13px 13px 13px 54px;
+}
+
+.focused{
+    color:#30aed6;
+    border:#30aed6 solid 3px;
+}
+
+/* Icons ---------------------------------- */
+#name{
+    background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+#name:focus{
+    background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+    background-size: 30px 30px;
+    background-position: 8px 5px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+#email{
+    background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+#email:focus{
+    background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+#comment{
+    background-image: url(http://rexkirby.com/kirbyandson/images/comment.svg);
+    background-size: 30px 30px;
+    background-position: 11px 8px;
+    background-repeat: no-repeat;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    line-height: 150%;
+    resize:vertical;
+}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+    background-color:white;
+}
+
+#button-blue{
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    float:left;
+    width: 100%;
+    border: #fbfbfb solid 4px;
+    cursor:pointer;
+    background-color: #3498db;
+    color:white;
+    font-size:24px;
+    padding-top:22px;
+    padding-bottom:22px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    margin-top:-4px;
+    font-weight:700;
+}
+
+#button-blue:hover{
+    background-color: rgba(0,0,0,0);
+    color: #0493bd;
+}
+
+.submit:hover {
+    color: #3498db;
+}
+
+.ease {
+    width: 0px;
+    height: 74px;
+    background-color: #fbfbfb;
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    -o-transition: .3s ease;
+    -ms-transition: .3s ease;
+    transition: .3s ease;
+}
+
+.submit:hover .ease{
+    width:100%;
+    background-color:white;
+}
+
+@media only screen and (max-width: 580px) {
+    #form-div{
+        left: 3%;
+        margin-right: 3%;
+        width: 88%;
+        margin-left: 0;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+}
+
+/* Style the form */
+#regForm {
+    background-color: #eeeeee;
+    text-align: center;
+    padding: 1%;
+    position: absolute;
+    margin-top: 150px;
+    -webkit-border-radius: 7px;
+    width: 50%;
+    margin-left: 25%;
+    -moz-border-radius: 7px;
+}
+
+/* Style the input fields */
+#regForm input {
+    width: 100%;
+    color: #3c3c3c;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 0;
+    line-height: 22px;
+    background-color: #fbfbfb;
+    padding: 13px 13px 13px 54px;
+    margin-bottom: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 3px solid rgba(0,0,0,0);
+    margin-top: 10px;
+}
+
+#regForm .form-cv:focus {
+    background: #fff;
+    box-shadow: 0;
+    border: 3px solid #3498db;
+    color: #3498db;
+    outline: none;
+    padding: 13px 13px 13px 54px;
+}
+
+#regForm .button:focus {
+    background: #fff;
+    box-shadow: 0;
+    border: 3px solid #3498db;
+    color: #3498db;
+    outline: none;
+    padding: 13px 13px 13px 54px;
+}
+
+/* Mark input boxes that gets an error on validation: */
+#regForm input.invalid {
+    background-color: #ff6e6e;
+}
+
+#regForm .button2 {
+    color: red;
+}
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+    background-color: #4CAF50;
+}
+@media only screen and (max-width: 580px) {
+    #regForm{
+        left: 3%;
+        margin-right: 3%;
+        width: 88%;
+        margin-left: 0;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+}
+
+/*************************LoginSuccess************************************/
+
+.success{
+    text-align: center;
+}
+
+/*************************Custom Select [Homme / Femme]************************************/
+.customSelect {
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa url("../assets/img/icon-select.png") no-repeat 90% 50%;
+}
+
+.customSelect select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.customSelect select:focus {
+    outline: none;
+}
+
+/*************************Custom Button formulaire [Next / Précédent]************************************/
+.customButton button {
+    background-color: #ffffff; /* Green */
+    border: 1px solid #ccc;
+    padding: 5px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 3px;
+}
+/*************************Footer************************************/
+#footer {
+    background-color: #202020;
+    color: #FFF;
+    vertical-align: baseline;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    border-top: 2px solid #51a5de;
+}
+
+.wrap {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*************************Footer Social Icons***********************************/
+
+.columns {
+    width: 33.3333%;
+    float: left;
+    font-size: 1.3em;
+}
+
+.column-info {
+   padding-top: 15px;
+    text-align: justify;
+    margin-left: 25px;
+}
+
+.social-icons li
+{
+    float: left;
+    margin-right: 5px;
+    list-style-type: none;
+}
+
+.social-icons
+{
+    margin: 5px;
+    margin-top: 50px;
+}
+
+.social-icons li a
+{
+    width: 46px;
+    height: 46px;
+    display:block;
+    background: url('../assets/img/social-icons.png');
+}
+
+.social-icons li a.facebook:hover
+{
+    background: url('../assets/img/social-icons.png') no-repeat 0 -47px;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.twitter
+{
+    background: url('../assets/img/social-icons.png') no-repeat -52px 0;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.twitter:hover
+{
+    background: url('../assets/img/social-icons.png') no-repeat -52px -47px;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.dribble
+{
+    background: url('../assets/img/social-icons.png') no-repeat -104px 0;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.dribble:hover
+{
+    background: url('../assets/img/social-icons.png') no-repeat -104px -47px;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.rss
+{
+    background: url('../assets/img/social-icons.png') no-repeat -156px 0;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.rss:hover
+{
+    background: url('../assets/img/social-icons.png') no-repeat -156px -47px;
+    width: 46px;
+    height: 46px;
+}
+
+.copyright{
+    color: #FFF;
+    background-color: #202020;
+    text-align: center;
+}
+
+/***************************image input[type=radio] **********************************/
+
+.preview {
+    width: 35%;
+    float: left;
+    margin-bottom: 100px;
+}
+
+.preview img:hover {
+    -webkit-transform:scale(1.25); /* Safari et Chrome */
+    -moz-transform:scale(1.25); /* Firefox */
+    -ms-transform:scale(1.25); /* Internet Explorer 9 */
+    -o-transform:scale(1.25); /* Opera */
+    transform:scale(1.25);
+}
+
+.preview img {
+    width: 95%;
+    -webkit-transition: all 1s ease; /* Safari et Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -ms-transition: all 1s ease; /* Internet Explorer 9 */
+    -o-transition: all 1s ease; /* Opera */
+    transition: all 1s ease;
+}
+/**************************choix input[type=radio]********************************************/
+.preview .input-hidden {
+    position: absolute;
+    left: -9999px;
+}
+
+.preview input[type=radio]:checked + label>img {
+    border: 1px solid #51a5de;
+    box-shadow: 0 0 3px 3px #51a5de;
+}
+
+/* Stuff after this is only to make things more pretty */
+.preview input[type=radio] + label>img {
+    border: 1px dashed #51a5de;
+    width: 300px;
+    height: 400px;
+    transition: 500ms all;
+    margin-left: 50%;
+
+}
+
+/*************************<div class="list=></div>***********************************/
+
+.list {
+    background-color: #eeeeee;
+    width: 200px;
+    height: 690px;
+    margin-left: 150px;
+    margin-top: 150px;
+    -webkit-border-radius: 7px;
+    text-align: center;
+}
+
+.list a {
+    text-decoration: none;
+    font-size: 1.2em ;
+}
+
+.list a:hover {
+    color: red;
+}
+.list-text {
+    font-size: 1.2em;
+    /*margin-top: 50px;*/
+    color: crimson;
+}
+
+.boite {
+    padding-top: 10px;
+}
+
+@media only screen and (max-width: 580px) {
+    .list{
+        margin-left: 50px;
+        margin-top: 850px;
+        height: 400px;
+    }
+}
+/*************************<div class="clear=></div>***********************************/
+.clear:before, .clear:after {content:'';display:table;}
+.clear:after{clear:both}
+.clear{*zoom:1;}
+
